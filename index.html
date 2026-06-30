@@ -1,0 +1,5217 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>薇诺娜 FSC 小红书内容增长汇报文档</title>
+  <style>
+    :root {
+      --brand-red: #c8102e;
+      --deep-red: #9d0b22;
+      --ink: #24262b;
+      --muted: #626873;
+      --line: #e4e7eb;
+      --soft: #f5f6f8;
+      --silver: #dfe3e8;
+      --white: #ffffff;
+      --green: #216e54;
+      --amber: #a96b00;
+      --shadow: 0 18px 50px rgba(36, 38, 43, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 88px;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 88% 6%, rgba(200, 16, 46, 0.07), transparent 23rem),
+        linear-gradient(180deg, #ffffff 0%, #f8f9fb 45%, #ffffff 100%);
+      line-height: 1.62;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 64px;
+      padding: 12px clamp(18px, 4vw, 52px);
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid rgba(228, 231, 235, 0.9);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .logo-text {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--brand-red);
+      line-height: 1;
+    }
+
+    .brand-sub {
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .nav {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      max-width: 58vw;
+      padding-bottom: 2px;
+    }
+
+    .nav a {
+      flex: 0 0 auto;
+      padding: 7px 10px;
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .nav a:hover {
+      color: var(--brand-red);
+      background: #fff1f3;
+    }
+
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .slide {
+      min-height: 760px;
+      scroll-margin-top: 84px;
+      padding: clamp(42px, 6vw, 78px) 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .slide-inner {
+      display: grid;
+      gap: 28px;
+    }
+
+    .slide-kicker {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      gap: 10px;
+      color: var(--brand-red);
+      font-size: 13px;
+      font-weight: 750;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .slide-kicker::before {
+      content: "";
+      width: 32px;
+      height: 2px;
+      background: var(--brand-red);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(46px, 7vw, 86px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      font-size: clamp(30px, 4.4vw, 56px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.25;
+    }
+
+    .lead {
+      max-width: 900px;
+      color: #3b3f46;
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.55;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .accent {
+      color: var(--brand-red);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.78fr);
+      align-items: stretch;
+      gap: 36px;
+      padding-top: 42px;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 28px;
+      min-width: 0;
+    }
+
+    .hero-panel {
+      position: relative;
+      overflow: hidden;
+      min-height: 570px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-badge {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(228, 231, 235, 0.9);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .deck-cover {
+      display: block;
+      min-height: auto;
+      padding: 42px 0 48px;
+    }
+
+    .cover-frame {
+      margin: 0;
+      overflow: hidden;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 8px;
+      background: #111;
+      box-shadow: var(--shadow);
+    }
+
+    .cover-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .meta-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .meta-item {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .meta-item strong {
+      display: block;
+      color: var(--brand-red);
+      font-size: 22px;
+      line-height: 1.1;
+    }
+
+    .meta-item span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .four-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      padding: 20px;
+      min-width: 0;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .stat {
+      display: grid;
+      gap: 8px;
+      padding: 18px;
+      border-radius: 8px;
+      border: 1px solid #f0c6ce;
+      background: #fff7f8;
+    }
+
+    .stat strong {
+      color: var(--brand-red);
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .path {
+      display: grid;
+      gap: 14px;
+    }
+
+    .path-row {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+    }
+
+    .path-label {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .path-nodes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .node {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+
+    .node.red {
+      border-color: #f0c6ce;
+      background: #fff2f4;
+      color: var(--brand-red);
+    }
+
+    .arrow {
+      color: #aeb4bd;
+      font-size: 13px;
+    }
+
+    .placeholder {
+      position: relative;
+      min-height: 230px;
+      overflow: hidden;
+      border: 1px dashed #b9c0c9;
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(200, 16, 46, 0.08), transparent 38%),
+        repeating-linear-gradient(45deg, #f6f7f9 0, #f6f7f9 12px, #eef1f4 12px, #eef1f4 24px);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .placeholder .filetag {
+      width: fit-content;
+      max-width: 100%;
+      padding: 7px 9px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      overflow-wrap: anywhere;
+    }
+
+    .placeholder strong {
+      font-size: 18px;
+      color: var(--ink);
+    }
+
+    .placeholder p {
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 420px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: #f2f3f5;
+      color: #444951;
+      font-size: 13px;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .red-cell {
+      color: var(--brand-red);
+      font-weight: 760;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #fff2f4;
+      color: var(--brand-red);
+      font-size: 12px;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .note {
+      border-left: 4px solid var(--brand-red);
+      padding: 16px 18px;
+      background: #fff8f9;
+      border-radius: 0 8px 8px 0;
+      color: #3d424a;
+    }
+
+    .talk-track {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+      padding: 16px 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .talk-track b {
+      color: var(--ink);
+    }
+
+    .bars {
+      display: grid;
+      gap: 14px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 88px 1fr 48px;
+      gap: 12px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .bar {
+      height: 10px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #eceff2;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      background: var(--brand-red);
+      border-radius: inherit;
+    }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .matrix div {
+      min-height: 92px;
+      padding: 13px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+    }
+
+    .matrix div:nth-child(5n) {
+      border-right: 0;
+    }
+
+    .matrix .head {
+      min-height: 48px;
+      background: #f2f3f5;
+      color: var(--ink);
+      font-weight: 760;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .phase {
+      position: relative;
+      min-height: 230px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .phase::before {
+      content: attr(data-week);
+      display: inline-flex;
+      padding: 5px 8px;
+      margin-bottom: 14px;
+      border-radius: 6px;
+      background: var(--brand-red);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 760;
+    }
+
+    .phase h3 {
+      margin-bottom: 10px;
+    }
+
+    .phase ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .section-list {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .section-list li {
+      margin: 8px 0;
+    }
+
+    .visual-advice {
+      display: grid;
+      gap: 12px;
+    }
+
+    .visual-advice .advice-title {
+      color: var(--brand-red);
+      font-weight: 780;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+    }
+
+    .chapter-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+      gap: clamp(28px, 5vw, 68px);
+      align-items: stretch;
+      min-height: 620px;
+      padding: clamp(28px, 4.8vw, 64px);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        linear-gradient(110deg, #fff7f8 0%, #ffffff 52%),
+        var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .chapter-index {
+      display: grid;
+      align-content: space-between;
+      gap: 28px;
+      min-width: 0;
+    }
+
+    .chapter-index strong {
+      color: var(--brand-red);
+      font-size: clamp(92px, 13vw, 172px);
+      font-weight: 860;
+      line-height: 0.85;
+      letter-spacing: 0;
+    }
+
+    .chapter-index span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .chapter-copy {
+      display: grid;
+      align-content: center;
+      gap: 22px;
+      min-width: 0;
+    }
+
+    .chapter-thesis {
+      max-width: 780px;
+      padding-left: 18px;
+      border-left: 4px solid var(--brand-red);
+      color: #30343b;
+      font-size: clamp(20px, 2.2vw, 30px);
+      font-weight: 780;
+      line-height: 1.42;
+    }
+
+    .fsc-wordmark {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .fsc-letter {
+      min-height: 180px;
+      padding: 18px;
+      border: 1px solid #f0c6ce;
+      border-radius: 8px;
+      background: #fff8f9;
+    }
+
+    .fsc-letter strong {
+      display: block;
+      color: var(--brand-red);
+      font-size: clamp(56px, 7vw, 88px);
+      line-height: 0.9;
+    }
+
+    .fsc-letter h3 {
+      margin-top: 14px;
+      font-size: 18px;
+    }
+
+    .fsc-letter p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .compare-table td:first-child,
+    .compare-table th:first-child {
+      width: 118px;
+    }
+
+    .factor-grid,
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .factor {
+      display: grid;
+      gap: 10px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .factor strong {
+      color: var(--brand-red);
+      font-size: 22px;
+      line-height: 1.1;
+    }
+
+    .factor span {
+      color: #3b3f46;
+      font-weight: 750;
+      line-height: 1.35;
+    }
+
+    .factor p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .step-card {
+      position: relative;
+      display: grid;
+      align-content: start;
+      gap: 10px;
+      min-height: 170px;
+      padding: 18px;
+      border: 1px solid #f0c6ce;
+      border-radius: 8px;
+      background: #fff8f9;
+    }
+
+    .step-card::before {
+      content: attr(data-step);
+      color: var(--brand-red);
+      font-size: 34px;
+      font-weight: 850;
+      line-height: 0.9;
+    }
+
+    .step-card h3 {
+      font-size: 18px;
+    }
+
+    .step-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .asset-flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+    }
+
+    .asset-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 8px 12px;
+      border: 1px solid #f0c6ce;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--brand-red);
+      font-size: 13px;
+      font-weight: 760;
+      white-space: nowrap;
+    }
+
+    .small-text {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .test-ribbon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      background: #15171b;
+      color: var(--white);
+      font-size: clamp(17px, 2vw, 24px);
+      font-weight: 820;
+      line-height: 1.35;
+      text-align: center;
+    }
+
+    .test-ribbon span {
+      color: #ff6f86;
+    }
+
+    .test-flow {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .test-step {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      min-height: 122px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .test-step strong {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #fff2f4;
+      color: var(--brand-red);
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .test-step h3 {
+      margin-bottom: 6px;
+      font-size: 18px;
+    }
+
+    .test-step p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .tag-lab-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.95fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .tag-panel {
+      display: grid;
+      gap: 14px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      min-width: 0;
+    }
+
+    .tag-panel h3 {
+      color: var(--brand-red);
+      font-size: 19px;
+    }
+
+    .combo-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .combo-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 96px 96px;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+      font-size: 13px;
+    }
+
+    .combo-row .combo-name {
+      color: #30343b;
+      font-weight: 760;
+      line-height: 1.4;
+    }
+
+    .combo-row .combo-metric {
+      color: var(--muted);
+      font-size: 12px;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .combo-row.is-winner {
+      border-color: #f0c6ce;
+      background: #fff7f8;
+    }
+
+    .scale-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .scale-card {
+      min-height: 132px;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+    }
+
+    .scale-card h4 {
+      margin: 0 0 8px;
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .scale-card ul {
+      margin: 0;
+      padding-left: 17px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    #s16 {
+      padding-top: 38px;
+      padding-bottom: 42px;
+    }
+
+    #s16 .slide-inner {
+      gap: 20px;
+    }
+
+    #s16 h2 {
+      font-size: clamp(30px, 3.7vw, 48px);
+    }
+
+    #s16 .lead {
+      max-width: 960px;
+      font-size: clamp(16px, 1.55vw, 20px);
+      line-height: 1.48;
+    }
+
+    #s16 th,
+    #s16 td {
+      padding: 10px 12px;
+      font-size: 13px;
+    }
+
+    #s17 {
+      padding-top: 38px;
+      padding-bottom: 42px;
+    }
+
+    #s17 .slide-inner {
+      gap: 18px;
+    }
+
+    #s17 h2 {
+      font-size: clamp(30px, 3.7vw, 48px);
+    }
+
+    #s17 .lead {
+      max-width: 1080px;
+      font-size: clamp(16px, 1.55vw, 20px);
+      line-height: 1.48;
+    }
+
+    #s17 .test-ribbon {
+      min-height: 42px;
+      font-size: clamp(16px, 1.65vw, 21px);
+    }
+
+    #s17 .test-step {
+      min-height: 104px;
+      padding: 13px;
+    }
+
+    #s17 .tag-panel {
+      gap: 12px;
+      padding: 14px;
+    }
+
+    #s17 .combo-row {
+      padding: 8px 10px;
+    }
+
+    #s17 .scale-card {
+      min-height: 116px;
+      padding: 11px;
+    }
+
+    #s17 th,
+    #s17 td {
+      padding: 10px 12px;
+      font-size: 13px;
+    }
+
+    .qw-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .qw-panel {
+      display: grid;
+      gap: 14px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      min-width: 0;
+    }
+
+    .qw-panel h3 {
+      color: var(--brand-red);
+      font-size: 21px;
+    }
+
+    .qw-panel ul {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding-left: 20px;
+      color: #3f444c;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .qw-quote {
+      display: grid;
+      align-content: center;
+      min-height: 92px;
+      padding: 16px 18px;
+      border-left: 4px solid var(--brand-red);
+      border-radius: 0 8px 8px 0;
+      background: #fff8f9;
+      color: #20242b;
+      font-size: 19px;
+      font-weight: 820;
+      line-height: 1.42;
+    }
+
+    .qw-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .qw-flow-step {
+      position: relative;
+      min-height: 132px;
+      padding: 18px 12px 13px;
+      border: 1px solid #f0c6ce;
+      border-radius: 8px;
+      background: #fff;
+      text-align: center;
+    }
+
+    .qw-flow-step::before {
+      content: attr(data-step);
+      position: absolute;
+      left: 50%;
+      top: -14px;
+      transform: translateX(-50%);
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--brand-red);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .qw-flow-step h3 {
+      margin-top: 6px;
+      color: #20242b;
+      font-size: 18px;
+    }
+
+    .qw-flow-step p {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .qw-tag-cloud,
+    .qw-proof-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .qw-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 6px 10px;
+      border: 1px solid #f0c6ce;
+      border-radius: 999px;
+      background: #fff2f4;
+      color: var(--brand-red);
+      font-size: 12px;
+      font-weight: 760;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+
+    .qw-tag.neutral {
+      border-color: var(--line);
+      background: #fbfcfd;
+      color: #3f444c;
+    }
+
+    .qw-case-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .qw-case-step {
+      position: relative;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      min-height: 230px;
+      padding: 18px 12px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      min-width: 0;
+    }
+
+    .qw-case-step::before {
+      content: attr(data-step);
+      position: absolute;
+      left: 12px;
+      top: -14px;
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--brand-red);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .qw-case-step h3 {
+      margin-left: 34px;
+      color: #20242b;
+      font-size: 19px;
+    }
+
+    .qw-case-step p,
+    .qw-case-step li {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .qw-case-step ul {
+      margin: 0;
+      padding-left: 16px;
+    }
+
+    .qw-proof {
+      display: grid;
+      grid-template-columns: 160px minmax(0, 1fr);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+    }
+
+    .qw-proof b {
+      display: grid;
+      place-items: center;
+      padding: 12px;
+      background: var(--brand-red);
+      color: #fff;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .qw-proof div {
+      padding: 14px 16px;
+    }
+
+    #s17a,
+    #s17b {
+      padding-top: 38px;
+      padding-bottom: 42px;
+    }
+
+    #s17a .slide-inner,
+    #s17b .slide-inner {
+      gap: 20px;
+    }
+
+    #s17a h2,
+    #s17b h2 {
+      font-size: clamp(30px, 3.7vw, 48px);
+    }
+
+    #s17a .lead,
+    #s17b .lead {
+      max-width: 1080px;
+      font-size: clamp(16px, 1.55vw, 20px);
+      line-height: 1.48;
+    }
+
+    .source-deck-slide {
+      padding-top: 38px;
+      padding-bottom: 42px;
+    }
+
+    .source-deck-slide .slide-inner {
+      gap: 16px;
+    }
+
+    .source-deck-frame {
+      margin: 0;
+      overflow: hidden;
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .source-deck-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    #toc {
+      overflow: hidden;
+      padding-top: clamp(58px, 7vw, 86px);
+      padding-bottom: clamp(58px, 7vw, 86px);
+      background:
+        linear-gradient(90deg, rgba(200, 16, 46, 0.05), transparent 34%),
+        linear-gradient(180deg, #ffffff 0%, #fafbfc 100%);
+    }
+
+    #toc .slide-inner {
+      gap: 0;
+      padding-inline: clamp(18px, 3.6vw, 54px);
+    }
+
+    .toc-layout {
+      display: grid;
+      grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.1fr);
+      gap: clamp(34px, 5vw, 70px);
+      align-items: start;
+    }
+
+    .toc-left {
+      position: sticky;
+      top: 92px;
+      display: grid;
+      gap: 22px;
+      min-width: 0;
+    }
+
+    .toc-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--brand-red);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .toc-eyebrow::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .toc-title {
+      color: #15171b;
+      font-size: clamp(58px, 6.6vw, 88px);
+      font-weight: 880;
+      line-height: 0.82;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .toc-core {
+      max-width: 500px;
+      color: #30343b;
+      font-size: clamp(18px, 1.7vw, 24px);
+      font-weight: 720;
+      line-height: 1.45;
+    }
+
+    .toc-collage {
+      position: relative;
+      min-height: 290px;
+      margin-top: 8px;
+    }
+
+    .toc-photo {
+      position: absolute;
+      overflow: hidden;
+      border: 8px solid var(--white);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 18px 42px rgba(36, 38, 43, 0.14);
+    }
+
+    .toc-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .toc-photo.one {
+      left: 0;
+      top: 12px;
+      width: 46%;
+      aspect-ratio: 3 / 4;
+      transform: rotate(-3deg);
+      z-index: 2;
+    }
+
+    .toc-photo.two {
+      left: 34%;
+      top: 0;
+      width: 38%;
+      aspect-ratio: 1 / 1.18;
+      transform: rotate(2.5deg);
+      z-index: 3;
+    }
+
+    .toc-photo.three {
+      right: 2%;
+      bottom: 2px;
+      width: 42%;
+      aspect-ratio: 4 / 3;
+      transform: rotate(-1.5deg);
+      z-index: 1;
+    }
+
+    .toc-star {
+      position: absolute;
+      right: 19%;
+      top: 47%;
+      z-index: 4;
+      color: var(--brand-red);
+      font-size: 52px;
+      line-height: 1;
+    }
+
+    .toc-chapters {
+      display: grid;
+      gap: 0;
+      padding-top: 8px;
+      border-top: 1px solid var(--ink);
+    }
+
+    .toc-chapter {
+      position: relative;
+      display: grid;
+      grid-template-columns: 104px minmax(0, 1fr);
+      gap: clamp(18px, 3vw, 34px);
+      padding: 28px 0 30px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .toc-number {
+      color: var(--brand-red);
+      font-size: clamp(50px, 6.5vw, 84px);
+      font-weight: 850;
+      line-height: 0.9;
+    }
+
+    .toc-copy {
+      min-width: 0;
+    }
+
+    .toc-part {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .toc-part::before {
+      content: "*";
+      color: var(--brand-red);
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .toc-chapter h3 {
+      max-width: 640px;
+      color: var(--ink);
+      font-size: clamp(22px, 2.2vw, 31px);
+      font-weight: 820;
+      line-height: 1.18;
+    }
+
+    .toc-sub {
+      display: grid;
+      gap: 6px;
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      color: #8a9099;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    #part01 {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(34px, 5vw, 56px) 0;
+      background: #ffffff;
+    }
+
+    #part01::before {
+      content: none;
+      position: absolute;
+      top: 0;
+      right: max(0px, calc((100vw - 1180px) / 2));
+      width: min(34vw, 410px);
+      height: 100%;
+      background: #d84d4f;
+      border-radius: 0 0 0 38px;
+      pointer-events: none;
+    }
+
+    .part-layout {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(360px, 0.72fr);
+      gap: clamp(22px, 4.6vw, 72px);
+      align-items: stretch;
+      min-height: 620px;
+      padding: clamp(30px, 4.8vw, 68px);
+      background:
+        radial-gradient(circle at 46% 54%, rgba(216, 77, 79, 0.18) 0 1px, transparent 1.7px),
+        linear-gradient(180deg, #ffffff 0%, #fffefe 100%);
+      background-size: 22px 22px, auto;
+      border: 1px solid #edf0f3;
+    }
+
+    .part-layout::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 36%;
+      z-index: 1;
+      background: #d84d4f;
+      border-radius: 0 0 0 38px;
+    }
+
+    .part-label {
+      position: absolute;
+      left: clamp(30px, 4.8vw, 68px);
+      bottom: clamp(30px, 4.8vw, 62px);
+      display: flex;
+      align-items: end;
+      gap: 8px;
+      z-index: 4;
+      color: #111319;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .part-label span:first-child {
+      order: 1;
+      font-size: clamp(28px, 3.2vw, 42px);
+      font-weight: 430;
+      line-height: 1;
+    }
+
+    .part-label span:last-child {
+      order: 2;
+      color: #111319;
+      font-size: clamp(82px, 8.5vw, 128px);
+      font-weight: 420;
+      line-height: 0.74;
+    }
+
+    .part-label::after {
+      content: "*";
+      order: 3;
+      align-self: flex-start;
+      margin-left: 4px;
+      color: #f26d2d;
+      font-size: clamp(36px, 4vw, 54px);
+      font-weight: 760;
+      line-height: 0.8;
+    }
+
+    .part-copy {
+      position: relative;
+      z-index: 3;
+      display: grid;
+      align-content: start;
+      gap: 18px;
+      min-width: 0;
+      max-width: 560px;
+      padding-top: 4px;
+    }
+
+    .part-copy h2 {
+      font-size: clamp(30px, 3.5vw, 46px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .part-core {
+      max-width: 560px;
+      color: #2f333a;
+      font-size: clamp(20px, 2vw, 28px);
+      font-weight: 760;
+      line-height: 1.44;
+    }
+
+    .part-thesis {
+      max-width: 430px;
+      margin-top: 8px;
+      padding-left: 16px;
+      border-left: 3px solid #d84d4f;
+      color: #383d45;
+      font-size: clamp(15px, 1.2vw, 18px);
+      line-height: 1.7;
+    }
+
+    .part-collage {
+      position: relative;
+      z-index: 3;
+      min-height: 520px;
+    }
+
+    .feed-fragment {
+      position: absolute;
+      overflow: hidden;
+      border: 7px solid #ffffff;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 22px 48px rgba(36, 38, 43, 0.16);
+    }
+
+    .feed-fragment img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .feed-fragment.feed {
+      right: 10%;
+      top: 18px;
+      width: 58%;
+      aspect-ratio: 3 / 4;
+      transform: rotate(0deg);
+      z-index: 2;
+    }
+
+    .feed-fragment.search {
+      left: 0;
+      top: 30px;
+      width: 46%;
+      padding: 12px;
+      transform: rotate(-2deg);
+      z-index: 3;
+    }
+
+    .feed-fragment.comment {
+      left: 4%;
+      bottom: 94px;
+      width: 54%;
+      padding: 12px;
+      transform: rotate(2deg);
+      z-index: 4;
+    }
+
+    .feed-fragment.ai {
+      right: 2%;
+      bottom: 24px;
+      width: 50%;
+      padding: 14px;
+      transform: rotate(-2deg);
+      z-index: 5;
+    }
+
+    .search-line,
+    .comment-line,
+    .ai-line {
+      display: block;
+      height: 10px;
+      border-radius: 999px;
+      background: #e8ecf0;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      margin-bottom: 12px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: #f5f6f8;
+      color: #6f7680;
+      font-size: 12px;
+      font-weight: 720;
+    }
+
+    .search-results,
+    .comment-stack,
+    .ai-stack {
+      display: grid;
+      gap: 9px;
+    }
+
+    .search-results .search-line:nth-child(1),
+    .comment-stack .comment-line:nth-child(2),
+    .ai-stack .ai-line:nth-child(1) {
+      width: 88%;
+    }
+
+    .search-results .search-line:nth-child(2),
+    .comment-stack .comment-line:nth-child(1),
+    .ai-stack .ai-line:nth-child(2) {
+      width: 70%;
+    }
+
+    .search-results .search-line:nth-child(3),
+    .comment-stack .comment-line:nth-child(3),
+    .ai-stack .ai-line:nth-child(3) {
+      width: 52%;
+    }
+
+    .fragment-label {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--brand-red);
+      font-size: 11px;
+      font-weight: 820;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .orange-star {
+      position: absolute;
+      left: 48%;
+      top: 48%;
+      z-index: 8;
+      color: #f26d2d;
+      font-size: 70px;
+      font-weight: 820;
+      line-height: 1;
+      text-shadow: 0 12px 24px rgba(242, 109, 45, 0.18);
+    }
+
+    .decision-layout {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.28fr) minmax(0, 1fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    #s2 .slide-inner {
+      gap: 22px;
+    }
+
+    #s2 h2 {
+      font-size: clamp(32px, 4vw, 50px);
+    }
+
+    #s2 .lead {
+      font-size: clamp(17px, 1.65vw, 22px);
+    }
+
+    .funnel-card,
+    .network-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .funnel-card {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+      padding: 22px;
+    }
+
+    .panel-label {
+      color: var(--brand-red);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .linear-funnel {
+      display: grid;
+      gap: 10px;
+    }
+
+    .funnel-step {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 780;
+      text-align: center;
+    }
+
+    .aips-letter {
+      color: #e85482;
+      font-size: 24px;
+      font-weight: 880;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .funnel-arrow {
+      color: #b3bac4;
+      font-size: 22px;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .network-card {
+      min-height: 460px;
+      padding: 20px;
+      background:
+        radial-gradient(ellipse at center, rgba(99, 102, 241, 0.1), transparent 62%),
+        linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+    }
+
+    .network-image {
+      margin: 12px 0 0;
+      overflow: hidden;
+      border: 1px solid rgba(228, 231, 235, 0.95);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 16px 34px rgba(36, 38, 43, 0.08);
+    }
+
+    .network-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .verify-board {
+      display: grid;
+      grid-template-columns: minmax(560px, 1fr) minmax(150px, 0.34fr);
+      gap: 18px;
+      margin-top: 12px;
+      padding: 16px;
+      border: 1px solid #f6ccd8;
+      border-radius: 8px;
+      background:
+        radial-gradient(ellipse at 52% 45%, rgba(255, 240, 245, 0.94) 0%, rgba(255, 247, 250, 0.58) 52%, transparent 72%),
+        linear-gradient(180deg, #fffefe 0%, #fff8fb 100%);
+    }
+
+    .verify-left {
+      display: grid;
+      align-content: start;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .verify-meta {
+      color: #e65f89;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .verify-left h3 {
+      margin: 0;
+      color: #1f2228;
+      font-size: clamp(24px, 2.25vw, 32px);
+      line-height: 1.15;
+    }
+
+    .verify-left p,
+    .verify-quote,
+    .side-copy p {
+      color: #5e6670;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .verify-quote {
+      margin-top: 10px;
+      padding: 14px 16px;
+      border-left: 3px solid #f2779b;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .verify-map {
+      position: relative;
+      min-height: 540px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.48);
+    }
+
+    .verify-map svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .verify-map path,
+    .verify-map line {
+      fill: none;
+      stroke: rgba(242, 112, 152, 0.76);
+      stroke-width: 1.8;
+      stroke-dasharray: 6 6;
+    }
+
+    .verify-user {
+      position: absolute;
+      left: 50%;
+      top: 46%;
+      width: 96px;
+      height: 96px;
+      overflow: hidden;
+      transform: translate(-50%, -50%);
+      border: 4px solid #fff;
+      border-radius: 999px;
+      box-shadow: 0 18px 38px rgba(36, 38, 43, 0.16);
+      z-index: 4;
+    }
+
+    .verify-user img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .verify-user::after {
+      content: "用户";
+      position: absolute;
+      inset: auto 0 0;
+      padding: 6px 0;
+      background: rgba(255, 255, 255, 0.88);
+      color: #262a31;
+      font-size: 14px;
+      font-weight: 850;
+      text-align: center;
+    }
+
+    .verify-node {
+      position: absolute;
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr) 38px;
+      gap: 8px;
+      align-items: center;
+      width: 210px;
+      min-height: 78px;
+      padding: 9px;
+      border: 1px solid rgba(242, 112, 152, 0.34);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 14px 34px rgba(36, 38, 43, 0.1);
+      z-index: 3;
+    }
+
+    .node-icon {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #f36f9b, #e85482);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .verify-node h4 {
+      margin: 0 0 3px;
+      color: #e85482;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .verify-node ul {
+      margin: 0;
+      padding-left: 13px;
+      color: #343942;
+      font-size: 9px;
+      line-height: 1.55;
+      white-space: nowrap;
+    }
+
+    .verify-node li {
+      white-space: nowrap;
+    }
+
+    .node-shot {
+      width: 38px;
+      height: 56px;
+      overflow: hidden;
+      border-radius: 6px;
+      background: #f4f6f8;
+    }
+
+    .node-shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .verify-node.search {
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+    }
+
+    .verify-node.koc {
+      left: 0;
+      top: 27%;
+    }
+
+    .verify-node.comment {
+      right: 0;
+      top: 27%;
+    }
+
+    .verify-node.compare {
+      left: 0;
+      bottom: 18%;
+    }
+
+    .verify-node.ai {
+      right: 0;
+      bottom: 18%;
+    }
+
+    .verify-node.brand {
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+    }
+
+    .verify-side {
+      display: grid;
+      align-content: start;
+      gap: 14px;
+      padding-left: 14px;
+      border-left: 1px solid #f5bfd0;
+    }
+
+    .side-stat {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .side-stat strong {
+      display: inline-block;
+      margin: 6px 0 2px;
+      color: #e85482;
+      font-size: clamp(34px, 4vw, 56px);
+      line-height: 1;
+    }
+
+    .side-stat p {
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .source-note {
+      margin-top: 4px;
+      color: #8a9099;
+      font-size: 10px;
+      line-height: 1.4;
+    }
+
+
+    .side-bars {
+      display: grid;
+      gap: 12px;
+    }
+
+    .side-bar {
+      display: grid;
+      grid-template-columns: 64px 1fr 30px;
+      gap: 7px;
+      align-items: center;
+      color: #4f5662;
+      font-size: 11px;
+    }
+
+    .side-bar span:nth-child(2) {
+      height: 9px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #f36f9b, #f08aac);
+    }
+
+    .insight-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .insight-list li {
+      padding-left: 14px;
+      border-left: 3px solid #f2779b;
+      color: #5e6670;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .insight-list b {
+      display: block;
+      color: #e85482;
+      font-size: 13px;
+    }
+
+    .verify-journey {
+      grid-column: 1 / -1;
+      padding: 14px;
+      border: 1px solid #f6ccd8;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .verify-journey h4 {
+      margin: 0 0 12px;
+      color: #e85482;
+      font-size: 14px;
+    }
+
+    .journey-note {
+      margin: -4px 0 12px;
+      color: #6a717c;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .journey-row {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .journey-step {
+      position: relative;
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr);
+      gap: 8px;
+      min-height: 108px;
+      padding: 8px;
+      border: 1px solid #f6ccd8;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .journey-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -13px;
+      top: 50%;
+      color: #f2779b;
+      font-weight: 850;
+      transform: translateY(-50%);
+    }
+
+    .journey-step img {
+      width: 48px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .journey-step strong {
+      display: block;
+      color: #e85482;
+      font-size: 12px;
+      line-height: 1.25;
+    }
+
+    .journey-step span {
+      display: block;
+      margin-top: 6px;
+      color: #343942;
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    #bridge-kfs-fsc {
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(200, 16, 46, 0.05), transparent 34%),
+        linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+    }
+
+    .bridge-layout {
+      display: grid;
+      gap: clamp(24px, 4vw, 42px);
+      min-height: 620px;
+      align-content: center;
+    }
+
+    .bridge-head {
+      display: grid;
+      gap: 14px;
+      max-width: 980px;
+    }
+
+    .bridge-head h2 {
+      font-size: clamp(42px, 5.3vw, 76px);
+      line-height: 1.05;
+    }
+
+    .bridge-compare {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(18px, 3vw, 30px);
+      align-items: stretch;
+    }
+
+    .bridge-panel {
+      position: relative;
+      overflow: hidden;
+      min-height: 360px;
+      padding: clamp(26px, 4vw, 44px);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 18px 46px rgba(36, 38, 43, 0.08);
+    }
+
+    .bridge-panel::before {
+      content: attr(data-label);
+      position: absolute;
+      right: 18px;
+      top: 12px;
+      color: rgba(36, 38, 43, 0.055);
+      font-size: clamp(92px, 13vw, 172px);
+      font-weight: 880;
+      line-height: 0.9;
+      letter-spacing: 0;
+      pointer-events: none;
+    }
+
+    .bridge-panel.fsc {
+      border-color: #f0c6ce;
+      background:
+        linear-gradient(135deg, #fff5f7 0%, #ffffff 62%),
+        var(--white);
+    }
+
+    .bridge-title {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 22px;
+      color: var(--brand-red);
+      font-size: clamp(72px, 9vw, 126px);
+      font-weight: 880;
+      line-height: 0.82;
+      letter-spacing: 0;
+    }
+
+    .bridge-rows {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .bridge-rows li {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+      min-height: 46px;
+      color: #30343b;
+      font-size: clamp(18px, 1.7vw, 24px);
+      font-weight: 760;
+    }
+
+    .bridge-rows li::before {
+      content: counter(row-num, decimal-leading-zero);
+      counter-increment: row-num;
+      color: #c5cbd3;
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+    }
+
+    .bridge-rows {
+      counter-reset: row-num;
+    }
+
+    .bridge-conclusion {
+      padding: 20px 24px;
+      border-left: 5px solid var(--brand-red);
+      border-radius: 0 8px 8px 0;
+      background: #fff7f8;
+      color: #202329;
+      font-size: clamp(22px, 2.4vw, 32px);
+      font-weight: 840;
+      line-height: 1.35;
+    }
+
+    .network-canvas {
+      position: relative;
+      min-height: 360px;
+      margin-top: 12px;
+      border-radius: 999px;
+      background: rgba(248, 250, 255, 0.78);
+    }
+
+    .network-lines {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .network-lines path,
+    .network-lines line {
+      fill: none;
+      stroke: rgba(116, 88, 230, 0.46);
+      stroke-width: 2;
+      stroke-dasharray: 8 8;
+    }
+
+    .network-center,
+    .network-node {
+      position: absolute;
+      border: 1px solid rgba(228, 231, 235, 0.92);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 16px 34px rgba(36, 38, 43, 0.1);
+    }
+
+    .network-center {
+      left: 50%;
+      top: 50%;
+      display: grid;
+      place-items: center;
+      width: 88px;
+      height: 88px;
+      transform: translate(-50%, -50%);
+      border-radius: 999px;
+      color: #6247d8;
+      font-size: 18px;
+      font-weight: 850;
+      z-index: 4;
+    }
+
+    .network-node {
+      display: grid;
+      gap: 6px;
+      width: 160px;
+      min-height: 76px;
+      padding: 12px 14px;
+      z-index: 3;
+    }
+
+    .network-node strong {
+      font-size: 17px;
+      line-height: 1.15;
+    }
+
+    .network-node span {
+      color: #606875;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .network-node.search {
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      color: #6a46d9;
+      border-color: rgba(106, 70, 217, 0.22);
+    }
+
+    .network-node.koc {
+      left: 2%;
+      top: 25%;
+      color: #4f8a3d;
+      border-color: rgba(79, 138, 61, 0.22);
+    }
+
+    .network-node.comment {
+      right: 2%;
+      top: 25%;
+      color: #336fe4;
+      border-color: rgba(51, 111, 228, 0.22);
+    }
+
+    .network-node.compare {
+      left: 8%;
+      bottom: 9%;
+      color: #c66a00;
+      border-color: rgba(198, 106, 0, 0.22);
+    }
+
+    .network-node.ai {
+      right: 8%;
+      bottom: 9%;
+      color: #1d9097;
+      border-color: rgba(29, 144, 151, 0.22);
+    }
+
+    .network-node.brand {
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      color: #d64c69;
+      border-color: rgba(214, 76, 105, 0.22);
+    }
+
+    .decision-flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-top: 6px;
+      padding: 12px;
+      border-radius: 8px;
+      background: #fbfcfd;
+      border: 1px solid var(--line);
+    }
+
+    .flow-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      color: #525a66;
+      font-size: 12px;
+      font-weight: 720;
+      white-space: nowrap;
+    }
+
+    .flow-chip.key {
+      border-color: #f0c6ce;
+      background: #fff2f4;
+      color: var(--brand-red);
+    }
+
+    .behavior-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.7fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .path-compare {
+      display: grid;
+      grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .path-card {
+      display: grid;
+      align-content: start;
+      gap: 18px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .path-card.current {
+      border-color: #f0c6ce;
+      background: #fff8f9;
+    }
+
+    .path-strip {
+      display: grid;
+      gap: 10px;
+    }
+
+    .path-step {
+      display: grid;
+      grid-template-columns: 54px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+      min-height: 58px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+    }
+
+    .path-card.current .path-step {
+      border-color: #f0c6ce;
+      background: #ffffff;
+    }
+
+    .path-step strong {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      background: #fff2f4;
+      color: var(--brand-red);
+      font-size: 13px;
+      font-weight: 850;
+      line-height: 1;
+    }
+
+    .path-step span {
+      color: #30343b;
+      font-size: 15px;
+      font-weight: 760;
+      line-height: 1.35;
+    }
+
+    .path-step em {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    .asset-shift-page {
+      display: grid;
+      gap: 22px;
+    }
+
+    .asset-shift-lead {
+      max-width: 1040px;
+      color: #30343b;
+      font-size: clamp(20px, 2vw, 27px);
+      font-weight: 780;
+      line-height: 1.45;
+    }
+
+    .asset-shift-sub {
+      max-width: 980px;
+      color: var(--muted);
+      font-size: clamp(15px, 1.4vw, 18px);
+      line-height: 1.75;
+    }
+
+    .asset-proof-figure {
+      overflow: hidden;
+      margin: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 18px 44px rgba(36, 38, 43, 0.08);
+    }
+
+    .asset-proof-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .model-compare {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(80px, 0.18fr) minmax(0, 1fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .model-card {
+      display: grid;
+      gap: 16px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .model-card.fsc-model {
+      border-color: #f0c6ce;
+      background: #fff8f9;
+    }
+
+    .model-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+    }
+
+    .model-head h3 {
+      font-size: clamp(20px, 2vw, 26px);
+    }
+
+    .model-head span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .budget-bars {
+      display: grid;
+      gap: 9px;
+    }
+
+    .budget-row {
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr) 44px;
+      gap: 10px;
+      align-items: center;
+      color: #3f444c;
+      font-size: 13px;
+    }
+
+    .bar-track {
+      height: 12px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #eceff2;
+    }
+
+    .bar-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: #8d949f;
+    }
+
+    .fsc-model .bar-fill {
+      background: var(--brand-red);
+    }
+
+    .output-chain {
+      display: grid;
+      gap: 9px;
+      margin-top: 2px;
+    }
+
+    .output-row {
+      display: grid;
+      grid-template-columns: 86px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+    }
+
+    .output-row strong {
+      color: var(--brand-red);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+    }
+
+    .output-row span {
+      color: #262a31;
+      font-size: 14px;
+      font-weight: 760;
+      line-height: 1.35;
+    }
+
+    .model-arrow {
+      display: grid;
+      place-items: center;
+      color: var(--brand-red);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 0.1em;
+      text-align: center;
+      writing-mode: vertical-rl;
+      text-transform: uppercase;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .hero-metric {
+      padding: 22px;
+      border: 1px solid #f0c6ce;
+      border-radius: 8px;
+      background: #fff8f9;
+    }
+
+    .hero-metric strong {
+      display: block;
+      color: var(--brand-red);
+      font-size: clamp(46px, 6vw, 82px);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .hero-metric span {
+      display: block;
+      margin-top: 8px;
+      color: #2d3138;
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .hero-metric em {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      font-style: normal;
+    }
+
+    .case-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.72fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .case-stats {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .case-stat {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .case-stat span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 760;
+    }
+
+    .case-stat strong {
+      display: block;
+      margin-top: 8px;
+      color: var(--brand-red);
+      font-size: clamp(20px, 2vw, 30px);
+      line-height: 1;
+    }
+
+    .dashboard-placeholder {
+      display: grid;
+      align-content: space-between;
+      gap: 16px;
+      min-height: 180px;
+      padding: 18px;
+      border: 1px dashed #f0a9b6;
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(200, 16, 46, 0.08), transparent 42%),
+        #fff8f9;
+    }
+
+    .dash-bars {
+      display: grid;
+      gap: 10px;
+    }
+
+    .dash-bars span {
+      display: block;
+      height: 10px;
+      border-radius: 999px;
+      background: #f0c6ce;
+    }
+
+    .dash-bars span:nth-child(1) {
+      width: 88%;
+    }
+
+    .dash-bars span:nth-child(2) {
+      width: 72%;
+    }
+
+    .dash-bars span:nth-child(3) {
+      width: 55%;
+    }
+
+    .entrance-slide {
+      gap: 20px;
+    }
+
+    .entrance-hero {
+      display: grid;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .entrance-copy {
+      display: grid;
+      align-content: start;
+      gap: 18px;
+      min-width: 0;
+    }
+
+    .entrance-copy h2 {
+      font-size: clamp(32px, 3.7vw, 52px);
+      white-space: nowrap;
+    }
+
+    .entrance-copy h2 .accent {
+      color: var(--brand-red);
+    }
+
+    .entrance-copy p {
+      color: #3b3f46;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .entrance-title-summary {
+      max-width: 980px;
+      padding: 13px 16px;
+      border-left: 4px solid var(--brand-red);
+      background: #fff2f4;
+      color: #2f343c;
+      font-size: clamp(16px, 1.6vw, 21px);
+      font-weight: 820;
+      line-height: 1.55;
+    }
+
+    .search-entry-frame {
+      display: grid;
+      gap: 16px;
+    }
+
+    .entry-channel-bars {
+      display: grid;
+      grid-template-columns: minmax(180px, 0.32fr) minmax(0, 1fr);
+      gap: 8px;
+    }
+
+    .entry-channel-bars span {
+      display: grid;
+      place-items: center;
+      min-height: 74px;
+      background: #000;
+      color: #fff;
+      font-size: clamp(22px, 2.8vw, 34px);
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .entry-collage {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.72fr) repeat(4, minmax(150px, 1fr));
+      gap: 16px;
+      align-items: end;
+      min-height: 500px;
+    }
+
+    .entry-card {
+      display: grid;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .entry-card-title {
+      display: grid;
+      place-items: center;
+      min-height: 54px;
+      padding: 8px 12px;
+      background: #000;
+      color: #fff;
+      font-size: clamp(18px, 1.8vw, 25px);
+      font-weight: 900;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .feed-entry-card {
+      align-self: end;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 14px 34px rgba(36, 38, 43, 0.08);
+    }
+
+    .feed-entry-card .feed-card-mini {
+      border-radius: 6px;
+    }
+
+    .entry-phone {
+      overflow: hidden;
+      border: 1px solid #e4e7eb;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 14px 34px rgba(36, 38, 43, 0.08);
+    }
+
+    .entry-phone img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .entry-phone.tall {
+      transform: translateY(-18px);
+    }
+
+    .mock-screen {
+      display: grid;
+      gap: 10px;
+      min-height: 304px;
+      padding: 14px;
+      background: #fff;
+    }
+
+    .mock-status {
+      display: flex;
+      justify-content: space-between;
+      color: #1f232a;
+      font-size: 11px;
+      font-weight: 850;
+    }
+
+    .mock-searchbar {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: #f3f4f6;
+      color: #4a505a;
+      font-size: 11px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .mock-tabs {
+      display: flex;
+      gap: 10px;
+      color: #8a9099;
+      font-size: 10px;
+      white-space: nowrap;
+    }
+
+    .mock-tabs span:first-child {
+      color: var(--brand-red);
+      font-weight: 900;
+      border-bottom: 2px solid var(--brand-red);
+    }
+
+    .mock-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .mock-note-card,
+    .mock-post,
+    .mock-comment,
+    .mock-ai-card {
+      border: 1px solid #eceff2;
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .mock-thumb {
+      min-height: 64px;
+      background:
+        linear-gradient(135deg, rgba(200, 16, 46, 0.18), rgba(255, 255, 255, 0) 52%),
+        linear-gradient(160deg, #f5d9de 0%, #f8f9fb 48%, #dce8f2 100%);
+    }
+
+    .mock-note-card p,
+    .mock-post p,
+    .mock-ai-card p {
+      margin: 0;
+      padding: 8px;
+      color: #2f343c;
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    .mock-post {
+      padding: 10px;
+    }
+
+    .mock-user {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #2b3038;
+      font-size: 11px;
+      font-weight: 850;
+    }
+
+    .mock-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: #ffe7eb;
+      color: var(--brand-red);
+      display: grid;
+      place-items: center;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .mock-question {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      background: #fff4f6;
+      color: #252932;
+      font-size: 12px;
+      line-height: 1.5;
+      font-weight: 760;
+    }
+
+    .mock-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      color: #8a9099;
+      font-size: 10px;
+    }
+
+    .mock-comment {
+      padding: 10px;
+    }
+
+    .mock-comment + .mock-comment {
+      margin-top: 8px;
+    }
+
+    .mock-comment strong {
+      display: block;
+      color: #252932;
+      font-size: 11px;
+      margin-bottom: 5px;
+    }
+
+    .mock-comment span {
+      color: #5f6670;
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    .mock-ai-card {
+      padding: 12px;
+      background: linear-gradient(180deg, #f7fbff 0%, #ffffff 100%);
+    }
+
+    .mock-ai-title {
+      color: #1f6b8d;
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .mock-ai-card ol {
+      margin: 0;
+      padding-left: 18px;
+      color: #2f343c;
+      font-size: 10px;
+      line-height: 1.65;
+    }
+
+    .entry-note {
+      padding: 12px;
+      color: #3b3f46;
+      font-size: 13px;
+      line-height: 1.5;
+      background: #fff;
+      border-top: 1px solid var(--line);
+    }
+
+    .entrance-panel {
+      display: grid;
+      gap: 14px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 16px 40px rgba(36, 38, 43, 0.07);
+    }
+
+    .entrance-panel h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--brand-red);
+      font-size: 22px;
+    }
+
+    .entry-badge {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: #fff2f4;
+      color: var(--brand-red);
+      font-size: 14px;
+      font-weight: 850;
+    }
+
+    .entrance-panel p {
+      color: #30343b;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .feed-preview {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+    }
+
+    .feed-card-mini {
+      overflow: hidden;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .feed-card-mini img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 3.7;
+      object-fit: cover;
+    }
+
+    .feed-card-mini strong {
+      display: block;
+      padding: 8px;
+      color: #22262d;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .phone-search {
+      overflow: hidden;
+      border: 10px solid #12151b;
+      border-radius: 34px;
+      background: #fff;
+      box-shadow: 0 22px 48px rgba(36, 38, 43, 0.18);
+    }
+
+    .phone-top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      color: #111319;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .search-ui {
+      display: grid;
+      gap: 12px;
+      padding: 14px;
+    }
+
+    .search-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 36px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #f4f5f7;
+      color: #30343b;
+      font-size: 13px;
+      font-weight: 760;
+    }
+
+    .search-tabs {
+      display: flex;
+      gap: 14px;
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .search-tabs span:first-child {
+      color: var(--brand-red);
+      font-weight: 850;
+      border-bottom: 2px solid var(--brand-red);
+    }
+
+    .result-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .result-item {
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .result-item img {
+      width: 58px;
+      height: 58px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .result-item strong {
+      display: block;
+      color: #22262d;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .result-item span {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .related-search {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .related-search span {
+      padding: 7px 8px;
+      border-radius: 8px;
+      background: #fff2f4;
+      color: #4b515c;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .decision-strip {
+      display: grid;
+      gap: 10px;
+      padding: 18px;
+      border: 1px solid #f0c6ce;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .decision-strip h3 {
+      color: var(--brand-red);
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .decision-steps {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .decision-step {
+      display: grid;
+      gap: 6px;
+      justify-items: center;
+      text-align: center;
+      color: #252932;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .decision-step strong {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid #f0c6ce;
+      border-radius: 999px;
+      color: var(--brand-red);
+      font-size: 13px;
+    }
+
+    .ai-answer-card {
+      border-color: #ead6f4;
+      background: linear-gradient(180deg, #fff 0%, #fbf6ff 100%);
+    }
+
+    .ai-answer {
+      display: grid;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid #ead6f4;
+    }
+
+    .ai-question {
+      justify-self: end;
+      max-width: 82%;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: #f2e8fb;
+      color: #4a2e68;
+      font-size: 12px;
+      font-weight: 760;
+    }
+
+    .ai-list {
+      margin: 0;
+      padding-left: 18px;
+      color: #30343b;
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    .entrance-nav {
+      display: grid;
+      grid-template-columns: 1.25fr repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      align-items: center;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .entrance-nav-copy {
+      color: #20242b;
+      font-size: 15px;
+      font-weight: 780;
+      line-height: 1.5;
+    }
+
+    .entrance-nav-item {
+      display: grid;
+      place-items: center;
+      gap: 5px;
+      min-height: 76px;
+      padding: 9px 6px;
+      border-radius: 8px;
+      background: #fff2f4;
+      color: var(--brand-red);
+      text-align: center;
+      font-size: 12px;
+      font-weight: 820;
+      line-height: 1.25;
+    }
+
+    .entrance-nav-item strong {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border: 1px solid #f0c6ce;
+      border-radius: 999px;
+      background: #fff;
+      font-size: 12px;
+    }
+
+    .entrance-summary {
+      padding: 18px 22px;
+      border-radius: 8px;
+      background: var(--brand-red);
+      color: #fff;
+      font-size: clamp(18px, 2vw, 26px);
+      font-weight: 850;
+      line-height: 1.45;
+      text-align: center;
+    }
+
+    .voc-page {
+      gap: 24px;
+    }
+
+    .voc-hero {
+      display: grid;
+      gap: 10px;
+      padding: 26px;
+      border: 1px solid #f0c6ce;
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(200, 16, 46, 0.06), transparent 46%),
+        #fff;
+      text-align: center;
+    }
+
+    .voc-hero .panel-label {
+      justify-self: center;
+    }
+
+    .voc-hero h2 {
+      font-size: clamp(34px, 4.6vw, 64px);
+    }
+
+    .voc-hero p {
+      max-width: 760px;
+      justify-self: center;
+      color: #30343b;
+      font-size: clamp(18px, 1.8vw, 26px);
+      font-weight: 760;
+      line-height: 1.5;
+    }
+
+    .trust-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(270px, 0.62fr) minmax(0, 0.85fr);
+      gap: 18px;
+      align-items: center;
+    }
+
+    .trust-card {
+      min-height: 420px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .trust-card.reject {
+      background: #fbfcfd;
+    }
+
+    .trust-card.believe {
+      border-color: #f0c6ce;
+      background: #fff8f9;
+    }
+
+    .trust-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      font-size: clamp(20px, 2vw, 28px);
+    }
+
+    .trust-card.reject h3 {
+      color: #59616d;
+    }
+
+    .trust-card.believe h3 {
+      color: var(--brand-red);
+    }
+
+    .trust-card ul {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding-left: 22px;
+      color: #3f444c;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .comment-phone {
+      overflow: hidden;
+      border: 8px solid #12151b;
+      border-radius: 32px;
+      background: #fff;
+      box-shadow: 0 24px 46px rgba(36, 38, 43, 0.18);
+    }
+
+    .comment-phone-head {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      border-bottom: 1px solid var(--line);
+      color: #111319;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .comment-thread {
+      display: grid;
+      gap: 12px;
+      padding: 16px;
+    }
+
+    .comment-question,
+    .comment-answer {
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .comment-question {
+      background: #fff2f4;
+      color: var(--brand-red);
+      font-weight: 820;
+    }
+
+    .comment-answer {
+      background: #f5f6f8;
+      color: #30343b;
+    }
+
+    .consumer-voices {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .consumer-voices h3 {
+      grid-column: 1 / -1;
+      color: var(--brand-red);
+      font-size: 22px;
+    }
+
+    .voice-quote {
+      padding: 14px 16px;
+      border-left: 3px solid var(--brand-red);
+      border-radius: 0 8px 8px 0;
+      background: #fff8f9;
+      color: #30343b;
+      font-size: 15px;
+      font-weight: 720;
+      line-height: 1.5;
+    }
+
+    .voc-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .voc-metric {
+      padding: 22px;
+      border: 1px solid #f0c6ce;
+      border-radius: 8px;
+      background: #fff8f9;
+      text-align: center;
+    }
+
+    .voc-metric strong {
+      display: block;
+      color: var(--brand-red);
+      font-size: clamp(42px, 5vw, 72px);
+      line-height: 0.95;
+    }
+
+    .voc-metric span {
+      display: block;
+      margin-top: 8px;
+      color: #30343b;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .voc-source {
+      margin-top: -8px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .bottom-insight {
+      padding: 24px;
+      border-radius: 8px;
+      background: #111319;
+      color: #fff;
+      font-size: clamp(24px, 3vw, 42px);
+      font-weight: 860;
+      line-height: 1.3;
+      text-align: center;
+    }
+
+    .bottom-insight span {
+      color: #ff6f86;
+    }
+
+    .footer {
+      padding: 34px 0 52px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav {
+        max-width: 100%;
+      }
+
+      .hero,
+      .content-grid,
+      .chapter-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-panel {
+        min-height: 520px;
+      }
+
+      .three-grid,
+      .four-grid,
+      .test-flow,
+      .tag-lab-grid,
+      .qw-grid,
+      .timeline,
+      .fsc-wordmark,
+      .factor-grid,
+      .step-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .qw-flow,
+      .qw-case-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .qw-proof {
+        grid-template-columns: 1fr;
+      }
+
+      .toc-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .toc-left {
+        position: static;
+      }
+
+      .toc-collage {
+        min-height: 260px;
+      }
+
+      .part-layout {
+        grid-template-columns: 1fr;
+        gap: 26px;
+        min-height: auto;
+        padding-bottom: 170px;
+      }
+
+      .part-label {
+        z-index: 6;
+      }
+
+      .part-collage {
+        min-height: 440px;
+      }
+
+      .decision-layout,
+      .behavior-grid,
+      .path-compare,
+      .case-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .model-compare {
+        grid-template-columns: 1fr;
+      }
+
+      .entrance-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .entrance-copy h2 {
+        font-size: clamp(28px, 4.2vw, 42px);
+      }
+
+      .entry-collage {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        min-height: auto;
+      }
+
+      .feed-entry-card {
+        grid-column: 1 / -1;
+      }
+
+      .entry-phone.tall {
+        transform: none;
+      }
+
+      .decision-steps {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .entrance-nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .entrance-nav-copy {
+        grid-column: 1 / -1;
+      }
+
+      .trust-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-card {
+        min-height: auto;
+      }
+
+      .consumer-voices,
+      .voc-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .model-arrow {
+        min-height: 42px;
+        writing-mode: horizontal-tb;
+      }
+
+      .case-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .network-card {
+        min-height: auto;
+      }
+
+      .network-canvas {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        min-height: 0;
+        border-radius: 8px;
+        background: transparent;
+      }
+
+      .network-lines {
+        display: none;
+      }
+
+      .network-center,
+      .network-node,
+      .network-node.search,
+      .network-node.koc,
+      .network-node.comment,
+      .network-node.compare,
+      .network-node.ai,
+      .network-node.brand {
+        position: static;
+        width: auto;
+        min-height: 86px;
+        transform: none;
+      }
+
+      .network-center {
+        grid-column: 1 / -1;
+        width: auto;
+        height: auto;
+        min-height: 68px;
+        border-radius: 8px;
+      }
+
+      .verify-board {
+        grid-template-columns: 1fr;
+      }
+
+      .verify-map {
+        min-height: 580px;
+      }
+
+      .verify-side {
+        padding-left: 0;
+        border-left: 0;
+        border-top: 1px solid #f5bfd0;
+        padding-top: 18px;
+      }
+
+      .journey-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .journey-step:not(:last-child)::after {
+        display: none;
+      }
+
+      .bridge-compare {
+        grid-template-columns: 1fr;
+      }
+
+      .bridge-panel {
+        min-height: 300px;
+      }
+
+      .matrix {
+        grid-template-columns: 1fr;
+      }
+
+      .matrix div,
+      .matrix div:nth-child(5n) {
+        border-right: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      html {
+        scroll-padding-top: 124px;
+      }
+
+      main {
+        width: min(100% - 22px, 1180px);
+      }
+
+      .slide {
+        min-height: auto;
+        scroll-margin-top: 118px;
+        padding: 40px 0;
+      }
+
+      .meta-row,
+      .three-grid,
+      .four-grid,
+      .test-flow,
+      .tag-lab-grid,
+      .scale-grid,
+      .qw-grid,
+      .qw-flow,
+      .qw-case-grid,
+      .timeline,
+      .fsc-wordmark,
+      .factor-grid,
+      .step-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .chapter-layout {
+        padding: 28px 24px;
+        min-height: auto;
+      }
+
+      .chapter-index {
+        gap: 16px;
+      }
+
+      .chapter-index strong {
+        font-size: 82px;
+      }
+
+      .fsc-letter {
+        min-height: 150px;
+      }
+
+      .hero-metrics,
+      .case-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .budget-row {
+        grid-template-columns: 92px minmax(0, 1fr) 36px;
+      }
+
+      .decision-steps,
+      .entrance-nav,
+      .related-search,
+      .entry-channel-bars,
+      .entry-collage {
+        grid-template-columns: 1fr;
+      }
+
+      .entrance-copy h2 {
+        font-size: 14px;
+        line-height: 1.25;
+        white-space: nowrap;
+      }
+
+      .entrance-title-summary {
+        padding: 11px 12px;
+        font-size: 14px;
+      }
+
+      .voc-hero {
+        padding: 22px 18px;
+      }
+
+      .path-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-panel {
+        min-height: 440px;
+      }
+
+      .toc-layout {
+        gap: 30px;
+      }
+
+      .toc-title {
+        font-size: clamp(42px, 13.2vw, 58px);
+      }
+
+      .toc-collage {
+        min-height: 230px;
+      }
+
+      .toc-photo {
+        border-width: 6px;
+      }
+
+      .toc-chapter {
+        grid-template-columns: 64px minmax(0, 1fr);
+        gap: 16px;
+        padding: 22px 0 24px;
+      }
+
+      .toc-number {
+        font-size: 46px;
+      }
+
+      #part01 {
+        padding-top: 28px;
+        padding-bottom: 38px;
+      }
+
+      #part01::before {
+        width: 36%;
+        border-radius: 0 0 0 24px;
+      }
+
+      .part-layout {
+        padding: 28px 24px 145px;
+      }
+
+      .part-layout::after {
+        top: 292px;
+        width: 42%;
+        border-radius: 24px 0 0 34px;
+      }
+
+      .part-label {
+        left: 24px;
+        bottom: 26px;
+      }
+
+      .part-label span:first-child {
+        font-size: 28px;
+      }
+
+      .part-label span:last-child {
+        font-size: 82px;
+      }
+
+      .part-copy h2 {
+        font-size: clamp(30px, 9.8vw, 42px);
+      }
+
+      .part-collage {
+        min-height: 330px;
+      }
+
+      .feed-fragment.feed {
+        right: 5%;
+        width: 54%;
+      }
+
+      .feed-fragment.search {
+        left: 0;
+        width: 50%;
+      }
+
+      .feed-fragment.comment {
+        width: 60%;
+        bottom: 64px;
+      }
+
+      .feed-fragment.ai {
+        width: 56%;
+      }
+
+      .orange-star {
+        left: 45%;
+        top: 48%;
+        font-size: 52px;
+      }
+
+      .network-canvas {
+        grid-template-columns: 1fr;
+      }
+
+      .decision-flow {
+        gap: 6px;
+      }
+
+      .verify-board {
+        padding: 14px;
+      }
+
+      .verify-left h3 {
+        font-size: 28px;
+      }
+
+      .verify-map {
+        min-height: auto;
+        display: grid;
+        gap: 12px;
+        border-radius: 8px;
+      }
+
+      .verify-map svg {
+        display: none;
+      }
+
+      .verify-user,
+      .verify-node,
+      .verify-node.search,
+      .verify-node.koc,
+      .verify-node.comment,
+      .verify-node.compare,
+      .verify-node.ai,
+      .verify-node.brand {
+        position: static;
+        width: auto;
+        min-height: 0;
+        transform: none;
+      }
+
+      .verify-user {
+        width: 120px;
+        height: 120px;
+        justify-self: center;
+      }
+
+      .verify-node {
+        grid-template-columns: 44px minmax(0, 1fr) 52px;
+      }
+
+      .journey-row {
+        grid-template-columns: 1fr;
+      }
+
+      .bridge-head h2 {
+        font-size: clamp(34px, 10vw, 46px);
+      }
+
+      .bridge-title {
+        font-size: 68px;
+      }
+
+      .bridge-rows li {
+        font-size: 18px;
+      }
+
+      table {
+        display: table;
+        overflow-x: visible;
+        white-space: normal;
+        font-size: 12px;
+      }
+
+      .combo-row {
+        grid-template-columns: 1fr;
+      }
+
+      .combo-row .combo-metric {
+        text-align: left;
+      }
+
+      th,
+      td {
+        padding: 10px 9px;
+        word-break: break-word;
+      }
+    }
+
+    @media print {
+      .topbar {
+        position: static;
+      }
+
+      .slide {
+        min-height: 0;
+        break-after: page;
+      }
+
+      body {
+        background: #fff;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark" aria-label="薇诺娜 FSC 汇报文档">
+      <div class="logo-text">WINONA</div>
+      <div class="brand-sub">薇诺娜 × FSC 内容增长汇报</div>
+    </div>
+    <nav class="nav" aria-label="章节导航">
+      <a href="#toc">目录</a>
+      <a href="#part01">Part 01</a>
+      <a href="#part02">Part 02</a>
+      <a href="#part03">Part 03</a>
+      <a href="#part04">Part 04</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="slide deck-cover" id="cover" aria-label="薇诺娜小红书FSC内容增长解决方案封面">
+      <figure class="cover-frame">
+        <img src="assets/winona_deck_cover_fsc.png" alt="薇诺娜小红书FSC内容增长解决方案封面" />
+      </figure>
+    </section>
+
+    <section class="slide" id="s1b">
+      <div class="slide-inner voc-page">
+        <div class="voc-hero">
+          <h2>用户正在重新定义「值得相信的内容」</h2>
+          <p>用户不是拒绝品牌内容，而是拒绝无法帮助决策的品牌内容。</p>
+        </div>
+
+        <div class="trust-layout" aria-label="用户越来越不相信与越来越愿意相信的内容对比">
+          <div class="trust-card reject">
+            <h3>✕ 用户越来越不相信</h3>
+            <ul>
+              <li>像广告一样的内容</li>
+              <li>标题套路化</li>
+              <li>卖点堆砌</li>
+              <li>统一模板</li>
+              <li>没有证据</li>
+              <li>没有评论互动</li>
+              <li>一味推荐</li>
+            </ul>
+          </div>
+
+          <div class="comment-phone" aria-label="小红书评论区手机示意">
+            <div class="comment-phone-head">小红书评论区</div>
+            <div class="comment-thread">
+              <div class="comment-question">Q：油皮夏天会闷痘吗？</div>
+              <div class="comment-answer">A：我混油用了两个月，前一周有点厚重，后来减少用量就 OK。</div>
+              <div class="comment-answer">A：敏感肌建议先局部试，别一上来全脸叠加。</div>
+              <div class="comment-answer">A：和 XX 相比更清爽，但保湿力没那么厚。</div>
+            </div>
+          </div>
+
+          <div class="trust-card believe">
+            <h3>✓ 用户越来越愿意相信</h3>
+            <ul>
+              <li>像真实分享的内容</li>
+              <li>真实体验</li>
+              <li>使用过程</li>
+              <li>真实细节</li>
+              <li>长期反馈</li>
+              <li>评论区讨论</li>
+              <li>客观优缺点</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="consumer-voices" aria-label="用户真实声音">
+          <h3>用户真实声音（Voice of Consumer）</h3>
+          <div class="voice-quote">“广告味太重了，有没有普通人反馈？”</div>
+          <div class="voice-quote">“有没有人真的长期用过？”</div>
+          <div class="voice-quote">“评论区有没有踩坑经验？”</div>
+          <div class="voice-quote">“和 XX 相比到底哪个好？”</div>
+          <div class="voice-quote">“适不适合油皮 / 敏感肌？”</div>
+          <div class="voice-quote">“有没有真实前后对比？”</div>
+        </div>
+
+        <div class="voc-metrics" aria-label="用户信任行为数据">
+          <div class="voc-metric"><strong>72%</strong><span>购买前会浏览评论区</span></div>
+          <div class="voc-metric"><strong>80%+</strong><span>会主动搜索真实评价</span></div>
+          <div class="voc-metric"><strong>5.6+</strong><span>平均浏览多个内容</span></div>
+        </div>
+        <p class="voc-source">来源：小红书用户调研，N=1,200，2026年5月</p>
+
+        <div class="bottom-insight">真正影响购买的，不是品牌说了什么，<span>而是用户是否相信。</span></div>
+      </div>
+    </section>
+
+    <section class="slide" id="toc">
+      <div class="slide-inner">
+        <div class="toc-layout">
+          <div class="toc-left" aria-label="目录页视觉区">
+            <div class="toc-eyebrow">01 / 目录</div>
+            <div class="toc-title">CONTENTS</div>
+            <p class="toc-core">这不仅是一套投放方案，而是一套面向 AI 时代的营销增长解决方案。</p>
+            <div class="toc-collage" aria-hidden="true">
+              <figure class="toc-photo one">
+                <img src="薇诺娜deck图片/IMG_0770.jpg" alt="" />
+              </figure>
+              <figure class="toc-photo two">
+                <img src="薇诺娜deck图片/IMG_0775.jpg" alt="" />
+              </figure>
+              <figure class="toc-photo three">
+                <img src="薇诺娜deck图片/微信图片_20260626185158_302_1.jpg" alt="" />
+              </figure>
+              <span class="toc-star">*</span>
+            </div>
+          </div>
+
+          <div class="toc-chapters" aria-label="章节目录">
+            <article class="toc-chapter">
+              <div class="toc-number">01</div>
+              <div class="toc-copy">
+                <div class="toc-part">Part 01</div>
+                <h3>AI 正在重构品牌增长竞争规则</h3>
+                <ul class="toc-sub">
+                  <li>传统小红书营销为何失效</li>
+                  <li>新流量入口与品牌增长机会</li>
+                </ul>
+              </div>
+            </article>
+            <article class="toc-chapter">
+              <div class="toc-number">02</div>
+              <div class="toc-copy">
+                <div class="toc-part">Part 02</div>
+                <h3>FSC：AI 时代的小红书增长新范式</h3>
+                <ul class="toc-sub">
+                  <li>从 KFS 到 FSC 的方法论演进</li>
+                  <li>AIGC Performance、决策因子与效率提升</li>
+                </ul>
+              </div>
+            </article>
+            <article class="toc-chapter">
+              <div class="toc-number">03</div>
+              <div class="toc-copy">
+                <div class="toc-part">Part 03</div>
+                <h3>FSC 增长矩阵：打造持续增长引擎</h3>
+                <ul class="toc-sub">
+                  <li>保底区、快赢区、突破区、未来布局区</li>
+                  <li>搜评人创测、F5 矩阵与 AI 搜索资产</li>
+                </ul>
+              </div>
+            </article>
+            <article class="toc-chapter">
+              <div class="toc-number">04</div>
+              <div class="toc-copy">
+                <div class="toc-part">Part 04</div>
+                <h3>项目实施路径与合作机制</h3>
+                <ul class="toc-sub">
+                  <li>交付物、周期、分工与推进节奏</li>
+                  <li>以快赢验证带动长期增长系统建设</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="part01" aria-label="Part 01 章节页">
+      <div class="slide-inner">
+        <div class="part-layout">
+          <div class="part-label">
+            <span>Part</span>
+            <span>01</span>
+          </div>
+
+          <div class="part-copy">
+            <span class="slide-kicker">02 / Chapter</span>
+            <h2>AI 正在重构品牌<br />增长竞争规则</h2>
+            <p class="part-thesis">当内容供给爆炸，品牌真正争夺的是用户愿意相信的答案。</p>
+          </div>
+
+          <div class="part-collage" aria-label="社媒信息流、搜索、评论区与 AI 内容界面拼贴">
+            <figure class="feed-fragment feed">
+              <img src="薇诺娜deck图片/IMG_0778.jpg" alt="小红书信息流内容碎片" />
+            </figure>
+            <div class="feed-fragment search">
+              <span class="fragment-label">Search Result</span>
+              <div class="search-bar">敏感肌修护怎么选</div>
+              <div class="search-results">
+                <span class="search-line"></span>
+                <span class="search-line"></span>
+                <span class="search-line"></span>
+              </div>
+            </div>
+            <div class="feed-fragment comment">
+              <span class="fragment-label">Comment Area</span>
+              <div class="comment-stack">
+                <span class="comment-line"></span>
+                <span class="comment-line"></span>
+                <span class="comment-line"></span>
+              </div>
+            </div>
+            <div class="feed-fragment ai">
+              <span class="fragment-label">AI Generated Answer</span>
+              <div class="ai-stack">
+                <span class="ai-line"></span>
+                <span class="ai-line"></span>
+                <span class="ai-line"></span>
+              </div>
+            </div>
+            <span class="orange-star">*</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="s1">
+      <div class="slide-inner">
+        <span class="slide-kicker">P1 / TRUST COST</span>
+        <h2>AI 让内容变得更便宜，却让信任变得更昂贵</h2>
+        <p class="lead">AI 并没有降低品牌营销门槛，而是彻底改变了品牌增长的竞争规则。当内容供给无限增长，品牌竞争开始从<strong>获取流量</strong>转向<strong>赢得用户信任</strong>。</p>
+        <div class="content-grid">
+          <div class="card">
+            <h3>过去：内容稀缺时代</h3>
+            <ul class="section-list">
+              <li>内容是稀缺资源</li>
+              <li>达人种草驱动增长</li>
+              <li>流量决定品牌机会</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>现在：AI 内容时代</h3>
+            <ul class="section-list">
+              <li>AI 带来海量内容供给</li>
+              <li>爆文快速复制，同质化加剧</li>
+              <li>用户更难被单一内容说服</li>
+              <li>品牌竞争进入信任时代</li>
+            </ul>
+          </div>
+        </div>
+        <table><thead><tr><th>AI 带来的变化</th><th>对品牌意味着什么</th></tr></thead><tbody>
+          <tr><td class="red-cell">内容供给指数级增长</td><td>获取注意力越来越难</td></tr>
+          <tr><td class="red-cell">爆文生命周期快速缩短</td><td>方法论难以形成持续壁垒</td></tr>
+          <tr><td class="red-cell">用户广告识别能力提升</td><td>单次种草效率持续下降</td></tr>
+          <tr><td class="red-cell">决策路径更加复杂</td><td>需要更多内容共同完成转化</td></tr>
+          <tr><td class="red-cell">AI 加速信息获取</td><td>品牌需要进入更多决策入口</td></tr>
+        </tbody></table>
+      </div>
+    </section>
+
+
+    <section class="slide" id="s2">
+      <div class="slide-inner">
+        <span class="slide-kicker">P2-1 / PATH COMPARE</span>
+        <h2>用户决策模型正在从「说服」走向「验证」</h2>
+        <p class="lead">过去品牌试图用单条内容完成说服；现在用户会在多个入口之间反复搜索、比较和验证，再做出购买判断。</p>
+
+        <div class="path-compare" aria-label="过去路径和现在路径对比">
+          <div class="path-card">
+            <span class="panel-label">过去路径 / AIPS 线性漏斗</span>
+            <h3>一条内容推动一次转化</h3>
+            <div class="path-strip">
+              <div class="path-step"><strong>A</strong><span>看到达人内容<em>Attention</em></span></div>
+              <div class="path-step"><strong>I</strong><span>被内容种草<em>Interest</em></span></div>
+              <div class="path-step"><strong>Ti</strong><span>搜索品牌名<em>Search brand</em></span></div>
+              <div class="path-step"><strong>P</strong><span>进入购买动作<em>Purchase</em></span></div>
+              <div class="path-step"><strong>S</strong><span>发帖 / 评论分享<em>Share</em></span></div>
+            </div>
+          </div>
+
+          <div class="path-card current">
+            <span class="panel-label">现在路径 / 多点验证网络</span>
+            <h3>一组证据共同完成决策</h3>
+            <div class="path-strip">
+              <div class="path-step"><strong>01</strong><span>看到内容<em>被场景激发兴趣</em></span></div>
+              <div class="path-step"><strong>02</strong><span>搜索具体问题<em>从品牌名转向痛点词、风险词、对比词</em></span></div>
+              <div class="path-step"><strong>03</strong><span>看素人反馈 / 翻评论区<em>验证真实体验和适用边界</em></span></div>
+              <div class="path-step"><strong>04</strong><span>横向对比 / 询问 AI 或点点<em>交叉确认选择理由</em></span></div>
+              <div class="path-step"><strong>05</strong><span>反复验证后下单<em>从即时冲动变成审慎决策</em></span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="behavior-grid">
+          <div class="card">
+            <h3>用户行为变化</h3>
+            <ul class="section-list">
+              <li>从“被种草”到“识别广告”。</li>
+              <li>从“看达人推荐”到“找素人反馈”。</li>
+              <li>从“搜品牌名”到“搜具体问题”。</li>
+              <li>从“看笔记正文”到“翻评论区验证”。</li>
+              <li>从“即时决策”到“多次比较后决策”。</li>
+            </ul>
+          </div>
+          <div class="talk-track"><b>讲述口径：</b>用户不是不相信小红书了，而是不再轻易相信单一内容。真正影响用户的是一组连续证据：有人讲场景，有人做对比，有人长期反馈，评论区有人追问和回答，搜索结果还能承接用户疑虑。</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="s2b">
+      <div class="slide-inner">
+        <span class="slide-kicker">P2-2 / KEY TOUCHPOINTS</span>
+        <h2>AI 时代下的用户决策关键触点</h2>
+        <p class="lead">当 AI 生成内容快速增加，用户不会只依赖一个入口，而是在搜索、素人反馈、评论区、对比内容、AI 问答和品牌阵地之间交叉验证。</p>
+
+        <div class="network-card">
+          <span class="panel-label">多点验证网络 / AI 内容冲击下的消费决策路径</span>
+          <div class="verify-board" aria-label="AI 时代下的用户决策关键触点">
+            <div class="verify-map">
+              <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <line x1="50" y1="46" x2="50" y2="18" />
+                <line x1="50" y1="46" x2="18" y2="36" />
+                <line x1="50" y1="46" x2="82" y2="36" />
+                <line x1="50" y1="46" x2="18" y2="72" />
+                <line x1="50" y1="46" x2="82" y2="72" />
+                <line x1="50" y1="46" x2="50" y2="86" />
+                <path d="M18 36 C21 13, 37 11, 50 18" />
+                <path d="M50 18 C64 10, 79 13, 82 36" />
+                <path d="M18 36 C11 50, 12 65, 18 72" />
+                <path d="M82 36 C90 50, 89 65, 82 72" />
+                <path d="M18 72 C30 91, 67 91, 82 72" />
+              </svg>
+
+              <figure class="verify-user">
+                <img src="薇诺娜deck图片/IMG_0770.jpg" alt="用户正在查看手机内容" />
+              </figure>
+
+              <article class="verify-node search">
+                <div class="node-icon">搜</div>
+                <div><h4>搜索</h4><ul><li>主动搜索关键词</li><li>浏览热门笔记 / 视频</li><li>筛选初步信息</li></ul></div>
+                <figure class="node-shot"><img src="薇诺娜deck图片/IMG_0771.jpg" alt="搜索内容截图" /></figure>
+              </article>
+              <article class="verify-node koc">
+                <div class="node-icon">人</div>
+                <div><h4>素人 / 真分享</h4><ul><li>真实使用体验</li><li>生活化场景种草</li><li>建立初步信任</li></ul></div>
+                <figure class="node-shot"><img src="薇诺娜deck图片/IMG_0772.jpg" alt="素人反馈截图" /></figure>
+              </article>
+              <article class="verify-node comment">
+                <div class="node-icon">评</div>
+                <div><h4>评论区</h4><ul><li>用户评论互动</li><li>真实反馈参考</li><li>答疑与顾虑消除</li></ul></div>
+                <figure class="node-shot"><img src="薇诺娜deck图片/IMG_0773.jpg" alt="评论区截图" /></figure>
+              </article>
+              <article class="verify-node compare">
+                <div class="node-icon">比</div>
+                <div><h4>对比内容</h4><ul><li>多产品横向对比</li><li>优缺点分析</li><li>帮助理性决策</li></ul></div>
+                <figure class="node-shot"><img src="薇诺娜deck图片/IMG_0774.jpg" alt="对比内容截图" /></figure>
+              </article>
+              <article class="verify-node ai">
+                <div class="node-icon">AI</div>
+                <div><h4>AI / 点点问答</h4><ul><li>智能问答检索</li><li>个性化信息获取</li><li>快速解决疑问</li></ul></div>
+                <figure class="node-shot"><img src="薇诺娜deck图片/IMG_0776.jpg" alt="AI 问答截图" /></figure>
+              </article>
+              <article class="verify-node brand">
+                <div class="node-icon">品</div>
+                <div><h4>品牌阵地</h4><ul><li>官方信息验证</li><li>产品详情 / 技术背书</li><li>活动与购买引导</li></ul></div>
+                <figure class="node-shot"><img src="薇诺娜deck图片/IMG_0778.jpg" alt="品牌阵地截图" /></figure>
+              </article>
+            </div>
+
+            <aside class="verify-side">
+              <div class="side-copy">
+                <span class="panel-label">行业洞察</span>
+                <p>用户在决策过程中，平均会触达</p>
+                <div class="side-stat"><strong>5.6</strong><p>个信息验证触点</p></div>
+                <div class="source-note">来源：小红书用户调研，N=1,200</div>
+              </div>
+              <div class="side-bars">
+                <div class="side-bar"><b>素人分享</b><span style="width:78%"></span><em>78%</em></div>
+                <div class="side-bar"><b>评论反馈</b><span style="width:72%"></span><em>72%</em></div>
+                <div class="side-bar"><b>对比内容</b><span style="width:61%"></span><em>61%</em></div>
+              </div>
+              <ul class="insight-list">
+                <li><b>多点布局</b>在用户决策的关键触点建立内容阵地。</li>
+                <li><b>内容一致性</b>确保各触点传递的信息一致。</li>
+                <li><b>快速响应</b>在评论区与 AI 问答中及时回应疑问。</li>
+                <li><b>数据驱动优化</b>持续监测各触点表现，优化内容策略。</li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+
+        <div class="decision-flow" aria-label="现在完整路径">
+          <span class="flow-chip">看到内容</span><span class="arrow">→</span>
+          <span class="flow-chip key">搜具体问题</span><span class="arrow">→</span>
+          <span class="flow-chip key">看素人反馈</span><span class="arrow">→</span>
+          <span class="flow-chip key">翻评论区</span><span class="arrow">→</span>
+          <span class="flow-chip key">横向对比</span><span class="arrow">→</span>
+          <span class="flow-chip key">询问 AI / 点点</span><span class="arrow">→</span>
+          <span class="flow-chip">反复验证</span><span class="arrow">→</span>
+          <span class="flow-chip">下单</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="s3">
+      <div class="slide-inner entrance-slide">
+        <span class="slide-kicker">P3 / ENTRANCE MAP</span>
+        <div class="entrance-hero">
+          <div class="entrance-copy">
+            <h2>品牌不仅需要经营流量，更要占住<span class="accent">每一个决策入口</span></h2>
+            <p class="entrance-title-summary">未来品牌竞争，不是谁生产更多内容，而是谁能够更快更准更广泛地覆盖用户决策入口。</p>
+          </div>
+
+          <div class="search-entry-frame" aria-label="小红书搜索页 4 个核心决策入口">
+            <div class="entry-channel-bars">
+              <span>Feed</span>
+              <span>Search</span>
+            </div>
+
+            <div class="entry-collage">
+              <div class="feed-entry-card">
+                <h3><span class="entry-badge">F</span>首页 Feed</h3>
+                <p>被动触达，激发兴趣，建立初步认知。</p>
+                <div class="feed-preview">
+                  <div class="feed-card-mini"><img src="薇诺娜deck图片/IMG_0775.jpg" alt="Feed 内容示例" /><strong>油皮夏天如何正确护肤不踩雷</strong></div>
+                  <div class="feed-card-mini"><img src="薇诺娜deck图片/IMG_0777.jpg" alt="Feed 内容示例" /><strong>敏感也能皮肤透亮的秘诀</strong></div>
+                </div>
+                <div class="pill">兴趣触达：建立初步认知</div>
+              </div>
+
+              <div class="entry-card">
+                <div class="entry-card-title">素人询问贴入口</div>
+                <div class="entry-phone">
+                  <div class="mock-screen">
+                    <div class="mock-status"><span>13:21</span><span>5G</span></div>
+                    <div class="mock-searchbar">冲浪晒伤后怎么处理</div>
+                    <div class="mock-post">
+                      <div class="mock-user"><span class="mock-avatar">问</span><span>敏感肌求助</span></div>
+                      <div class="mock-question">脸晒后又红又烫，晚上只想用一支修护霜，薇诺娜特护霜会不会刺痛？</div>
+                      <div class="mock-actions"><span>评论 68</span><span>收藏 312</span><span>求推荐</span></div>
+                    </div>
+                    <div class="mock-comment"><strong>同肤质回复</strong><span>先停酸和美白，精简到清洁、修护、防晒，观察 2-3 天。</span></div>
+                  </div>
+                  <div class="entry-note">用户带着具体问题发帖，等待相似肤质用户回答。</div>
+                </div>
+              </div>
+
+              <div class="entry-card">
+                <div class="entry-card-title">精搜入口</div>
+                <div class="entry-phone tall">
+                  <div class="mock-screen">
+                    <div class="mock-status"><span>13:19</span><span>5G</span></div>
+                    <div class="mock-searchbar">冲浪晒伤后怎么处理</div>
+                    <div class="mock-tabs"><span>全部</span><span>用户</span><span>商品</span><span>图片</span><span>点点</span></div>
+                    <div class="mock-grid">
+                      <div class="mock-note-card"><div class="mock-thumb"></div><p>晒后脸红发烫，今晚护肤这样减法</p></div>
+                      <div class="mock-note-card"><div class="mock-thumb"></div><p>敏感肌晒后修护，别急着叠功效</p></div>
+                      <div class="mock-note-card"><div class="mock-thumb"></div><p>泛红刺痛能不能用修护霜？</p></div>
+                      <div class="mock-note-card"><div class="mock-thumb"></div><p>晒后急救 3 天记录</p></div>
+                    </div>
+                  </div>
+                  <div class="entry-note">用户搜索具体痛点、场景与风险词，寻找可直接采用的答案。</div>
+                </div>
+              </div>
+
+              <div class="entry-card">
+                <div class="entry-card-title">评论区入口</div>
+                <div class="entry-phone">
+                  <div class="mock-screen">
+                    <div class="mock-status"><span>17:32</span><span>5G</span></div>
+                    <div class="mock-post">
+                      <div class="mock-user"><span class="mock-avatar">评</span><span>晒后修护笔记</span></div>
+                      <p>晒后脸烫时，我把护肤减到最少，先让皮肤稳下来。</p>
+                    </div>
+                    <div class="mock-comment"><strong>混油皮能用吗？</strong><span>建议薄涂，先局部试用，别和刺激型功效叠加。</span></div>
+                    <div class="mock-comment"><strong>正在刺痛可以厚敷吗？</strong><span>刺痛明显时先减法护理，严重不适建议及时咨询专业人士。</span></div>
+                    <div class="mock-comment"><strong>会不会闷痘？</strong><span>油皮重点看用量和场景，红烫期更适合薄涂稳定。</span></div>
+                  </div>
+                  <div class="entry-note">评论区承接追问，验证适用人群、使用边界与真实反馈。</div>
+                </div>
+              </div>
+
+              <div class="entry-card">
+                <div class="entry-card-title">点点AI搜索入口</div>
+                <div class="entry-phone">
+                  <div class="mock-screen">
+                    <div class="mock-status"><span>13:19</span><span>5G</span></div>
+                    <div class="mock-searchbar">冲浪晒伤后怎么处理</div>
+                    <div class="mock-ai-card">
+                      <div class="mock-ai-title">References</div>
+                      <ol>
+                        <li>先暂停酸类、美白、A 醇等高刺激护理。</li>
+                        <li>用温和清洁、基础保湿和修护降低不适。</li>
+                        <li>关注泛红、刺痛、干热是否持续加重。</li>
+                        <li>选择有真实使用记录和评论问答的内容。</li>
+                      </ol>
+                    </div>
+                    <div class="mock-comment"><strong>来源笔记</strong><span>晒后泛红修护记录、敏感肌精简护肤流程、修护霜使用边界。</span></div>
+                  </div>
+                  <div class="entry-note">AI 汇总高质量内容，把品牌答案转化为结构化建议。</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="slide" id="s4">
+      <div class="slide-inner">
+        <span class="slide-kicker">P4 / ANSWER COMPETITION</span>
+        <h2>AI 时代，品牌竞争正在进入“答案竞争”</h2>
+        <p class="lead">未来品牌增长，不再是围绕产品卖点生产内容，而是围绕用户问题持续提供可信答案。</p>
+        <div class="four-grid">
+          <div class="card"><span class="pill">01</span><h3>从抢关键词，到占领用户问题</h3><p>用户搜索越来越具体、越来越场景化，品牌需要围绕真实问题建立内容资产，而不仅仅覆盖品牌词和品类词。</p></div>
+          <div class="card"><span class="pill">02</span><h3>从传播卖点，到解决用户问题</h3><p>内容重点从介绍产品，转向回答“适不适合我”“什么时候用”“和谁相比更适合”等真实决策问题。</p></div>
+          <div class="card"><span class="pill">03</span><h3>从生产内容，到沉淀信任证据</h3><p>真实体验、长期反馈、评论互动、对比测评等内容，将成为 AI 时代最重要的品牌资产。</p></div>
+          <div class="card"><span class="pill">04</span><h3>从获取曝光，到获得 AI 推荐</h3><p>AI 正在成为新的信息入口。品牌不仅需要被用户搜索到，更需要被 AI 理解、提取并引用。</p></div>
+        </div>
+        <div class="note">品牌增长的核心命题，已经从“如何生产更多内容”，升级为“如何在每一个决策入口持续提供可信答案”。</div>
+      </div>
+    </section>
+
+    <section class="slide" id="part02" aria-label="Part 02 章节页">
+      <div class="slide-inner">
+        <div class="part-layout">
+          <div class="part-label">
+            <span>Part</span>
+            <span>02</span>
+          </div>
+
+          <div class="part-copy">
+            <span class="slide-kicker">07 / Chapter</span>
+            <h2>FSC：AI 时代的<br />小红书增长新范式</h2>
+            <p class="part-thesis">从买流量，进入经营用户真实决策路径。</p>
+          </div>
+
+          <div class="part-collage" aria-label="Feed、Search、Content 与 AI 内容界面拼贴">
+            <figure class="feed-fragment feed">
+              <img src="薇诺娜deck图片/IMG_0778.jpg" alt="小红书内容场景碎片" />
+            </figure>
+            <div class="feed-fragment search">
+              <span class="fragment-label">Search Result</span>
+              <div class="search-bar">薇诺娜和玉泽哪个好</div>
+              <div class="search-results">
+                <span class="search-line"></span>
+                <span class="search-line"></span>
+                <span class="search-line"></span>
+              </div>
+            </div>
+            <div class="feed-fragment comment">
+              <span class="fragment-label">Comment Area</span>
+              <div class="comment-stack">
+                <span class="comment-line"></span>
+                <span class="comment-line"></span>
+                <span class="comment-line"></span>
+              </div>
+            </div>
+            <div class="feed-fragment ai">
+              <span class="fragment-label">AI Generated Answer</span>
+              <div class="ai-stack">
+                <span class="ai-line"></span>
+                <span class="ai-line"></span>
+                <span class="ai-line"></span>
+              </div>
+            </div>
+            <span class="orange-star">*</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="s5">
+      <div class="slide-inner asset-shift-page">
+        <span class="slide-kicker">08A / BUDGET REALLOCATION</span>
+        <h2>「达人资源竞争」走向「内容资产重构」</h2>
+        <p class="asset-shift-lead">FSC 将预算从一次性曝光投入，重构为可持续复用的内容资产投入，实现效率与规模的双重提升。</p>
+
+        <figure class="asset-proof-figure" aria-label="点位成本与 AIGC 内容覆盖实证截图">
+          <img src="assets/budget-reallocation-ai-content-proof.png" alt="点位成本 8,000 元，多风格 AIGC 内容全链路覆盖数据实证笔记示意" />
+        </figure>
+
+        <div class="hero-metrics" aria-label="效率与规模提升">
+          <div class="hero-metric"><strong>↓ 35%</strong><span>Content Cost</span><em>内容生产成本下降，以 CPA 改善作 illustrative 口径</em></div>
+          <div class="hero-metric"><strong>↑ 13x</strong><span>Content Supply</span><em>内容供给能力提升，42 篇到 560 篇测算</em></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="s5a">
+      <div class="slide-inner asset-shift-page">
+        <span class="slide-kicker">08B / CASE STUDY</span>
+        <h2>Case Study：FSC 如何把预算沉淀为可复用内容资产</h2>
+        <p class="asset-shift-lead">以某护肤品牌为例，预算结构从达人曝光倾斜转向内容资产生产后，内容供给、搜索覆盖和转化效率同步改善。</p>
+
+        <div class="case-layout">
+          <div class="card">
+            <span class="panel-label">Case Study / Illustrative</span>
+            <h3>某护肤品牌</h3>
+            <div class="case-stats">
+              <div class="case-stat"><span>达人预算占比</span><strong>80% → 45%</strong></div>
+              <div class="case-stat"><span>内容产出</span><strong>42 → 560</strong></div>
+              <div class="case-stat"><span>搜索覆盖词</span><strong>2,300 → 11,600</strong></div>
+              <div class="case-stat"><span>Search UV</span><strong>+210%</strong></div>
+              <div class="case-stat"><span>CPA</span><strong>-35%</strong></div>
+            </div>
+          </div>
+
+          <div class="dashboard-placeholder" aria-label="Dashboard、搜索词增长截图或内容矩阵示意图占位">
+            <span class="panel-label">Dashboard Placeholder</span>
+            <div class="dash-bars"><span></span><span></span><span></span></div>
+            <p class="small-text">建议替换为真实 Dashboard、搜索词增长截图或内容矩阵示意图。</p>
+          </div>
+        </div>
+
+        <div class="note"><b>Key Takeaway：</b>FSC 的价值不是减少营销投入，而是让每一份预算沉淀为可持续增长的品牌内容资产，在相同预算下覆盖更多用户问题、更多决策入口，并持续提升品牌增长效率。</div>
+      </div>
+    </section>
+
+    <section class="slide" id="s5b">
+      <div class="slide-inner">
+        <span class="slide-kicker">08 / KFS TO FSC</span>
+        <h2>从 KFS 到 FSC：弱化达人单点影响，把增长重心前移到用户真实问题</h2>
+        <p class="lead">KFS 更像是以达人和投放为中心的分发模型，FSC 则是以用户问题和决策路径为中心的内容资产模型。</p>
+        <table class="compare-table"><thead><tr><th>维度</th><th>KFS</th><th>FSC</th></tr></thead><tbody>
+          <tr><td class="red-cell">中心</td><td>达人和流量</td><td>用户问题和决策路径</td></tr>
+          <tr><td class="red-cell">内容方式</td><td>少量内容多次分发</td><td>大规模细分内容矩阵</td></tr>
+          <tr><td class="red-cell">搜索策略</td><td>品牌词 / 品类词基础占位</td><td>品牌词、痛点词、风险词、对比词、长尾词全链路占位</td></tr>
+          <tr><td class="red-cell">信任来源</td><td>达人背书</td><td>达人、KOC、素人、评论区、真实记录共同验证</td></tr>
+          <tr><td class="red-cell">迭代方式</td><td>复盘爆文形式</td><td>复盘高效问题、高效场景、高效表达结构</td></tr>
+        </tbody></table>
+        <div class="content-grid">
+          <div class="card"><h3>旧模型：KFS 的增长逻辑</h3><ul class="section-list"><li>达人内容容易成为单点爆发，难以持续复用。</li><li>Feed 负责触达，但不一定承接用户后续搜索。</li><li>Search 负责收口，但搜索结果中未必有足够细分内容。</li><li>内容生产常围绕品牌卖点，而不是用户正在问的问题。</li></ul></div>
+          <div class="card"><h3>新模型：FSC 的增长逻辑</h3><ul class="section-list"><li>Feed 是场景激发入口。</li><li>Search 是主动需求承接入口。</li><li>Content 是长期可复用的信任资产。</li><li>增长重心前移到用户真实决策路径。</li></ul></div>
+        </div>
+        <div class="talk-track"><b>讲述口径：</b>FSC 不是否定达人，而是弱化达人单点决定性。真正推动用户决策的，是 Feed 触达、Search 承接和 Content 信任资产之间的连续配合。</div>
+      </div>
+    </section>
+
+    <section class="slide" id="s6">
+      <div class="slide-inner">
+        <span class="slide-kicker">09 / AIGC PERFORMANCE</span>
+        <h2>AIGC 让小红书进入“多对多”内容增长阶段，FSC 让内容生产变准</h2>
+        <p class="lead">过去不是算法不想做到千人千面，而是品牌没有足够细分的内容供给。AIGC 让内容生产变快，FSC 让内容生产变准。</p>
+        <div class="content-grid">
+          <div class="card"><h3>核心判断</h3><p>10 条核心内容，无法承接 1000 种真实问题。用户搜索的不只是“敏感肌面霜”，而是“屏障受损怎么修复最快”“敏感肌孕妇能用吗”“医美后第几天能用”“薇诺娜和玉泽哪个好”。</p></div>
+          <div class="placeholder"><span class="filetag">10-to-1000-content-pool.png</span><div><strong>内容池扩容图</strong><p>从少量核心内容扩展到人群、场景、问题、阶段、疑虑的多维内容池。</p></div></div>
+        </div>
+        <table><thead><tr><th>时代</th><th>内容生产方式</th><th>用户匹配方式</th><th>主要问题</th></tr></thead><tbody>
+          <tr><td class="red-cell">传统投放时代</td><td>少量脚本，多账号分发</td><td>一对多硬推</td><td>内容不够细，用户不够准</td></tr>
+          <tr><td class="red-cell">爆文复制时代</td><td>复制高互动模板</td><td>用爆文覆盖泛人群</td><td>容易同质化，信任下降</td></tr>
+          <tr><td class="red-cell">AIGC + FSC 时代</td><td>大规模细分内容资产</td><td>多对多精准匹配</td><td>需要洞察、规则和持续测试</td></tr>
+        </tbody></table>
+        <div class="talk-track"><b>讲述口径：</b>AI 时代真正的机会不是让团队写得更多，而是让每条内容都对应一个明确的问题。FSC 是 AIGC 内容生产的方向盘。</div>
+      </div>
+    </section>
+
+    <section class="slide" id="s7">
+      <div class="slide-inner">
+        <span class="slide-kicker">10 / DECISION FACTORS</span>
+        <h2>品牌增长的竞争，正在从流量争夺转向决策因子争夺</h2>
+        <p class="lead">影响用户下单的，不只是曝光，而是痛点、场景、证据、比较、风险和信任的组合。</p>
+        <div class="factor-grid" aria-label="五类核心决策因子">
+          <div class="factor"><strong>痛点</strong><span>我为什么需要这个？</span><p>痛点唤醒、症状解释、问题定位。</p></div>
+          <div class="factor"><strong>场景</strong><span>我什么时候需要这个？</span><p>换季、熬夜、晒后、医美后、孕期等场景渗透。</p></div>
+          <div class="factor"><strong>证据</strong><span>我凭什么相信？</span><p>长测、前后对比、真实记录、专业背书。</p></div>
+          <div class="factor"><strong>比较</strong><span>我该选谁？</span><p>横评、红黑榜、竞品对比、适用人群区分。</p></div>
+          <div class="factor"><strong>风险</strong><span>我为什么迟疑？</span><p>使用边界、避坑指南、评论区答疑。</p></div>
+        </div>
+        <div class="note">FSC 的核心，是持续经营这些影响决策的关键因子。每一个因子都能转化为内容类型，也都能被数据验证。</div>
+        <div class="talk-track"><b>讲述口径：</b>用户下单前会不断验证：我是不是需要、适不适合我、别人怎么用、和竞品怎么选、会不会出问题。FSC 要把这些决策因子变成可持续经营的内容资产。</div>
+      </div>
+    </section>
+
+    <section class="slide" id="s8">
+      <div class="slide-inner">
+        <span class="slide-kicker">11 / EFFICIENCY</span>
+        <h2>FSC 的效率提升，来自洞察标准化、内容矩阵化、测试数据化和资产可复用</h2>
+        <p class="lead">FSC 不是让团队更快写更多内容，而是让每条内容都来自同一个真实用户问题，并能服务不同入口、不同阶段和不同决策任务。</p>
+        <table><thead><tr><th>环节</th><th>传统方式</th><th>FSC 方式</th><th>效率提升</th></tr></thead><tbody>
+          <tr><td class="red-cell">选题</td><td>靠经验、看爆文、临时想</td><td>从搜索词、评论区、竞品和素人反馈提取 GAP</td><td>选题从灵感驱动变成问题驱动</td></tr>
+          <tr><td class="red-cell">脚本</td><td>单条打磨，反复改稿</td><td>同一洞察扩展多场景、多阶段、多语气脚本</td><td>一条洞察可生成一组内容</td></tr>
+          <tr><td class="red-cell">发布</td><td>达人或账号单点发布</td><td>Feed、Search、KOC、素人、评论区协同</td><td>内容从曝光变成路径承接</td></tr>
+          <tr><td class="red-cell">放量</td><td>复制爆文形式</td><td>复制高效用户问题和高效表达结构</td><td>放量更稳，降低同质化风险</td></tr>
+          <tr><td class="red-cell">复盘</td><td>看互动高低</td><td>看问题是否被解决、搜索是否被承接、评论是否变少疑虑</td><td>复盘从结果判断变成机制优化</td></tr>
+        </tbody></table>
+        <div class="content-grid">
+          <div class="card"><h3>一个用户问题可扩展为五类资产</h3><ul class="section-list"><li>早期：敏感肌为什么会刺痛？</li><li>中期：不同修护产品刺痛感对比。</li><li>后期：真实用户 7 天使用记录。</li><li>评论区：哪些情况不建议马上用？</li><li>搜索承接：敏感肌泛红急救怎么选？</li></ul></div>
+          <div class="placeholder"><span class="filetag">gap-card-to-assets.fig</span><div><strong>1 个用户问题 → 5 类内容资产</strong><p>中间是用户问题，外圈是科普、对比、长测、问答、搜索内容。</p></div></div>
+        </div>
+        <div class="talk-track"><b>讲述口径：</b>FSC 的效率不是单纯产能效率，而是决策效率。它帮助团队更快知道应该围绕什么问题生产内容。</div>
+      </div>
+    </section>
+
+    <section class="slide" id="part03" aria-label="Part 03 章节页">
+      <div class="slide-inner">
+        <div class="part-layout">
+          <div class="part-label">
+            <span>Part</span>
+            <span>03</span>
+          </div>
+
+          <div class="part-copy">
+            <span class="slide-kicker">12 / Chapter</span>
+            <h2>FSC 增长矩阵：<br />打造持续增长引擎</h2>
+            <p class="part-thesis">增长不是一次爆文，而是一套可拆解、可测试、可迭代的内容资产系统。</p>
+          </div>
+
+          <div class="part-collage" aria-label="FSC 增长矩阵与内容资产拼贴">
+            <figure class="feed-fragment feed">
+              <img src="薇诺娜deck图片/IMG_0775.jpg" alt="小红书内容资产示意" />
+            </figure>
+            <div class="feed-fragment search">
+              <span class="fragment-label">Search Result</span>
+              <div class="search-bar">屏障受损怎么修复</div>
+              <div class="search-results">
+                <span class="search-line"></span>
+                <span class="search-line"></span>
+                <span class="search-line"></span>
+              </div>
+            </div>
+            <div class="feed-fragment comment">
+              <span class="fragment-label">Comment Area</span>
+              <div class="comment-stack">
+                <span class="comment-line"></span>
+                <span class="comment-line"></span>
+                <span class="comment-line"></span>
+              </div>
+            </div>
+            <div class="feed-fragment ai">
+              <span class="fragment-label">AI Generated Answer</span>
+              <div class="ai-stack">
+                <span class="ai-line"></span>
+                <span class="ai-line"></span>
+                <span class="ai-line"></span>
+              </div>
+            </div>
+            <span class="orange-star">*</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="s9">
+      <div class="slide-inner">
+        <span class="slide-kicker">13 / FOUR ZONES</span>
+        <h2>FSC 四区模型：从基础效率、增量机会、信任突破到未来入口</h2>
+        <p class="lead">FSC 四区模型不是四个割裂项目，而是从“确定性复制”到“增量探索”再到“信任放大”和“未来卡位”的完整增长闭环。</p>
+        <table><thead><tr><th>区域</th><th>核心输入</th><th>核心输出</th><th>衡量指标</th></tr></thead><tbody>
+          <tr><td class="red-cell">保底区</td><td>行业爆文、竞品内容、历史投放数据</td><td>内容模板库、标题库、脚本库</td><td>CTR、互动率、CPE、爆文率</td></tr>
+          <tr><td class="red-cell">快赢区</td><td>搜索词、评论区、素人笔记、竞品评论</td><td>GAP 洞察卡、内容机会排序、测试脚本</td><td>收藏率、评论质量、搜索承接、转化线索</td></tr>
+          <tr><td class="red-cell">突破区</td><td>核心关键词、素人爆文、用户疑虑问题</td><td>素人内容矩阵、评论话术库、信任证据池</td><td>关键词占位、评论追问质量、首页流量占比</td></tr>
+          <tr><td class="red-cell">未来布局区</td><td>点点来源笔记、AI 答案引用内容、高频问题</td><td>点点内容策略、AI 搜索友好内容资产</td><td>点点引用、搜索曝光、内容复用率</td></tr>
+        </tbody></table>
+        <div class="note">客户买到的不是只是一套内容方案，而是一套从诊断、洞察、生产、测试、放量到复盘的增长工作流。</div>
+      </div>
+    </section>
+
+    <section class="slide" id="s10">
+      <div class="slide-inner">
+        <span class="slide-kicker">14 / BASELINE ZONE</span>
+        <h2>保底区：先拆行业高效内容，建立基础胜率</h2>
+        <p class="lead">保底区不是抄爆文，而是提炼高效内容背后的可复用因子，让品牌先具备基础内容胜率。</p>
+        <table><thead><tr><th>拆解维度</th><th>重点问题</th><th>输出物</th></tr></thead><tbody>
+          <tr><td class="red-cell">标题结构</td><td>哪类标题能触发点击和收藏？</td><td>标题句式库</td></tr>
+          <tr><td class="red-cell">封面结构</td><td>哪类封面能提高停留和识别？</td><td>封面模板库</td></tr>
+          <tr><td class="red-cell">开头 3 秒</td><td>用户为什么愿意继续看？</td><td>开头钩子库</td></tr>
+          <tr><td class="red-cell">内容结构</td><td>爆文如何组织问题、证据和结论？</td><td>脚本结构库</td></tr>
+          <tr><td class="red-cell">评论反馈</td><td>用户真正追问了什么？</td><td>高频问题库</td></tr>
+          <tr><td class="red-cell">搜索承接</td><td>哪些内容能占住搜索结果？</td><td>关键词内容库</td></tr>
+        </tbody></table>
+        <div class="content-grid">
+          <div class="card"><h3>数据判断不只看点赞</h3><ul class="section-list"><li>CTR：封面和标题是否命中。</li><li>CPM / CPE：触达效率与互动成本是否可控。</li><li>收藏率：内容是否具备工具价值。</li><li>评论质量：用户是否提出真实决策问题。</li><li>搜索承接：内容是否能在目标关键词下持续出现。</li></ul></div>
+          <div class="placeholder"><span class="filetag">baseline-note-audit-board.png</span><div><strong>行业高效笔记拆解看板</strong><p>左侧放笔记样例，右侧用编辑批注拆标题、封面、开头、结构、评论和关键词。</p></div></div>
+        </div>
+        <div class="talk-track"><b>讲述口径：</b>保底区的价值是先把确定有效的内容因子找出来，为后续快赢测试提供基础胜率。</div>
+      </div>
+    </section>
+
+    <section class="slide" id="s11">
+      <div class="slide-inner">
+        <span class="slide-kicker">15 / QUICK WIN OVERVIEW</span>
+        <h2>快赢区五步法：用最短路径找到用户没被满足的问题</h2>
+        <p class="lead">快赢区是 FSC 的核心主战场。它通过搜、评、人、创、测五步，把用户真实问题快速转化为可测试、可放量的内容矩阵。</p>
+        <div class="step-grid">
+          <div class="step-card" data-step="搜"><h3>捕捉主动需求</h3><p>建立品牌、品类、场景、痛点、对比、风险词地图。</p></div>
+          <div class="step-card" data-step="评"><h3>拆解表达盲区</h3><p>分析评论区、竞品内容和用户追问，形成 GAP 卡。</p></div>
+          <div class="step-card" data-step="人"><h3>验证真实表达</h3><p>提炼素人笔记、自发经验和口语化表达。</p></div>
+          <div class="step-card" data-step="创"><h3>生成内容矩阵</h3><p>把洞察转为测评、对比、教程、避坑、长测、问答。</p></div>
+          <div class="step-card" data-step="测"><h3>数据反馈放量</h3><p>追踪收藏、评论、搜索承接、用户复述和转化线索。</p></div>
+        </div>
+        <div class="talk-track"><b>讲述口径：</b>快赢区不是靠灵感做选题，而是靠用户真实问题驱动内容生产。每一步都有明确输入和输出，最后形成可被数据验证的内容矩阵。</div>
+      </div>
+    </section>
+
+    <section class="slide" id="s12">
+      <div class="slide-inner">
+        <span class="slide-kicker">16 / STEP 1 SEARCH</span>
+        <h2>Step 1 搜：关键词不是流量词，而是用户主动需求的直接映射</h2>
+        <p class="lead">关键词是小红书搜索流量入口，也是用户主动需求的直接表达。快赢区首先要搭建搜索词战场，识别用户此刻真正想解决的问题。</p>
+        <table><thead><tr><th>层级</th><th>关键词类型</th><th>用户意图</th><th>内容策略</th><th>示例</th></tr></thead><tbody>
+          <tr><td class="red-cell">L1</td><td>品牌词</td><td>已知品牌，搜索验证 / 对比</td><td>品牌背书 + 口碑矩阵</td><td>薇诺娜、薇诺娜特护霜</td></tr>
+          <tr><td class="red-cell">L2</td><td>品类词</td><td>有需求但无明确品牌偏好</td><td>品类教育 + 心智占位</td><td>敏感肌水乳、修复面霜</td></tr>
+          <tr><td class="red-cell">L3</td><td>场景 / 痛点词</td><td>有症状但不知道品类</td><td>痛点唤醒 + 解决方案</td><td>换季泛红怎么办、屏障受损修复</td></tr>
+          <tr><td class="red-cell">L4</td><td>竞品词</td><td>对比决策阶段</td><td>截流 + 差异化对比</td><td>薇诺娜 vs 理肤泉、薇诺娜和玉泽哪个好</td></tr>
+          <tr><td class="red-cell">L5</td><td>长尾词</td><td>精准需求，高转化</td><td>深度内容 + 专业背书</td><td>敏感肌孕妇能用吗、玫瑰痤疮日常护肤</td></tr>
+        </tbody></table>
+        <div class="content-grid">
+          <div class="card"><h3>上下游词穿刺方法</h3><ul class="section-list"><li>上游词挖掘：用户搜索核心词之前还搜了什么。</li><li>下游词挖掘：用户搜索核心词之后还搜了什么。</li><li>热度×竞争度分析：蓝海词优先布局，红海词投流强攻，长尾词素人覆盖。</li></ul></div>
+          <div class="placeholder"><span class="filetag">keyword-battle-map.png</span><div><strong>关键词金字塔 / 搜索词战场地图</strong><p>右侧放上游词、核心词、下游词的路径示意。</p></div></div>
+        </div>
+        <div class="talk-track"><b>讲述口径：</b>搜这一步不是为了堆关键词，而是为了还原用户需求路径。</div>
+      </div>
+    </section>
+
+    <section class="slide" id="s13">
+      <div class="slide-inner">
+        <span class="slide-kicker">17 / STEP 2 COMMENT GAP</span>
+        <h2>Step 2 评：从评论区反推用户真正没被回答的问题</h2>
+        <p class="lead">评论区是用户真实疑虑的高密度集合。评这一步要找出“品牌说了什么”和“用户还在问什么”之间的 GAP。</p>
+        <div class="content-grid">
+          <div class="card"><h3>用户在评论区真正问什么</h3><ul class="section-list"><li>敏感肌用了会不会刺痛？</li><li>油敏肌会不会闷痘？</li><li>医美后第几天能用？</li><li>孕妇能不能用？</li><li>和玉泽、理肤泉比哪个好？</li><li>屏障受损严重能不能马上用？</li></ul></div>
+          <div class="card"><h3>评估维度</h3><ul class="section-list"><li>高频疑虑：用户重复问的问题。</li><li>未被回答：品牌内容没有讲清的边界。</li><li>竞品优势：竞品评论区被认可的表达。</li><li>负面反馈：用户不满、犹豫和吐槽。</li><li>转化信号：“怎么买”“适合我吗”“和 XX 比呢”。</li></ul></div>
+        </div>
+        <table><thead><tr><th>GAP 卡模块</th><th>说明</th><th>示例</th></tr></thead><tbody>
+          <tr><td class="red-cell">用户原话</td><td>用户在搜索、评论、素人笔记中的真实表达</td><td>“敏感肌用了会不会刺痛？”</td></tr>
+          <tr><td class="red-cell">隐含需求</td><td>用户真正想解决的问题</td><td>不是不关心成分，而是担心使用风险</td></tr>
+          <tr><td class="red-cell">表达缺口</td><td>品牌没有说清、没说透或没说到的地方</td><td>没有解释什么肤况适合、什么情况下不建议使用</td></tr>
+          <tr><td class="red-cell">内容机会</td><td>可以生产什么内容来填补缺口</td><td>敏感肌 7 天使用记录、刺痛原因科普、换季使用边界</td></tr>
+          <tr><td class="red-cell">验证指标</td><td>判断内容是否有效</td><td>收藏率、评论追问、用户复述、关键词搜索承接</td></tr>
+        </tbody></table>
+        <div class="talk-track"><b>讲述口径：</b>真正有价值的内容机会，不在品牌卖点表里，而在评论区尚未被解决的问题里。</div>
+      </div>
+    </section>
+
+    <section class="slide" id="s14">
+      <div class="slide-inner">
+        <span class="slide-kicker">18 / STEP 3 HUMAN VOICE</span>
+        <h2>Step 3 人：把“卖点语言”翻译成“用户真的会说的话”</h2>
+        <p class="lead">小红书内容能不能被相信，很大程度取决于它有没有人感。人这一步要从素人笔记、自发经验和口语化讨论中提炼真实表达，训练 AIGC 的人感口吻。</p>
+        <table><thead><tr><th>品牌卖点式表达</th><th>用户人感表达</th></tr></thead><tbody>
+          <tr><td class="red-cell">修护敏感肌屏障</td><td>换季脸红刺痛时，我先把护肤减到最少</td></tr>
+          <tr><td class="red-cell">温和不刺激</td><td>敏感爆发期用着没有那种火辣辣的感觉</td></tr>
+          <tr><td class="red-cell">适合痘后修护</td><td>痘痘是下去了，但红印和薄皮还在，我不敢再刷酸</td></tr>
+          <tr><td class="red-cell">医美后可用于修护</td><td>做完项目那几天，我最怕乱涂导致反黑</td></tr>
+          <tr><td class="red-cell">成分安全</td><td>孕期不是追求功效，是每个成分都想确认能不能用</td></tr>
+        </tbody></table>
+        <div class="content-grid">
+          <div class="card"><h3>人感语言提炼来源</h3><ul class="section-list"><li>素人笔记：真实场景和口语表达。</li><li>评论区：疑虑问法和决策障碍。</li><li>自发经验：用户如何描述效果和变化。</li><li>负面反馈：用户不相信什么、反感什么。</li><li>高收藏笔记：用户愿意保存的表达结构。</li></ul></div>
+          <div class="note">人这一步是 FSC 和普通内容矩阵的分水岭。普通矩阵容易把卖点排列组合，FSC 要把卖点翻译成真实使用者在回答问题。</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="s16">
+      <div class="slide-inner">
+        <span class="slide-kicker">19 / STEP 4 CREATE</span>
+        <h2>七维内容矩阵：把 F5 选题继续拆成可投测变量</h2>
+        <p class="lead">F5 解决的是内容任务，七维矩阵解决的是内容规模化生产方式。每条内容都可以继续拆成 A×B×C×D×E×F×G 的可投测组合。</p>
+        <table><thead><tr><th>维度</th><th>对应问题</th><th>薇诺娜示例</th></tr></thead><tbody>
+          <tr><td class="red-cell">A 痛点</td><td>用户出了什么问题</td><td>敏感、爆痘、晒后、项目后修复、孕期护肤</td></tr>
+          <tr><td class="red-cell">B 需求</td><td>用户想解决什么</td><td>日常维护、成分安全、产品有效</td></tr>
+          <tr><td class="red-cell">C 状态意图</td><td>用户处在哪个决策阶段</td><td>被动种草、主动搜索、意向确认、决策转化</td></tr>
+          <tr><td class="red-cell">D 目标人群</td><td>具体是哪类决策人群</td><td>维稳派、自救派、进阶派、特殊时期派</td></tr>
+          <tr><td class="red-cell">E 场景埋设</td><td>问题发生在哪里</td><td>换季敏感、刷酸翻车、医美术后、烂脸日记、睡前刷手机</td></tr>
+          <tr><td class="red-cell">F 内容形态</td><td>用什么形式表达</td><td>空瓶实拍、质地特写、前后对比、成分表拆解、Routine 清单</td></tr>
+          <tr><td class="red-cell">G 情绪钩子</td><td>触发什么心理</td><td>焦虑共鸣、专业背书、惊喜发现、从众效应、紧迫感</td></tr>
+        </tbody></table>
+        <table><thead><tr><th>内容假设组合</th><th>可生成选题</th><th>验证重点</th></tr></thead><tbody>
+          <tr><td>敏感肌 × 产品有效 × 主动搜索 × 换季敏感爆发 × 前后对比图集</td><td>《换季脸红刺痛 7 天，我把护肤减到只剩这几步》</td><td>收藏率、评论“我也是”、搜索承接</td></tr>
+          <tr><td>长痘 × 产品有效 × 意向确认 × 熬夜后爆痘 × 质地涂抹特写</td><td>《油痘肌修护霜会不会闷？我连续用了 7 天》</td><td>完播率、评论“闷不闷”、产品点击</td></tr>
+          <tr><td>项目后修复 × 成分安全 × 医美术后修复周 × Routine 清单帖</td><td>《光子后 1-7 天，哪些先停、哪些能保留》</td><td>收藏率、术后问题评论、私信咨询</td></tr>
+          <tr><td>孕期护肤 × 成分安全 × 特殊时期派 × 睡前刷手机 × 焦虑共鸣</td><td>《孕期脸干泛红，我把护肤减到这 3 步》</td><td>收藏率、转发率、评论求确认</td></tr>
+        </tbody></table>
+      </div>
+    </section>
+
+    <section class="slide" id="s17">
+      <div class="slide-inner">
+        <span class="slide-kicker">20 / STEP 5 TEST</span>
+        <h2>Step 5 测：小额验证标签，规模复制胜出资产</h2>
+        <p class="lead">爆款是结果，资产是能力。薇诺娜在小红书冷启动期不先考核 ROI，而是用小额测试找出“敏感肌问题 × 人群状态 × 使用场景 × 信任证据”的有效组合，再沉淀为可复用的内容资产库。</p>
+        <div class="test-ribbon">AI 助力薇诺娜从“内容作品集”变成 <span>“敏感肌决策标签库”</span></div>
+        <div class="test-flow">
+          <div class="test-step">
+            <strong>1</strong>
+            <div><h3>提出假设，标签组合</h3><p>围绕敏感、痘后、医美后、孕期等问题，组合人群、场景、证据和内容形态。</p></div>
+          </div>
+          <div class="test-step">
+            <strong>2</strong>
+            <div><h3>AI 生产，小额测试</h3><p>每组标签生成 3-5 条图文 / 短视频母版，投放小预算验证点击、收藏、评论与搜索入池。</p></div>
+          </div>
+          <div class="test-step">
+            <strong>3</strong>
+            <div><h3>数据反馈，锁定公式</h3><p>把胜出组合沉淀为薇诺娜内容资产：可换达人、换场景、换封面、换平台继续放量。</p></div>
+          </div>
+        </div>
+        <div class="tag-lab-grid">
+          <div class="tag-panel">
+            <h3>Step 1：小额测试，找出有效标签组合</h3>
+            <div class="combo-list">
+              <div class="combo-row"><span class="combo-name">换季泛红 × 敏肌刚需党 × 通勤急救 × 7 天记录</span><span class="combo-metric">收藏率 3.8%</span><span class="combo-metric">评论率 0.9%</span></div>
+              <div class="combo-row is-winner"><span class="combo-name">刷酸翻车 × 成分党进阶派 × 屏障解释 × 成分拆解</span><span class="combo-metric">收藏率 5.4%</span><span class="combo-metric">搜索 Top10</span></div>
+              <div class="combo-row"><span class="combo-name">痘后薄皮 × 痘痘自救者 × 不闷痘实测 × 质地特写</span><span class="combo-metric">CTR 4.6%</span><span class="combo-metric">加购回流</span></div>
+              <div class="combo-row is-winner"><span class="combo-name">医美术后 × 修复焦虑人群 × 1-7 天护理表 × 专业口吻</span><span class="combo-metric">收藏率 6.1%</span><span class="combo-metric">搜索承接强</span></div>
+            </div>
+          </div>
+          <div class="tag-panel">
+            <h3>Step 2：规模放量，复制胜出素材标签</h3>
+            <div class="scale-grid">
+              <div class="scale-card"><h4>有效素材复制</h4><ul><li>同一胜出组合，换达人账号分发</li><li>同一核心卖点，换封面和开头钩子</li><li>同一证据结构，衍生图文 / 视频 / 直播切片</li></ul></div>
+              <div class="scale-card"><h4>人群包扩大</h4><ul><li>核心人群：历史互动与搜索回流</li><li>相似人群：Lookalike 与竞品人群</li><li>潜力人群：兴趣扩展与场景标签测试</li></ul></div>
+              <div class="scale-card"><h4>平台资源协同</h4><ul><li>小红书：场景共鸣与搜索占位</li><li>短视频：广泛触达和种草唤醒</li><li>内容电商：即时转化与加购承接</li></ul></div>
+            </div>
+          </div>
+        </div>
+        <table><thead><tr><th>阶段</th><th>时间</th><th>薇诺娜动作</th><th>判断标准</th></tr></thead><tbody>
+          <tr><td class="red-cell">标签小测期</td><td>3-5 天</td><td>测试 5-8 组标签组合，每组 3-5 条内容母版</td><td>不看 ROI，先看 CTR、收藏、评论问题和搜索入池</td></tr>
+          <tr><td class="red-cell">胜出复测期</td><td>7-14 天</td><td>把胜出组合复制为 3-5 个场景 / 达人 / 表现形式</td><td>互动成本下降，搜索词排名稳定，评论疑虑可被承接</td></tr>
+          <tr><td class="red-cell">规模放量期</td><td>持续</td><td>建立“标签组合 - 素材母版 - 达人分发 - 搜索承接”资产库</td><td>同一标签公式跨账号、跨内容形态、跨平台仍能复用</td></tr>
+        </tbody></table>
+        <div class="talk-track"><b>讲述口径：</b>Step5 不是为了赌一条爆文，而是把薇诺娜在小红书的敏感肌内容做成可验证、可复用、可放量的标签资产。冷启动先验证标签有效性，胜出后再复制素材母版、扩大人群包，并用搜索和转化链路承接。</div>
+      </div>
+    </section>
+
+    <section class="slide source-deck-slide" id="tag-case-01">
+      <div class="slide-inner">
+        <span class="slide-kicker">20B / TAG COMBO CASE 01</span>
+        <h2>实例展示：封面</h2>
+        <figure class="source-deck-frame">
+          <img src="assets/winona-tag-combo-case-01.png" alt="薇诺娜特护霜 FSC 快赢区 × 标签组合内容方案" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide source-deck-slide" id="tag-case-02">
+      <div class="slide-inner">
+        <span class="slide-kicker">20C / TAG COMBO CASE 02</span>
+        <h2>实例展示：策略判断</h2>
+        <figure class="source-deck-frame">
+          <img src="assets/winona-tag-combo-case-02.png" alt="机会不在继续占领敏感肌修护，而在占领皮肤状态失控时的具体问题" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide source-deck-slide" id="tag-case-03">
+      <div class="slide-inner">
+        <span class="slide-kicker">20D / TAG COMBO CASE 03</span>
+        <h2>实例展示：标签问题</h2>
+        <figure class="source-deck-frame">
+          <img src="assets/winona-tag-combo-case-03.png" alt="敏感肌是过宽标签，无法直接指导内容生产" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide source-deck-slide" id="tag-case-04">
+      <div class="slide-inner">
+        <span class="slide-kicker">20E / TAG COMBO CASE 04</span>
+        <h2>实例展示：组合模型</h2>
+        <figure class="source-deck-frame">
+          <img src="assets/winona-tag-combo-case-04.png" alt="标签不是越多越好，而是要能拼出购买问题" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide source-deck-slide" id="tag-case-05">
+      <div class="slide-inner">
+        <span class="slide-kicker">20F / TAG COMBO CASE 05</span>
+        <h2>实例展示：FSC 触点</h2>
+        <figure class="source-deck-frame">
+          <img src="assets/winona-tag-combo-case-05.png" alt="同一组需求组合，需要在 Feed、Search、Content 中承担不同任务" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide source-deck-slide" id="tag-case-06">
+      <div class="slide-inner">
+        <span class="slide-kicker">20G / TAG COMBO CASE 06</span>
+        <h2>实例展示：快赢区</h2>
+        <figure class="source-deck-frame">
+          <img src="assets/winona-tag-combo-case-06.png" alt="快赢区不是靠灵感多产内容，而是生产可被证伪的增长假设" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide source-deck-slide" id="tag-case-07">
+      <div class="slide-inner">
+        <span class="slide-kicker">20H / TAG COMBO CASE 07</span>
+        <h2>实例展示：案例</h2>
+        <figure class="source-deck-frame">
+          <img src="assets/winona-tag-combo-case-07.png" alt="换季泛红急救，如何从用户问题跑到可放量内容组合" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide source-deck-slide" id="tag-case-08">
+      <div class="slide-inner">
+        <span class="slide-kicker">20I / TAG COMBO CASE 08</span>
+        <h2>实例展示：人群洞察 I</h2>
+        <figure class="source-deck-frame">
+          <img src="assets/winona-tag-combo-case-08.png" alt="敏肌刚需党与痘痘自救者" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide source-deck-slide" id="tag-case-09">
+      <div class="slide-inner">
+        <span class="slide-kicker">20J / TAG COMBO CASE 09</span>
+        <h2>实例展示：人群洞察 II</h2>
+        <figure class="source-deck-frame">
+          <img src="assets/winona-tag-combo-case-09.png" alt="医美、成分党、特殊期人群的内容需求" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide source-deck-slide" id="tag-case-10">
+      <div class="slide-inner">
+        <span class="slide-kicker">20K / TAG COMBO CASE 10</span>
+        <h2>实例展示：需求组合</h2>
+        <figure class="source-deck-frame">
+          <img src="assets/winona-tag-combo-case-10.png" alt="主流需求组合与新兴需求组合" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide source-deck-slide" id="tag-case-11">
+      <div class="slide-inner">
+        <span class="slide-kicker">20L / TAG COMBO CASE 11</span>
+        <h2>实例展示：内容矩阵</h2>
+        <figure class="source-deck-frame">
+          <img src="assets/winona-tag-combo-case-11.png" alt="从标签组合到 Feed Search Content 三类资产" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide source-deck-slide" id="tag-case-12">
+      <div class="slide-inner">
+        <span class="slide-kicker">20M / TAG COMBO CASE 12</span>
+        <h2>实例展示：七维矩阵</h2>
+        <figure class="source-deck-frame">
+          <img src="assets/winona-tag-combo-case-12.png" alt="把人群洞察转成可投测内容假设" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide source-deck-slide" id="tag-case-13">
+      <div class="slide-inner">
+        <span class="slide-kicker">20N / TAG COMBO CASE 13</span>
+        <h2>实例展示：生产规则</h2>
+        <figure class="source-deck-frame">
+          <img src="assets/winona-tag-combo-case-13.png" alt="先写用户问题，再放产品角色" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide" id="s18">
+      <div class="slide-inner">
+        <span class="slide-kicker">21 / TRUST BREAKTHROUGH</span>
+        <h2>突破区：用真实感和评论区信任，补齐 AIGC 内容的模板化短板</h2>
+        <p class="lead">当内容越来越像，素人体验、KOC 场景和评论区追问会成为更稀缺的信任资产。突破区的核心，是用素人内容瓜分首页推荐流量，并在评论区完成决策前的信任狙击。</p>
+        <table><thead><tr><th>监控维度</th><th>执行频率</th><th>操作标准</th><th>输出物</th></tr></thead><tbody>
+          <tr><td class="red-cell">核心关键词素人笔记排名</td><td>每日</td><td>抓取 Top50 中粉丝 &lt;1w 的笔记</td><td>素人爆文榜单</td></tr>
+          <tr><td class="red-cell">素人笔记互动数据</td><td>每日</td><td>互动率 ≥10% 且粉丝 &lt;1w</td><td>潜力素人池</td></tr>
+          <tr><td class="red-cell">竞品素人笔记动态</td><td>每日</td><td>竞品素人笔记增长 ≥20% 时预警</td><td>竞品动态周报</td></tr>
+          <tr><td class="red-cell">素人内容类型分析</td><td>每周</td><td>归纳爆文结构、场景、表达方式</td><td>素人内容趋势报告</td></tr>
+        </tbody></table>
+        <div class="content-grid">
+          <div class="card"><h3>高转化素人笔记模板</h3><ul class="section-list"><li>真实使用记录型：用了 X 天，状态终于稳了。</li><li>求助咨询型：敏感肌求助！这种情况还能用这个吗？</li><li>对比测评型：薇诺娜和玉泽，真实用户 28 天对比。</li><li>场景记录型：出差忘带护肤品，用了同事的，结果？</li><li>吐槽转粉型：以前觉得是智商税，现在真香了。</li></ul></div>
+          <div class="card"><h3>评论区运营三层架构</h3><ul class="section-list"><li>正面口碑铺设：发布后 24 小时内安排 3-5 条真实体验评论。</li><li>真实疑问解答：用真实问题带出适用边界、使用方法和注意事项。</li><li>使用场景补充：补充不同肤质、场景、周期的反馈。</li></ul></div>
+        </div>
+        <div class="talk-track"><b>讲述口径：</b>达人负责建立声量，素人负责提供真实体验，评论区负责完成最后的信任验证。AIGC 可以提高内容产能，但真实感必须通过人和互动来补足。</div>
+      </div>
+    </section>
+
+    <section class="slide" id="s19">
+      <div class="slide-inner">
+        <span class="slide-kicker">22 / FUTURE ENTRANCE</span>
+        <h2>未来布局区：提前占领点点和 AI 搜索等下一代答案入口</h2>
+        <p class="lead">点点代表小红书内容被 AI 化、答案化调用的新入口。未来品牌竞争不只是争首页曝光，也是在争“被 AI 答案引用”的内容来源。</p>
+        <table><thead><tr><th>步骤</th><th>动作</th><th>输出</th></tr></thead><tbody>
+          <tr><td class="red-cell">触发词识别</td><td>每周输入品牌词、品类词、痛点词，记录点点回答</td><td>高频问题清单</td></tr>
+          <tr><td class="red-cell">来源笔记反向定位</td><td>找到被回答引用或近似引用的笔记</td><td>来源笔记特征表</td></tr>
+          <tr><td class="red-cell">回答结构拆解</td><td>分析点点如何组织推荐、理由、注意事项</td><td>AI 答案框架</td></tr>
+          <tr><td class="red-cell">内容特征归纳</td><td>判断哪些笔记更容易被引用</td><td>点点内容优化清单</td></tr>
+        </tbody></table>
+        <div class="content-grid">
+          <div class="card"><h3>点点高引用内容特征</h3><ul class="section-list"><li>深度测评、使用记录、成分分析。</li><li>问题 → 方案 → 验证 → 总结。</li><li>具体数据、时间线、步骤。</li><li>前后对比图、使用过程、成分表。</li><li>评论区有深度问答。</li></ul></div>
+          <div class="card"><h3>AI 搜索友好内容原则</h3><ul class="section-list"><li>问答型标题：直接包含用户问题。</li><li>结论前置：前 3 句话给出清晰判断。</li><li>结构化表达：问题、原因、方法、注意事项。</li><li>数据支撑：时间线、步骤、具体变化。</li><li>语义覆盖：自然覆盖同义词、长尾词和相关场景。</li></ul></div>
+        </div>
+        <div class="talk-track"><b>讲述口径：</b>过去内容是写给用户看的，未来一部分内容也要写给平台和 AI 系统理解。未来布局区不是短期 ROI 项目，而是提前建设下一代搜索资产。</div>
+      </div>
+    </section>
+
+    <section class="slide" id="part04" aria-label="Part 04 章节页">
+      <div class="slide-inner">
+        <div class="part-layout">
+          <div class="part-label">
+            <span>Part</span>
+            <span>04</span>
+          </div>
+
+          <div class="part-copy">
+            <span class="slide-kicker">23 / Chapter</span>
+            <h2>项目实施路径<br />与合作机制</h2>
+            <p class="part-thesis">用 12 周建立从诊断、洞察、测试、放量到复盘的 FSC 内容增长闭环。</p>
+          </div>
+
+          <div class="part-collage" aria-label="项目交付、搜索承接与数据反馈拼贴">
+            <figure class="feed-fragment feed">
+              <img src="薇诺娜deck图片/IMG_0779.jpg" alt="项目交付与内容反馈示意" />
+            </figure>
+            <div class="feed-fragment search">
+              <span class="fragment-label">Search Result</span>
+              <div class="search-bar">FSC 内容增长闭环</div>
+              <div class="search-results">
+                <span class="search-line"></span>
+                <span class="search-line"></span>
+                <span class="search-line"></span>
+              </div>
+            </div>
+            <div class="feed-fragment comment">
+              <span class="fragment-label">Comment Area</span>
+              <div class="comment-stack">
+                <span class="comment-line"></span>
+                <span class="comment-line"></span>
+                <span class="comment-line"></span>
+              </div>
+            </div>
+            <div class="feed-fragment ai">
+              <span class="fragment-label">AI Generated Answer</span>
+              <div class="ai-stack">
+                <span class="ai-line"></span>
+                <span class="ai-line"></span>
+                <span class="ai-line"></span>
+              </div>
+            </div>
+            <span class="orange-star">*</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="s20">
+      <div class="slide-inner">
+        <span class="slide-kicker">23 / DELIVERY ROADMAP</span>
+        <h2>12 周建立 FSC 内容增长闭环</h2>
+        <p class="lead">FSC 不应只呈现方法论，还要明确项目周期、交付物和双方协作方式，让客户知道买到的是一套可执行的增长服务。</p>
+        <table><thead><tr><th>阶段</th><th>周期</th><th>核心动作</th><th>交付物</th></tr></thead><tbody>
+          <tr><td class="red-cell">诊断期</td><td>第 1-2 周</td><td>梳理品类竞争、品牌内容、历史投放和搜索现状</td><td>品类搜索地图、竞品内容拆解、评论区问题库</td></tr>
+          <tr><td class="red-cell">洞察期</td><td>第 3-4 周</td><td>识别用户 GAP、排序内容机会、确定测试方向</td><td>GAP 洞察卡、内容机会排序、测试策略</td></tr>
+          <tr><td class="red-cell">测试期</td><td>第 5-8 周</td><td>生产并测试内容矩阵，观察用户反馈和搜索承接</td><td>F5 内容矩阵、测试脚本、素人和 KOC 内容池</td></tr>
+          <tr><td class="red-cell">放量期</td><td>第 9-12 周</td><td>复制高效内容、优化搜索承接、运营评论区信任</td><td>放量清单、评论区话术库、搜索承接优化建议</td></tr>
+          <tr><td class="red-cell">复盘期</td><td>每月</td><td>复盘数据表现，更新关键词和内容资产</td><td>月度复盘报告、下一轮内容策略、资产沉淀清单</td></tr>
+        </tbody></table>
+        <div class="content-grid">
+          <div class="card"><h3>客户配合资料</h3><ul class="section-list"><li>产品卖点、功效证据、使用边界。</li><li>历史投放数据、内容链接、达人名单。</li><li>竞品名单、目标人群、重点关键词。</li><li>电商转化数据、客服高频问题、售后反馈。</li><li>合规要求、禁用表达、可公开素材。</li></ul></div>
+          <div class="placeholder"><span class="filetag">12-week-roadmap.png</span><div><strong>12 周时间线 + 核心交付物</strong><p>用诊断、洞察、测试、放量、复盘五阶段展示服务交付。</p></div></div>
+        </div>
+        <div class="talk-track"><b>讲述口径：</b>这一页要把方法论落到服务交付。客户买的不是一个 PPT，而是一套从诊断、洞察、内容生产、投测、放量到复盘的工作流。</div>
+      </div>
+    </section>
+
+    <section class="slide" id="ending">
+      <div class="slide-inner">
+        <span class="slide-kicker">24 / FINAL VALUE</span>
+        <h2>FSC 的最终价值：让内容从投放素材，变成可持续增长资产</h2>
+        <p class="lead">FSC 的价值，不是帮品牌多发几篇笔记，而是帮助品牌建立一套能持续被看到、被搜索、被验证、被相信的内容资产系统。</p>
+        <div class="asset-flow" aria-label="FSC 内容资产飞轮">
+          <span class="asset-chip">用户问题</span><span class="arrow">→</span>
+          <span class="asset-chip">内容矩阵</span><span class="arrow">→</span>
+          <span class="asset-chip">搜索承接</span><span class="arrow">→</span>
+          <span class="asset-chip">评论信任</span><span class="arrow">→</span>
+          <span class="asset-chip">数据反馈</span><span class="arrow">→</span>
+          <span class="asset-chip">下一轮内容生产</span>
+        </div>
+        <table><thead><tr><th>区域</th><th>在飞轮中的作用</th></tr></thead><tbody>
+          <tr><td class="red-cell">保底区</td><td>提供基础内容胜率</td></tr>
+          <tr><td class="red-cell">快赢区</td><td>发现用户尚未被满足的问题</td></tr>
+          <tr><td class="red-cell">突破区</td><td>用真实体验补足信任</td></tr>
+          <tr><td class="red-cell">未来布局区</td><td>沉淀 AI 搜索友好资产</td></tr>
+        </tbody></table>
+        <div class="note">当用户变得更谨慎，平台入口变得更复杂，品牌真正要建设的是一套能持续影响用户决策的内容系统。这就是 FSC 要解决的问题。</div>
+        <div class="talk-track"><b>讲述口径：</b>FSC 不是一套内容生产工具，而是一套持续影响用户决策的增长系统。它能提高内容效率，也能提高搜索承接、信任验证和长期资产复用能力。</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    WINONA FSC REPORT / HTML draft aligned to latest deck script
+  </footer>
+</body>
+</html>
