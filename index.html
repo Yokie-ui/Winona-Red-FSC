@@ -1232,6 +1232,753 @@
       gap: 16px;
     }
 
+    .persona-slide {
+      padding-top: 38px;
+      padding-bottom: 42px;
+    }
+
+    .persona-slide .slide-inner {
+      gap: 18px;
+    }
+
+    .persona-slide h2 {
+      font-size: clamp(30px, 3.7vw, 48px);
+    }
+
+    .persona-slide .lead {
+      max-width: 1060px;
+      font-size: clamp(16px, 1.55vw, 20px);
+      line-height: 1.48;
+    }
+
+    .persona-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .persona-summary-card {
+      display: grid;
+      gap: 10px;
+      min-height: 330px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .persona-summary-card strong {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--brand-red);
+      color: #fff;
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .persona-summary-card h3 {
+      color: #20242b;
+      font-size: 19px;
+      line-height: 1.28;
+    }
+
+    .persona-summary-card p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.52;
+    }
+
+    .persona-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-content: start;
+    }
+
+    .persona-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 25px;
+      padding: 4px 8px;
+      border: 1px solid #f0c6ce;
+      border-radius: 999px;
+      background: #fff7f8;
+      color: var(--brand-red);
+      font-size: 11px;
+      font-weight: 760;
+      line-height: 1.2;
+    }
+
+    .persona-feature-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .persona-hero-card {
+      position: relative;
+      display: grid;
+      align-content: space-between;
+      gap: 16px;
+      aspect-ratio: 3 / 4;
+      min-height: 520px;
+      padding: 22px;
+      overflow: hidden;
+      border: 1px solid #f0c6ce;
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, #fff2f4 0%, #ffffff 58%),
+        var(--white);
+    }
+
+    .persona-hero-card::before,
+    .persona-hero-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .persona-hero-card::before {
+      background-image: var(--persona-image);
+      background-size: cover;
+      background-position: center;
+      opacity: 1;
+      filter: saturate(1.02) contrast(1.04);
+    }
+
+    .persona-hero-card::after {
+      background:
+        radial-gradient(circle at 16% 8%, rgba(255, 255, 255, 0.88) 0 17%, rgba(255, 255, 255, 0.28) 38%, rgba(255, 255, 255, 0) 64%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.02) 40%, rgba(255, 247, 248, 0.42) 100%),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.16) 45%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    .persona-hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .persona-hero-card .persona-code {
+      color: var(--brand-red);
+      font-size: 72px;
+      font-weight: 880;
+      line-height: 0.9;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9), 0 12px 28px rgba(255, 255, 255, 0.78);
+    }
+
+    .persona-hero-card h3 {
+      font-size: clamp(28px, 3.1vw, 42px);
+      line-height: 1.12;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.92), 0 10px 24px rgba(255, 255, 255, 0.82), 0 0 2px rgba(255, 255, 255, 0.9);
+    }
+
+    .persona-hero-card p {
+      color: #3d424a;
+      font-size: 17px;
+      font-weight: 720;
+      line-height: 1.45;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.96), 0 8px 20px rgba(255, 255, 255, 0.86), 0 0 2px rgba(255, 255, 255, 0.9);
+    }
+
+    .persona-info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .persona-info-box {
+      display: grid;
+      gap: 8px;
+      min-height: 148px;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .persona-info-box h3 {
+      color: var(--brand-red);
+      font-size: 17px;
+    }
+
+    .persona-info-box p,
+    .persona-info-box li {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .persona-info-box ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .persona-content-layout {
+      display: grid;
+      grid-template-columns: minmax(240px, 0.54fr) minmax(620px, 1.46fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .note-type-panel {
+      display: grid;
+      gap: 8px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .note-type {
+      display: grid;
+      grid-template-columns: 24px minmax(0, 1fr);
+      gap: 8px;
+      align-items: start;
+      width: 100%;
+      padding: 9px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+    }
+
+    .note-type:hover,
+    .note-type.is-active {
+      border-color: #f0c6ce;
+      background: #fff7f8;
+      transform: translateY(-1px);
+    }
+
+    .note-type.is-active {
+      box-shadow: inset 4px 0 0 var(--brand-red);
+    }
+
+    .note-type b {
+      display: grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #fff2f4;
+      color: var(--brand-red);
+      font-size: 13px;
+      line-height: 1;
+    }
+
+    .note-type h3 {
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .note-type p {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .demo-wall {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      align-items: start;
+    }
+
+    .demo-shot {
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 12px 30px rgba(36, 38, 43, 0.08);
+    }
+
+    .demo-shot img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+    }
+
+    .demo-shot figcaption {
+      min-height: 76px;
+      padding: 10px;
+      border-top: 1px solid var(--line);
+      color: #3b3f46;
+      font-size: 12px;
+      font-weight: 720;
+      line-height: 1.35;
+    }
+
+    .interactive-demo-stage {
+      min-width: 0;
+    }
+
+    .demo-note {
+      display: none;
+      grid-template-columns: minmax(400px, 1fr) minmax(0, 0.95fr);
+      gap: 18px;
+      align-items: start;
+      min-height: 560px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .demo-note.is-active {
+      display: grid;
+    }
+
+    .demo-note-figure {
+      position: relative;
+      margin: 0;
+      overflow: hidden;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f2f3f5;
+    }
+
+    .demo-note-figure img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .demo-gallery-btn {
+      position: absolute;
+      top: 50%;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 50%;
+      background: rgba(36, 38, 43, 0.52);
+      color: #fff;
+      font-size: 26px;
+      line-height: 1;
+      cursor: pointer;
+      transform: translateY(-50%);
+      backdrop-filter: blur(8px);
+    }
+
+    .demo-gallery-btn:hover {
+      background: rgba(200, 16, 46, 0.82);
+    }
+
+    .demo-gallery-btn.prev {
+      left: 10px;
+    }
+
+    .demo-gallery-btn.next {
+      right: 10px;
+    }
+
+    .demo-gallery-count {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      z-index: 2;
+      min-width: 44px;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: rgba(36, 38, 43, 0.64);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 760;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .demo-note-copy {
+      display: grid;
+      align-content: start;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .demo-note-copy h3 {
+      color: #20242b;
+      font-size: clamp(22px, 2vw, 30px);
+      line-height: 1.18;
+    }
+
+    .demo-note-copy p,
+    .demo-note-copy li {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.52;
+    }
+
+    .demo-note-copy ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .demo-note-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .demo-note-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 25px;
+      padding: 4px 8px;
+      border: 1px solid #f0c6ce;
+      border-radius: 999px;
+      background: #fff7f8;
+      color: var(--brand-red);
+      font-size: 11px;
+      font-weight: 760;
+      line-height: 1.2;
+    }
+
+    .demo-note-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .demo-note-metric {
+      padding: 9px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+    }
+
+    .demo-note-metric strong {
+      display: block;
+      color: var(--brand-red);
+      font-size: 17px;
+      line-height: 1.1;
+    }
+
+    .demo-note-metric span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .case-html-slide {
+      padding-top: 38px;
+      padding-bottom: 42px;
+    }
+
+    .case-html-slide .slide-inner {
+      gap: 18px;
+    }
+
+    .case-html-slide h2 {
+      font-size: clamp(30px, 3.7vw, 48px);
+    }
+
+    .case-html-slide .lead {
+      max-width: 1040px;
+      font-size: clamp(16px, 1.55vw, 20px);
+      line-height: 1.48;
+    }
+
+    .case-cover-box {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(340px, 1.08fr);
+      gap: 24px;
+      align-items: stretch;
+      min-height: 540px;
+      padding: 28px;
+      border: 1px solid #f0c6ce;
+      border-radius: 8px;
+      background:
+        linear-gradient(120deg, #fff2f4 0%, #ffffff 52%),
+        var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .case-cover-copy {
+      display: grid;
+      align-content: center;
+      gap: 20px;
+      min-width: 0;
+    }
+
+    .case-logo {
+      color: var(--brand-red);
+      font-size: clamp(42px, 5vw, 68px);
+      font-weight: 900;
+      letter-spacing: 4px;
+      line-height: 0.95;
+    }
+
+    .case-cover-copy h2 {
+      font-size: clamp(34px, 4.2vw, 58px);
+    }
+
+    .case-cover-copy p {
+      color: #3d424a;
+      font-size: 20px;
+      line-height: 1.45;
+      font-weight: 720;
+    }
+
+    .case-cover-panel {
+      display: grid;
+      align-content: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .case-equation {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .case-token {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 10px;
+      border: 1px solid #f0c6ce;
+      border-radius: 999px;
+      background: #fff7f8;
+      color: var(--brand-red);
+      font-size: 13px;
+      font-weight: 780;
+      white-space: nowrap;
+    }
+
+    .case-plus {
+      color: #aeb4bd;
+      font-weight: 820;
+    }
+
+    .case-callout {
+      padding: 18px;
+      border-left: 4px solid var(--brand-red);
+      border-radius: 0 8px 8px 0;
+      background: #fff8f9;
+      color: #20242b;
+      font-size: 20px;
+      font-weight: 820;
+      line-height: 1.42;
+    }
+
+    .case-two-col,
+    .case-three-col,
+    .case-six-grid,
+    .case-flow,
+    .case-combo-grid {
+      display: grid;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .case-two-col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .case-three-col {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .case-six-grid {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .case-flow {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .case-combo-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .case-card {
+      display: grid;
+      gap: 10px;
+      min-width: 0;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .case-card.red {
+      border-color: #f0c6ce;
+      background: #fff8f9;
+    }
+
+    .case-card h3 {
+      color: var(--brand-red);
+      font-size: 19px;
+    }
+
+    .case-card p,
+    .case-card li {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.52;
+    }
+
+    .case-card ul,
+    .case-card ol {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .case-metric {
+      display: block;
+      color: var(--brand-red);
+      font-size: 34px;
+      font-weight: 880;
+      line-height: 1;
+    }
+
+    .case-flow-step {
+      position: relative;
+      display: grid;
+      gap: 8px;
+      min-height: 150px;
+      padding: 18px 13px 13px;
+      border: 1px solid #f0c6ce;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .case-flow-step::before {
+      content: attr(data-step);
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--brand-red);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .case-flow-step h3 {
+      color: #20242b;
+      font-size: 18px;
+    }
+
+    .case-flow-step p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .case-fsc-card {
+      display: grid;
+      gap: 12px;
+      min-height: 300px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .case-fsc-card strong {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #fff2f4;
+      color: var(--brand-red);
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    .case-fsc-card h3 {
+      color: #20242b;
+      font-size: 22px;
+    }
+
+    .case-fsc-card p,
+    .case-fsc-card li {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .case-fsc-card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .case-mini-table {
+      display: grid;
+      gap: 8px;
+    }
+
+    .case-row {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .case-row b {
+      color: var(--brand-red);
+    }
+
+    .case-title-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .case-title-item {
+      padding: 12px 14px;
+      border: 1px solid #f0c6ce;
+      border-radius: 8px;
+      background: #fff8f9;
+      color: #30343b;
+      font-size: 15px;
+      font-weight: 760;
+      line-height: 1.4;
+    }
+
+    .case-matrix-table th,
+    .case-matrix-table td {
+      padding: 10px 11px;
+      font-size: 12px;
+      line-height: 1.42;
+    }
+
     .source-deck-frame {
       margin: 0;
       overflow: hidden;
@@ -1863,6 +2610,7 @@
       position: absolute;
       left: 50%;
       top: 46%;
+      margin: 0;
       width: 96px;
       height: 96px;
       overflow: hidden;
@@ -1941,6 +2689,7 @@
     }
 
     .node-shot {
+      margin: 0;
       width: 38px;
       height: 56px;
       overflow: hidden;
@@ -1957,8 +2706,8 @@
 
     .verify-node.search {
       left: 50%;
-      top: 0;
-      transform: translateX(-50%);
+      top: 18%;
+      transform: translate(-50%, -50%);
     }
 
     .verify-node.koc {
@@ -2626,6 +3375,172 @@
       text-align: center;
       writing-mode: vertical-rl;
       text-transform: uppercase;
+    }
+
+    .fsc-system {
+      display: grid;
+      gap: 14px;
+      padding: clamp(20px, 2.6vw, 30px);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 18px 48px rgba(36, 38, 43, 0.08);
+    }
+
+    .fsc-system-title {
+      color: #20242b;
+      font-size: clamp(24px, 2.6vw, 34px);
+      font-weight: 760;
+      line-height: 1.12;
+      text-align: center;
+    }
+
+    .fsc-system-map {
+      display: grid;
+      grid-template-columns: minmax(150px, 0.82fr) minmax(310px, 1.58fr) minmax(150px, 0.86fr);
+      grid-template-rows: 136px 132px 88px;
+      gap: 8px;
+      width: min(900px, 100%);
+      margin: 4px auto 0;
+    }
+
+    .fsc-zone {
+      display: grid;
+      place-items: center;
+      min-width: 0;
+      padding: 10px 16px;
+      border: 1px solid #f0c6ce;
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 248, 249, 0.98) 100%),
+        var(--white);
+      color: #20242b;
+      text-align: center;
+      box-shadow: 0 16px 34px rgba(36, 38, 43, 0.08);
+    }
+
+    .fsc-zone.efficiency {
+      grid-column: 1;
+      grid-row: 1;
+      z-index: 2;
+    }
+
+    .fsc-zone.opportunity {
+      grid-column: 1 / 3;
+      grid-row: 1 / 3;
+      z-index: 1;
+      grid-template-columns: minmax(150px, 0.82fr) minmax(310px, 1.58fr);
+      gap: 8px;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--brand-red) 0%, #e85482 100%);
+      color: #fff;
+      box-shadow: 0 22px 46px rgba(200, 16, 46, 0.22);
+    }
+
+    .fsc-zone.opportunity .fsc-zone-copy {
+      grid-column: 2;
+      justify-self: center;
+      align-self: center;
+    }
+
+    .fsc-zone.future {
+      grid-column: 3;
+      grid-row: 1 / 3;
+      z-index: 2;
+    }
+
+    .fsc-zone.trust-engine {
+      grid-column: 1 / 4;
+      grid-row: 3;
+      z-index: 2;
+      background:
+        linear-gradient(90deg, rgba(255, 242, 244, 0.98) 0%, rgba(255, 255, 255, 0.98) 52%, rgba(255, 242, 244, 0.98) 100%),
+        var(--white);
+    }
+
+    .fsc-zone-copy {
+      display: grid;
+      justify-items: center;
+      gap: 6px;
+      max-width: 100%;
+    }
+
+    .fsc-zone strong {
+      display: block;
+      color: var(--brand-red);
+      font-size: clamp(20px, 1.8vw, 26px);
+      font-weight: 880;
+      line-height: 1.08;
+    }
+
+    .fsc-zone em {
+      display: block;
+      color: #20242b;
+      font-style: normal;
+      font-size: clamp(15px, 1.35vw, 20px);
+      font-weight: 780;
+      line-height: 1.08;
+    }
+
+    .fsc-zone span {
+      display: block;
+      max-width: 12em;
+      color: #30343b;
+      font-size: clamp(16px, 1.55vw, 23px);
+      font-weight: 860;
+      line-height: 1.15;
+    }
+
+    .fsc-zone.opportunity strong,
+    .fsc-zone.opportunity em,
+    .fsc-zone.opportunity span {
+      color: #fff;
+    }
+
+    .fsc-zone.opportunity strong {
+      font-size: clamp(30px, 2.7vw, 38px);
+    }
+
+    .fsc-zone.opportunity em,
+    .fsc-zone.opportunity span {
+      font-size: clamp(23px, 2.15vw, 32px);
+    }
+
+    .fsc-zone.future span,
+    .fsc-zone.efficiency span {
+      max-width: 7em;
+    }
+
+    .fsc-zone.trust-engine span {
+      max-width: none;
+      font-size: clamp(16px, 1.35vw, 21px);
+    }
+
+    .fsc-zone.trust-engine strong {
+      font-size: clamp(20px, 1.55vw, 24px);
+    }
+
+    .fsc-zone.trust-engine em {
+      font-size: clamp(15px, 1.2vw, 18px);
+    }
+
+    .fsc-system-foot {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .fsc-system-foot span {
+      min-width: 0;
+      padding: 10px 12px;
+      border: 1px solid #f0c6ce;
+      border-radius: 8px;
+      background: #fff8f9;
+      color: #3f444c;
+      font-size: 11px;
+      font-weight: 760;
+      line-height: 1.38;
+      text-align: center;
     }
 
     .hero-metrics {
@@ -3553,7 +4468,11 @@
 
       .hero,
       .content-grid,
-      .chapter-layout {
+      .chapter-layout,
+      .persona-feature-layout,
+      .persona-content-layout,
+      .case-cover-box,
+      .demo-note {
         grid-template-columns: 1fr;
       }
 
@@ -3563,6 +4482,12 @@
 
       .three-grid,
       .four-grid,
+      .persona-summary-grid,
+      .persona-info-grid,
+      .case-two-col,
+      .case-three-col,
+      .case-six-grid,
+      .case-combo-grid,
       .test-flow,
       .tag-lab-grid,
       .qw-grid,
@@ -3574,7 +4499,8 @@
       }
 
       .qw-flow,
-      .qw-case-grid {
+      .qw-case-grid,
+      .case-flow {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -3618,6 +4544,15 @@
 
       .model-compare {
         grid-template-columns: 1fr;
+      }
+
+      .fsc-system-map {
+        grid-template-columns: minmax(120px, 0.85fr) minmax(220px, 1.5fr) minmax(120px, 0.85fr);
+        grid-template-rows: 136px 128px 106px;
+      }
+
+      .fsc-system-foot {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .entrance-hero {
@@ -3773,6 +4708,18 @@
       .meta-row,
       .three-grid,
       .four-grid,
+      .persona-summary-grid,
+      .persona-feature-layout,
+      .persona-info-grid,
+      .persona-content-layout,
+      .demo-wall,
+      .demo-note,
+      .case-cover-box,
+      .case-two-col,
+      .case-three-col,
+      .case-six-grid,
+      .case-flow,
+      .case-combo-grid,
       .test-flow,
       .tag-lab-grid,
       .scale-grid,
@@ -3812,6 +4759,51 @@
         grid-template-columns: 92px minmax(0, 1fr) 36px;
       }
 
+      .fsc-system {
+        padding: 18px;
+      }
+
+      .fsc-system-map {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        min-height: 0;
+      }
+
+      .fsc-zone,
+      .fsc-zone.efficiency,
+      .fsc-zone.opportunity,
+      .fsc-zone.future,
+      .fsc-zone.trust-engine {
+        grid-column: auto;
+        grid-row: auto;
+        min-height: 150px;
+      }
+
+      .fsc-zone.opportunity {
+        grid-template-columns: 1fr;
+      }
+
+      .fsc-zone.opportunity .fsc-zone-copy {
+        grid-column: auto;
+      }
+
+      .fsc-zone strong,
+      .fsc-zone.opportunity strong {
+        font-size: 26px;
+      }
+
+      .fsc-zone em,
+      .fsc-zone span,
+      .fsc-zone.opportunity em,
+      .fsc-zone.opportunity span,
+      .fsc-zone.trust-engine span {
+        font-size: 22px;
+      }
+
+      .fsc-system-foot {
+        grid-template-columns: 1fr;
+      }
+
       .decision-steps,
       .entrance-nav,
       .related-search,
@@ -3841,6 +4833,10 @@
 
       .hero-panel {
         min-height: 440px;
+      }
+
+      .persona-hero-card {
+        min-height: 0;
       }
 
       .toc-layout {
@@ -4051,6 +5047,7 @@
       <a href="#part01">Part 01</a>
       <a href="#part02">Part 02</a>
       <a href="#part03">Part 03</a>
+      <a href="#tag-case-01">Content Demo</a>
       <a href="#part04">Part 04</a>
     </nav>
   </header>
@@ -4348,11 +5345,7 @@
                 <line x1="50" y1="46" x2="18" y2="72" />
                 <line x1="50" y1="46" x2="82" y2="72" />
                 <line x1="50" y1="46" x2="50" y2="86" />
-                <path d="M18 36 C21 13, 37 11, 50 18" />
-                <path d="M50 18 C64 10, 79 13, 82 36" />
-                <path d="M18 36 C11 50, 12 65, 18 72" />
-                <path d="M82 36 C90 50, 89 65, 82 72" />
-                <path d="M18 72 C30 91, 67 91, 82 72" />
+                <path d="M50 18 C70 18, 86 31, 86 52 C86 73, 70 86, 50 86 C30 86, 14 73, 14 52 C14 31, 30 18, 50 18" />
               </svg>
 
               <figure class="verify-user">
@@ -4771,12 +5764,45 @@
         <span class="slide-kicker">13 / FOUR ZONES</span>
         <h2>FSC 四区模型：从基础效率、增量机会、信任突破到未来入口</h2>
         <p class="lead">FSC 四区模型不是四个割裂项目，而是从“确定性复制”到“增量探索”再到“信任放大”和“未来卡位”的完整增长闭环。</p>
-        <table><thead><tr><th>区域</th><th>核心输入</th><th>核心输出</th><th>衡量指标</th></tr></thead><tbody>
-          <tr><td class="red-cell">保底区</td><td>行业爆文、竞品内容、历史投放数据</td><td>内容模板库、标题库、脚本库</td><td>CTR、互动率、CPE、爆文率</td></tr>
-          <tr><td class="red-cell">快赢区</td><td>搜索词、评论区、素人笔记、竞品评论</td><td>GAP 洞察卡、内容机会排序、测试脚本</td><td>收藏率、评论质量、搜索承接、转化线索</td></tr>
-          <tr><td class="red-cell">突破区</td><td>核心关键词、素人爆文、用户疑虑问题</td><td>素人内容矩阵、评论话术库、信任证据池</td><td>关键词占位、评论追问质量、首页流量占比</td></tr>
-          <tr><td class="red-cell">未来布局区</td><td>点点来源笔记、AI 答案引用内容、高频问题</td><td>点点内容策略、AI 搜索友好内容资产</td><td>点点引用、搜索曝光、内容复用率</td></tr>
-        </tbody></table>
+        <div class="fsc-system" aria-label="FSC 四区增长操作系统模型">
+          <h3 class="fsc-system-title">FSC Growth Operating System</h3>
+          <div class="fsc-system-map">
+            <div class="fsc-zone efficiency">
+              <div class="fsc-zone-copy">
+                <strong>保底区</strong>
+                <em>Efficiency</em>
+                <span>如何稳定拿结果</span>
+              </div>
+            </div>
+            <div class="fsc-zone opportunity">
+              <div class="fsc-zone-copy">
+                <strong>快赢区</strong>
+                <em>Opportunity</em>
+                <span>如何快速找到增量</span>
+              </div>
+            </div>
+            <div class="fsc-zone future">
+              <div class="fsc-zone-copy">
+                <strong>未来布局区</strong>
+                <em>Future</em>
+                <span>如何提前占入口</span>
+              </div>
+            </div>
+            <div class="fsc-zone trust-engine">
+              <div class="fsc-zone-copy">
+                <strong>突破区</strong>
+                <em>Trust Engine</em>
+                <span>如何建立竞争壁垒</span>
+              </div>
+            </div>
+          </div>
+          <div class="fsc-system-foot" aria-label="四区关键输出">
+            <span>保底区：模板库 / 标题库 / 脚本库</span>
+            <span>快赢区：GAP 洞察 / 机会排序 / 测试脚本</span>
+            <span>突破区：素人矩阵 / 话术库 / 信任证据池</span>
+            <span>未来布局区：点点内容 / AI 搜索友好资产</span>
+          </div>
+        </div>
         <div class="note">客户买到的不是只是一套内容方案，而是一套从诊断、洞察、生产、测试、放量到复盘的增长工作流。</div>
       </div>
     </section>
@@ -4948,133 +5974,531 @@
       </div>
     </section>
 
-    <section class="slide source-deck-slide" id="tag-case-01">
+    <section class="slide case-html-slide" id="tag-case-01">
       <div class="slide-inner">
         <span class="slide-kicker">20B / TAG COMBO CASE 01</span>
-        <h2>实例展示：封面</h2>
-        <figure class="source-deck-frame">
-          <img src="assets/winona-tag-combo-case-01.png" alt="薇诺娜特护霜 FSC 快赢区 × 标签组合内容方案" />
-        </figure>
+        <div class="case-cover-box">
+          <div class="case-cover-copy">
+            <div class="case-logo">WINONA</div>
+            <h2>薇诺娜特护霜 FSC 快赢区 × 标签组合内容方案</h2>
+            <p>用标签组合还原真实需求时刻，再把需求转成 Feed 触发、Search 承接和 Content 信任资产。</p>
+          </div>
+          <div class="case-cover-panel">
+            <div class="case-equation">
+              <span class="case-token">人群身份</span><span class="case-plus">×</span>
+              <span class="case-token">触发场景</span><span class="case-plus">×</span>
+              <span class="case-token">皮肤状态</span><span class="case-plus">×</span>
+              <span class="case-token">风险顾虑</span><span class="case-plus">×</span>
+              <span class="case-token">证据需求</span><span class="case-plus">×</span>
+              <span class="case-token">决策入口</span>
+            </div>
+            <div class="case-callout">单一标签只能告诉我们“她是谁”，标签组合才能告诉我们“她为什么现在需要你”。</div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="slide source-deck-slide" id="tag-case-02">
+    <section class="slide case-html-slide" id="tag-case-02">
       <div class="slide-inner">
         <span class="slide-kicker">20C / TAG COMBO CASE 02</span>
         <h2>实例展示：策略判断</h2>
-        <figure class="source-deck-frame">
-          <img src="assets/winona-tag-combo-case-02.png" alt="机会不在继续占领敏感肌修护，而在占领皮肤状态失控时的具体问题" />
-        </figure>
+        <p class="lead">薇诺娜特护霜的内容机会，不是继续占领“敏感肌修护”这个大标签，而是占领用户皮肤状态失控时的具体问题。</p>
+        <div class="case-two-col">
+          <div class="case-card">
+            <h3>传统内容逻辑</h3>
+            <div class="case-title-list">
+              <div class="case-title-item">品牌卖点</div>
+              <div class="case-title-item">敏感肌可用</div>
+              <div class="case-title-item">温和修护</div>
+              <div class="case-title-item">达人推荐</div>
+            </div>
+          </div>
+          <div class="case-card red">
+            <h3>FSC 标签组合逻辑</h3>
+            <div class="case-title-list">
+              <div class="case-title-item">谁在什么场景下，脸出现了什么状态？</div>
+              <div class="case-title-item">她最担心什么风险，需要哪一种可信证据？</div>
+              <div class="case-title-item">内容应进入 Feed、Search 还是 Content 决策链路？</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-callout">组合越具体，内容越能回答真实需求；内容越能回答真实需求，越容易进入搜索、评论区和 AI 问答的决策链路。</div>
       </div>
     </section>
 
-    <section class="slide source-deck-slide" id="tag-case-03">
+    <section class="slide case-html-slide" id="tag-case-03">
       <div class="slide-inner">
         <span class="slide-kicker">20D / TAG COMBO CASE 03</span>
         <h2>实例展示：标签问题</h2>
-        <figure class="source-deck-frame">
-          <img src="assets/winona-tag-combo-case-03.png" alt="敏感肌是过宽标签，无法直接指导内容生产" />
-        </figure>
+        <p class="lead">“敏感肌”是一个过宽标签，无法直接指导内容生产。同样是敏感肌，用户真正想问的问题完全不同。</p>
+        <table class="case-matrix-table"><thead><tr><th>单一标签</th><th>真实需求差异</th><th>内容方向</th></tr></thead><tbody>
+          <tr><td class="red-cell">敏感肌</td><td>换季泛红的人问“今晚怎么稳住”</td><td>换季急救、精简护肤、褪红记录</td></tr>
+          <tr><td class="red-cell">敏感肌</td><td>刷酸翻车的人问“能不能和功效产品错开用”</td><td>停活性流程、修护时间线</td></tr>
+          <tr><td class="red-cell">敏感肌</td><td>油痘肌红印期的人问“修护霜会不会闷痘”</td><td>清爽质地、薄涂实测、红印打卡</td></tr>
+          <tr><td class="red-cell">敏感肌</td><td>医美后的人问“第几天能用、用错会不会影响恢复”</td><td>术后时间线、遵医嘱边界、专业背书</td></tr>
+          <tr><td class="red-cell">敏感肌</td><td>孕期用户问“成分有没有争议、能不能更保守”</td><td>成分清单、禁用排除、长期记录</td></tr>
+        </tbody></table>
       </div>
     </section>
 
-    <section class="slide source-deck-slide" id="tag-case-04">
+    <section class="slide case-html-slide" id="tag-case-04">
       <div class="slide-inner">
         <span class="slide-kicker">20E / TAG COMBO CASE 04</span>
         <h2>实例展示：组合模型</h2>
-        <figure class="source-deck-frame">
-          <img src="assets/winona-tag-combo-case-04.png" alt="标签不是越多越好，而是要能拼出购买问题" />
-        </figure>
+        <p class="lead">标签不是越多越好，而是要能拼出购买问题。每一层标签都要服务“此刻为什么需要买”。</p>
+        <div class="case-six-grid">
+          <div class="case-card"><h3>人群标签</h3><p>判断用户是谁：敏感肌、油痘肌、医美后人群、孕期/特殊期用户。</p></div>
+          <div class="case-card"><h3>触发场景</h3><p>判断需求何时发生：换季、刷酸后、项目后、出差、花粉季。</p></div>
+          <div class="case-card"><h3>肤况状态</h3><p>判断脸正在发生什么：泛红、刺痛、干热、脱皮、红印、薄皮。</p></div>
+          <div class="case-card"><h3>风险顾虑</h3><p>判断用户为什么不敢买：怕刺痛、怕闷痘、怕冲突、怕风险。</p></div>
+          <div class="case-card"><h3>证据需求</h3><p>判断内容拿什么说服：真实记录、成分解释、医生背书、问答。</p></div>
+          <div class="case-card"><h3>决策入口</h3><p>判断服务哪个触点：Feed 激发、Search 承接、Content 验证。</p></div>
+        </div>
+        <div class="case-callout">示例：油痘肌 + 痘后红印期 + 薄皮泛红 + 怕闷闭口 + 7 天质地实测 = 《痘痘瘪了但脸还是红，油痘肌用修护霜会不会闷？》</div>
       </div>
     </section>
 
-    <section class="slide source-deck-slide" id="tag-case-05">
+    <section class="slide case-html-slide" id="tag-case-05">
       <div class="slide-inner">
         <span class="slide-kicker">20F / TAG COMBO CASE 05</span>
         <h2>实例展示：FSC 触点</h2>
-        <figure class="source-deck-frame">
-          <img src="assets/winona-tag-combo-case-05.png" alt="同一组需求组合，需要在 Feed、Search、Content 中承担不同任务" />
-        </figure>
+        <p class="lead">同一组需求组合，需要在 Feed、Search、Content 中承担不同任务：先让用户认出自己，再承接主动搜索，最后补足“我敢试”的证据。</p>
+        <div class="case-three-col">
+          <div class="case-fsc-card"><strong>F</strong><h3>Feed 触发“我也是”</h3><p>不要先讲产品，而要先讲用户状态。</p><ul><li>脸突然烫、红、刺、干、脱皮</li><li>换季、刷酸翻车、熬夜、花粉季</li><li>不敢化妆、不敢洗脸、不敢继续护肤</li></ul></div>
+          <div class="case-fsc-card"><strong>S</strong><h3>Search 承接“我该怎么办”</h3><p>标题和正文要变成用户正在搜的问题。</p><ul><li>泛红刺痛、屏障受损、烂脸急救</li><li>换季泛红、刷酸后修护、医美后护理</li><li>会不会闷痘、刺痛能不能用</li></ul></div>
+          <div class="case-fsc-card"><strong>C</strong><h3>Content 形成“我敢试”</h3><p>把品牌卖点转成可验证解决方案。</p><ul><li>3 天/7 天真实使用记录</li><li>不同肤质使用边界</li><li>成分逻辑、竞品差异、评论区问答</li></ul></div>
+        </div>
       </div>
     </section>
 
-    <section class="slide source-deck-slide" id="tag-case-06">
+    <section class="slide case-html-slide" id="tag-case-06">
       <div class="slide-inner">
         <span class="slide-kicker">20G / TAG COMBO CASE 06</span>
         <h2>实例展示：快赢区</h2>
-        <figure class="source-deck-frame">
-          <img src="assets/winona-tag-combo-case-06.png" alt="快赢区不是靠灵感多产内容，而是生产可被证伪的增长假设" />
-        </figure>
+        <p class="lead">快赢区不是靠灵感多产内容，而是生产可被证伪的增长假设。每组标签组合都要能进入小额测试。</p>
+        <div class="case-flow">
+          <div class="case-flow-step" data-step="1"><h3>捕捉问题</h3><p>从搜索词、评论区、素人笔记中找到高频未满足需求。</p></div>
+          <div class="case-flow-step" data-step="2"><h3>组合标签</h3><p>把人群、场景、肤况、风险和证据拼成真实需求命题。</p></div>
+          <div class="case-flow-step" data-step="3"><h3>生成母版</h3><p>拆出 Feed、Search、Content 三类内容表达。</p></div>
+          <div class="case-flow-step" data-step="4"><h3>小额投测</h3><p>观察点击、收藏、评论问题、搜索入池和转化线索。</p></div>
+          <div class="case-flow-step" data-step="5"><h3>复制放量</h3><p>保留胜出组合，替换达人、封面、场景和内容形态。</p></div>
+        </div>
+        <div class="case-two-col">
+          <div class="case-card"><span class="case-metric">3-5 天</span><h3>标签小测期</h3><p>测试 5-8 组标签组合，每组 3-5 条内容母版。</p></div>
+          <div class="case-card red"><span class="case-metric">7-14 天</span><h3>胜出复测期</h3><p>把胜出组合复制为多个场景、达人和表现形式。</p></div>
+        </div>
       </div>
     </section>
 
-    <section class="slide source-deck-slide" id="tag-case-07">
+    <section class="slide case-html-slide" id="tag-case-07">
       <div class="slide-inner">
         <span class="slide-kicker">20H / TAG COMBO CASE 07</span>
         <h2>实例展示：案例</h2>
-        <figure class="source-deck-frame">
-          <img src="assets/winona-tag-combo-case-07.png" alt="换季泛红急救，如何从用户问题跑到可放量内容组合" />
-        </figure>
+        <p class="lead">案例：换季泛红急救，不是“敏感肌面霜推荐”，而是“换季脸突然红烫时，怎么把护肤减到最低风险”。</p>
+        <div class="case-two-col">
+          <div class="case-card red">
+            <h3>标签组合</h3>
+            <div class="case-mini-table">
+              <div class="case-row"><b>人群</b><span>敏感肌刚需党</span></div>
+              <div class="case-row"><b>场景</b><span>春秋换季、温差大、花粉季、北方干燥</span></div>
+              <div class="case-row"><b>肤况</b><span>泛红、刺痛、干热、紧绷</span></div>
+              <div class="case-row"><b>顾虑</b><span>怕越用越红，怕普通面霜刺激</span></div>
+              <div class="case-row"><b>证据</b><span>3 天精简护肤记录、泛红状态变化、评论区答疑</span></div>
+            </div>
+          </div>
+          <div class="case-card">
+            <h3>可投测选题</h3>
+            <div class="case-title-list">
+              <div class="case-title-item">《换季脸红到发烫，我把护肤减到只剩 2 步》</div>
+              <div class="case-title-item">《泛红刺痛那几天，别急着叠功效，先把脸稳住》</div>
+              <div class="case-title-item">《敏感肌换季急救：哪些步骤该停，哪些可以留》</div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="slide source-deck-slide" id="tag-case-08">
+    <section class="slide persona-slide" id="persona-summary">
       <div class="slide-inner">
-        <span class="slide-kicker">20I / TAG COMBO CASE 08</span>
-        <h2>实例展示：人群洞察 I</h2>
-        <figure class="source-deck-frame">
-          <img src="assets/winona-tag-combo-case-08.png" alt="敏肌刚需党与痘痘自救者" />
-        </figure>
+        <span class="slide-kicker">20J-1 / PERSONA INSIGHT SUMMARY</span>
+        <h2>人群洞察及内容方案：5 大决策人群总览</h2>
+        <p class="lead">这 5 类人群不是简单肤质划分，而是 5 种不同的购买心态：急救、修印、术后、求证、安全。内容矩阵需要先识别“她为什么不敢买”，再决定用什么证据种草。</p>
+        <div class="persona-summary-grid">
+          <div class="persona-summary-card">
+            <strong>A</strong>
+            <h3>敏肌刚需党</h3>
+            <p>脸正在泛红、刺痛、脱皮、发热，需要立刻按住失控感。</p>
+            <div class="persona-tags"><span class="persona-tag">急救</span><span class="persona-tag">褪红</span><span class="persona-tag">闭眼用</span></div>
+            <p>内容重点：安全有效、即刻舒缓、真实烂脸前后变化。</p>
+          </div>
+          <div class="persona-summary-card">
+            <strong>B</strong>
+            <h3>痘痘自救者</h3>
+            <p>痘痘退了但红印还在，怕闷痘、怕刺激、怕又复发。</p>
+            <div class="persona-tags"><span class="persona-tag">淡红印</span><span class="persona-tag">不闷痘</span><span class="persona-tag">打卡</span></div>
+            <p>内容重点：清爽质地、痘印周期记录、刷酸后修护方案。</p>
+          </div>
+          <div class="persona-summary-card">
+            <strong>C</strong>
+            <h3>医美术后修复族</h3>
+            <p>刚做完项目，破皮红肿结痂，只敢用医生认可的东西。</p>
+            <div class="persona-tags"><span class="persona-tag">术后</span><span class="persona-tag">械字号</span><span class="persona-tag">防反黑</span></div>
+            <p>内容重点：术后时间线、院线背书、不同项目护理边界。</p>
+          </div>
+          <div class="persona-summary-card">
+            <strong>D</strong>
+            <h3>成分党进阶派</h3>
+            <p>不听玄学体验，要看配方表、脂质比例和修护通路。</p>
+            <div class="persona-tags"><span class="persona-tag">配方逻辑</span><span class="persona-tag">横测</span><span class="persona-tag">成分拆解</span></div>
+            <p>内容重点：说清为什么有效，并经得起横向比较。</p>
+          </div>
+          <div class="persona-summary-card">
+            <strong>E</strong>
+            <h3>孕期/特殊期护肤者</h3>
+            <p>任何争议成分都可能引发焦虑，安全优先于功效。</p>
+            <div class="persona-tags"><span class="persona-tag">孕期可用</span><span class="persona-tag">零争议</span><span class="persona-tag">极简</span></div>
+            <p>内容重点：可用清单、禁用成分排除、真实长期使用。</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="slide source-deck-slide" id="tag-case-09">
+    <section class="slide persona-slide" id="persona-a-profile">
       <div class="slide-inner">
-        <span class="slide-kicker">20J / TAG COMBO CASE 09</span>
-        <h2>实例展示：人群洞察 II</h2>
-        <figure class="source-deck-frame">
-          <img src="assets/winona-tag-combo-case-09.png" alt="医美、成分党、特殊期人群的内容需求" />
-        </figure>
+        <span class="slide-kicker">20J-2 / PERSONA A PROFILE</span>
+        <h2>A 敏肌刚需党：先把“脸出事了”的失控感按住</h2>
+        <div class="persona-feature-layout">
+          <div class="persona-hero-card" style="--persona-image: url('薇诺娜deck图片/IMG_0770.jpg');">
+            <div class="persona-code">A</div>
+            <h3>敏肌刚需党</h3>
+            <p>“泛红、刺痛、脱皮、发热，必须立刻按住。我的皮肤已经赌不起了。”</p>
+            <div class="persona-tags"><span class="persona-tag">换季敏感</span><span class="persona-tag">屏障受损</span><span class="persona-tag">烂脸急救</span><span class="persona-tag">闭眼用</span></div>
+          </div>
+          <div class="persona-info-grid">
+            <div class="persona-info-box"><h3>社会身份</h3><p>职场白领、大学生、北方干燥地区人群，常伴随过度清洁、刷酸翻车或长期屏障受损史。</p></div>
+            <div class="persona-info-box"><h3>核心心态</h3><p>不是等一段时间变好，而是涂上去立刻有安抚感；她需要确认“这瓶不会让脸更糟”。</p></div>
+            <div class="persona-info-box"><h3>动机需求</h3><ul><li>物理封闭锁水，降低经皮水分流失。</li><li>舒缓灼热、紧绷和刺痛。</li><li>建立“皮肤被保护”的安全感。</li></ul></div>
+            <div class="persona-info-box"><h3>行为特征</h3><ul><li>停掉早 C 晚 A、酸类和猛药。</li><li>护肤流程缩到水+霜，甚至只涂霜。</li><li>频搜泛红急救、敏感爆发用什么。</li></ul></div>
+            <div class="persona-info-box"><h3>购买习惯</h3><p>急需时决策快，认准有效产品后高复购；偏好医用敷料、专业推荐和无香精无酒精表达。</p></div>
+            <div class="persona-info-box"><h3>产品卖点</h3><p>即刻降温褪红、封闭锁水、上脸无刺痛、经过敏感肌斑贴测试。</p></div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="slide source-deck-slide" id="tag-case-10">
+    <section class="slide persona-slide" id="persona-a-content">
+      <div class="slide-inner">
+        <span class="slide-kicker">20J-3 / PERSONA A CONTENT PLAN</span>
+        <h2>A 敏肌刚需党：种草笔记类型与content demo</h2>
+        <div class="persona-content-layout interactive-demo">
+          <div class="note-type-panel">
+            <button class="note-type is-active" type="button" data-demo="a-1"><b>1</b><div><h3>专业横向对比总结型</h3><p>多款急救霜红黑榜/PK，直接给出适用场景，帮爆发期用户减少试错。</p></div></button>
+            <button class="note-type" type="button" data-demo="a-2"><b>2</b><div><h3>真人多产品急救测评</h3><p>用自身尝试和优缺点总结降低广告感，回答“这个刺痛能不能用”。</p></div></button>
+            <button class="note-type" type="button" data-demo="a-3"><b>3</b><div><h3>医生/专业人士背书型</h3><p>皮肤科医生、药剂师、院线推荐强化权威感，降低决策焦虑。</p></div></button>
+            <button class="note-type" type="button" data-demo="a-4"><b>4</b><div><h3>厚敷急救法/皮肤自救教程</h3><p>演示厚涂、湿敷、按压吸收步骤，形成可收藏的急救流程。</p></div></button>
+            <button class="note-type" type="button" data-demo="a-5"><b>5</b><div><h3>真实烂脸急救实录</h3><p>Before/After 对比展示从泛红脱皮到镇定稳定的过程。</p></div></button>
+          </div>
+          <div class="interactive-demo-stage">
+            <article class="demo-note is-active" data-demo="a-1">
+              <figure class="demo-note-figure" data-gallery="demo图片/1.png,demo图片/2.png,demo图片/3.png"><img src="demo图片/1.png" alt="修护霜红黑榜笔记 demo" /></figure>
+              <div class="demo-note-copy"><div class="demo-note-meta"><span class="demo-note-chip">横向对比</span><span class="demo-note-chip">泛红急救</span></div><h3>5 款热门急救霜实测：敏感爆发期我会先选哪一瓶？</h3><p>把爆发期用户最关心的“快不快、刺不刺、闷不闷、适合什么状态”拆成一张表。</p><ul><li>封面：红黑榜 + 5 支产品同框。</li><li>正文：先给结论，再列适用肤况和避坑边界。</li><li>产品角色：薇诺娜作为“泛红刺痛时的低风险修护选项”。</li></ul><div class="demo-note-metrics"><div class="demo-note-metric"><strong>3.8%</strong><span>收藏率假设</span></div><div class="demo-note-metric"><strong>强</strong><span>搜索承接</span></div><div class="demo-note-metric"><strong>高</strong><span>评论追问</span></div></div></div>
+            </article>
+            <article class="demo-note" data-demo="a-2">
+              <figure class="demo-note-figure" data-gallery="demo图片/4.png,demo图片/5.png,demo图片/6.png"><img src="demo图片/4.png" alt="真人急救测评笔记 demo" /></figure>
+              <div class="demo-note-copy"><div class="demo-note-meta"><span class="demo-note-chip">真人测评</span><span class="demo-note-chip">敏感爆发</span></div><h3>换季脸红刺痛那周，我停掉功效后只留了这几样</h3><p>用素人口吻记录真实试错，重点回答敏感期最怕的“涂上去会不会火辣辣”。</p><ul><li>开头：脸颊发热、洗脸都疼的状态。</li><li>过程：停酸、停美白，修护霜薄涂观察。</li><li>结尾：哪些情况适合照抄，哪些要先看医生。</li></ul><div class="demo-note-metrics"><div class="demo-note-metric"><strong>7天</strong><span>记录周期</span></div><div class="demo-note-metric"><strong>低</strong><span>广告感</span></div><div class="demo-note-metric"><strong>强</strong><span>共鸣度</span></div></div></div>
+            </article>
+            <article class="demo-note" data-demo="a-3">
+              <figure class="demo-note-figure" data-gallery="demo图片/7.png,demo图片/8.png,demo图片/9.png,demo图片/10.png"><img src="demo图片/7.png" alt="医生背书笔记 demo" /></figure>
+              <div class="demo-note-copy"><div class="demo-note-meta"><span class="demo-note-chip">专业背书</span><span class="demo-note-chip">皮肤科</span></div><h3>皮肤科回来后，我才知道敏感期护肤越短越稳</h3><p>用就诊场景承接“我是不是该去看医生”的焦虑，同时把产品放在日常维稳位置。</p><ul><li>封面：问诊单/医生建议/精简护肤。</li><li>正文：药膏只用于急性期，日常护理要降低刺激。</li><li>边界：严重炎症、破溃、持续加重需遵医嘱。</li></ul><div class="demo-note-metrics"><div class="demo-note-metric"><strong>高</strong><span>信任感</span></div><div class="demo-note-metric"><strong>强</strong><span>决策安抚</span></div><div class="demo-note-metric"><strong>稳</strong><span>转化口径</span></div></div></div>
+            </article>
+            <article class="demo-note" data-demo="a-4">
+              <figure class="demo-note-figure"><img src="薇诺娜deck图片/IMG_0773.jpg" alt="厚敷急救教程笔记 demo" /></figure>
+              <div class="demo-note-copy"><div class="demo-note-meta"><span class="demo-note-chip">教程</span><span class="demo-note-chip">厚敷急救</span></div><h3>烂脸泛红急救：我的 5-7 分钟修护霜湿敷流程</h3><p>把产品转化为可照做流程，提升收藏率和评论区提问密度。</p><ul><li>Step 1：温和清洁，棉柔巾按干。</li><li>Step 2：薄涂打底，泛红区多带一点。</li><li>Step 3：棉片湿敷 5-7 分钟，不能敷到干。</li></ul><div class="demo-note-metrics"><div class="demo-note-metric"><strong>高</strong><span>收藏价值</span></div><div class="demo-note-metric"><strong>强</strong><span>复用性</span></div><div class="demo-note-metric"><strong>多</strong><span>用法追问</span></div></div></div>
+            </article>
+            <article class="demo-note" data-demo="a-5">
+              <figure class="demo-note-figure" data-gallery="demo图片/11.png,demo图片/12.png,demo图片/13.png"><img src="demo图片/11.png" alt="烂脸急救实录笔记 demo" /></figure>
+              <div class="demo-note-copy"><div class="demo-note-meta"><span class="demo-note-chip">Before/After</span><span class="demo-note-chip">烂脸记录</span></div><h3>记录烂脸第 10 天：全脸只做精简修护后终于没那么烧</h3><p>用强视觉变化击中焦虑，让“修护有效”从卖点变成可见结果。</p><ul><li>图 1：泛红、粗糙、发热状态。</li><li>图 2：使用产品与精简流程。</li><li>图 3：原相机无滤镜状态变化。</li></ul><div class="demo-note-metrics"><div class="demo-note-metric"><strong>强</strong><span>视觉冲击</span></div><div class="demo-note-metric"><strong>高</strong><span>停留率</span></div><div class="demo-note-metric"><strong>强</strong><span>种草力</span></div></div></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide persona-slide" id="persona-b-profile">
+      <div class="slide-inner">
+        <span class="slide-kicker">20J-4 / PERSONA B PROFILE</span>
+        <h2>B 痘痘自救者：淡红印，但绝不能闷出新痘</h2>
+        <div class="persona-feature-layout">
+          <div class="persona-hero-card" style="--persona-image: url('薇诺娜deck图片/IMG_0771.jpg');">
+            <div class="persona-code">B</div>
+            <h3>痘痘自救者</h3>
+            <p>“痘痘终于瘪了，但红印和暗沉还在，角质层薄得发亮，我怕它又冒出来。”</p>
+            <div class="persona-tags"><span class="persona-tag">油痘肌</span><span class="persona-tag">淡红印</span><span class="persona-tag">不闷痘</span><span class="persona-tag">刷酸后修护</span></div>
+          </div>
+          <div class="persona-info-grid">
+            <div class="persona-info-box"><h3>社会身份</h3><p>18-30 岁油痘肌/混油皮人群，长期与痤疮斗争，目前处于炎症消退期。</p></div>
+            <div class="persona-info-box"><h3>核心心态</h3><p>想把红印、暗沉和薄皮养回来，同时害怕厚重面霜堵毛孔、引发新痘。</p></div>
+            <div class="persona-info-box"><h3>动机需求</h3><ul><li>抗炎褪红，预防红印变黑。</li><li>不堵塞毛孔，不增加皮肤负担。</li><li>恢复干净均匀的素颜底色。</li></ul></div>
+            <div class="persona-info-box"><h3>行为特征</h3><ul><li>停用水杨酸、果酸、A 酸等刺激剥脱剂。</li><li>拍照记录每日红印变化。</li><li>反复问“油不油、闷不闷痘”。</li></ul></div>
+            <div class="persona-info-box"><h3>购买习惯</h3><p>优先看不致痘测试、无油配方和清爽质地，会搭配祛痘印精华使用。</p></div>
+            <div class="persona-info-box"><h3>产品卖点</h3><p>轻薄不闷痘、淡化红印、舒缓炎症后泛红、加速角质层健康更新。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide persona-slide" id="persona-b-content">
+      <div class="slide-inner">
+        <span class="slide-kicker">20J-5 / PERSONA B CONTENT PLAN</span>
+        <h2>B 痘痘自救者：种草笔记类型与content demo</h2>
+        <div class="persona-content-layout interactive-demo">
+          <div class="note-type-panel">
+            <button class="note-type is-active" type="button" data-demo="b-1"><b>1</b><div><h3>痘印打卡式跟踪</h3><p>以 7 天、14 天、30 天记录红印淡化过程，制造陪伴感和结果感。</p></div></button>
+            <button class="note-type" type="button" data-demo="b-2"><b>2</b><div><h3>不闷痘清爽质地实测</h3><p>展示抹开、吸收、吸油纸测试、夏天使用感，解决油痘肌最大顾虑。</p></div></button>
+            <button class="note-type" type="button" data-demo="b-3"><b>3</b><div><h3>搭配祛痘方式的方案型内容</h3><p>刷酸翻车、痘痘发炎后，用修复霜薄涂或局部厚敷压红修复。</p></div></button>
+            <button class="note-type" type="button" data-demo="b-4"><b>4</b><div><h3>不同痘印实操教学</h3><p>区分红痘印、黑痘印、敏感期痘印，讲清点涂和全脸薄涂边界。</p></div></button>
+          </div>
+          <div class="interactive-demo-stage">
+            <article class="demo-note is-active" data-demo="b-1">
+              <figure class="demo-note-figure"><img src="薇诺娜deck图片/IMG_0771.jpg" alt="痘印打卡笔记 demo" /></figure>
+              <div class="demo-note-copy"><div class="demo-note-meta"><span class="demo-note-chip">30 天打卡</span><span class="demo-note-chip">红印淡化</span></div><h3>去痘印打卡第 30 天：红印淡了，但我没再乱刷酸</h3><p>用连续时间线给用户“我也能慢慢好”的代入感。</p><ul><li>封面：第 1/7/14/21/30 天拼图。</li><li>正文：每天只记录红印、刺痛、闭口三个指标。</li><li>产品角色：薄涂修护，降低红印期刺激。</li></ul><div class="demo-note-metrics"><div class="demo-note-metric"><strong>30天</strong><span>周期感</span></div><div class="demo-note-metric"><strong>高</strong><span>追更感</span></div><div class="demo-note-metric"><strong>强</strong><span>结果证明</span></div></div></div>
+            </article>
+            <article class="demo-note" data-demo="b-2">
+              <figure class="demo-note-figure"><img src="薇诺娜deck图片/IMG_0774.jpg" alt="不闷痘质地实测笔记 demo" /></figure>
+              <div class="demo-note-copy"><div class="demo-note-meta"><span class="demo-note-chip">质地实测</span><span class="demo-note-chip">油痘肌</span></div><h3>油痘肌修护霜会不会闷？我用吸油纸和半脸测试看了一周</h3><p>把“怕闷”从主观感受变成可视化实验。</p><ul><li>手背抹开：展示吸收速度和膜感。</li><li>半脸测试：只在红印区域薄涂。</li><li>结论：适合薄涂修护，不建议厚糊全脸。</li></ul><div class="demo-note-metrics"><div class="demo-note-metric"><strong>高</strong><span>点击疑问</span></div><div class="demo-note-metric"><strong>强</strong><span>转化阻碍解除</span></div><div class="demo-note-metric"><strong>多</strong><span>肤质追问</span></div></div></div>
+            </article>
+            <article class="demo-note" data-demo="b-3">
+              <figure class="demo-note-figure"><img src="薇诺娜deck图片/IMG_0777.jpg" alt="刷酸后修护方案笔记 demo" /></figure>
+              <div class="demo-note-copy"><div class="demo-note-meta"><span class="demo-note-chip">刷酸翻车</span><span class="demo-note-chip">修护方案</span></div><h3>刷酸后脸又红又薄：我先停活性，再用这套修护流程退回来</h3><p>用“翻车→止损→修护”的完整链条给出方案。</p><ul><li>先停酸、停美白、停去角质。</li><li>红印区薄涂修护霜，局部干热时加量。</li><li>恢复后再判断是否重启功效产品。</li></ul><div class="demo-note-metrics"><div class="demo-note-metric"><strong>强</strong><span>场景痛点</span></div><div class="demo-note-metric"><strong>高</strong><span>收藏率</span></div><div class="demo-note-metric"><strong>稳</strong><span>产品植入</span></div></div></div>
+            </article>
+            <article class="demo-note" data-demo="b-4">
+              <figure class="demo-note-figure"><img src="薇诺娜deck图片/IMG_0776.jpg" alt="痘印实操教学笔记 demo" /></figure>
+              <div class="demo-note-copy"><div class="demo-note-meta"><span class="demo-note-chip">保姆级教程</span><span class="demo-note-chip">痘印分类</span></div><h3>红痘印、黑痘印、敏感期痘印到底怎么涂？一张图讲清</h3><p>用分类教学降低买回去不会用的闲置风险。</p><ul><li>红痘印：先舒缓泛红，别急着猛美白。</li><li>黑痘印：稳定后再叠加温和提亮。</li><li>敏感期痘印：只做基础修护和防晒。</li></ul><div class="demo-note-metrics"><div class="demo-note-metric"><strong>高</strong><span>工具价值</span></div><div class="demo-note-metric"><strong>强</strong><span>搜索承接</span></div><div class="demo-note-metric"><strong>多</strong><span>评论咨询</span></div></div></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide persona-slide" id="persona-c-profile">
+      <div class="slide-inner">
+        <span class="slide-kicker">20J-6 / PERSONA C PROFILE</span>
+        <h2>C 医美术后修复族：项目后只相信合规、安全、可照做</h2>
+        <div class="persona-feature-layout">
+          <div class="persona-hero-card" style="--persona-image: url('薇诺娜deck图片/IMG_0772.jpg');">
+            <div class="persona-code">C</div>
+            <h3>医美术后修复族</h3>
+            <p>“刚做完项目，皮肤破皮红肿结痂，医生说只能用最安全的东西，我不敢乱碰。”</p>
+            <div class="persona-tags"><span class="persona-tag">光子</span><span class="persona-tag">皮秒</span><span class="persona-tag">点阵</span><span class="persona-tag">防反黑</span></div>
+          </div>
+          <div class="persona-info-grid">
+            <div class="persona-info-box"><h3>社会身份</h3><p>25-45 岁中高收入女性为主，定期做轻医美项目，把医美当作高阶护肤。</p></div>
+            <div class="persona-info-box"><h3>核心心态</h3><p>怕刺激、怕感染、怕反黑，更怕项目白做；“院线同款”能显著降低买错焦虑。</p></div>
+            <div class="persona-info-box"><h3>动机需求</h3><ul><li>术后创面需要无菌环境和物理隔离。</li><li>促进表皮爬行愈合。</li><li>规避感染和炎症后色沉风险。</li></ul></div>
+            <div class="persona-info-box"><h3>行为特征</h3><ul><li>术后一周内完全精简护理。</li><li>只用医生推荐或医院开的产品。</li><li>在医美群问第几天能用、结痂后涂什么。</li></ul></div>
+            <div class="persona-info-box"><h3>购买习惯</h3><p>认准械字号二类/三类敷料，不在意香味肤感，愿意为医用级安全付溢价。</p></div>
+            <div class="persona-info-box"><h3>产品卖点</h3><p>无菌级、破口可用、促愈合、防色沉、医用临床验证。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide persona-slide" id="persona-c-content">
+      <div class="slide-inner">
+        <span class="slide-kicker">20J-7 / PERSONA C CONTENT PLAN</span>
+        <h2>C 医美术后修复族：种草笔记类型与content demo</h2>
+        <div class="persona-content-layout interactive-demo">
+          <div class="note-type-panel">
+            <button class="note-type is-active" type="button" data-demo="c-1"><b>1</b><div><h3>术后第 X 天时间线护理日志</h3><p>按 24h、48h、72h、7 天拆解护理重点和能用什么产品。</p></div></button>
+            <button class="note-type" type="button" data-demo="c-2"><b>2</b><div><h3>皮肤科/院线护士内部推荐</h3><p>医生推荐清单、院线同款、械字号标签，给术后族免检式信任。</p></div></button>
+            <button class="note-type" type="button" data-demo="c-3"><b>3</b><div><h3>专项焦虑解决型</h3><p>围绕光子、皮秒、点阵、热玛吉等项目，专门解决防反黑、色沉、破皮修复。</p></div></button>
+          </div>
+          <div class="interactive-demo-stage">
+            <article class="demo-note is-active" data-demo="c-1">
+              <figure class="demo-note-figure"><img src="薇诺娜deck图片/IMG_0772.jpg" alt="术后时间线护理日志笔记 demo" /></figure>
+              <div class="demo-note-copy"><div class="demo-note-meta"><span class="demo-note-chip">术后时间线</span><span class="demo-note-chip">遵医嘱</span></div><h3>光子后 1-7 天护理表：哪些先停，哪些可以保留？</h3><p>把术后焦虑拆成时间线，让用户按阶段对照。</p><ul><li>24h：清洁、防晒和补水动作收紧。</li><li>48-72h：观察干红紧绷，不急着恢复全套护肤。</li><li>7 天后：根据皮肤状态逐步恢复，异常遵医嘱。</li></ul><div class="demo-note-metrics"><div class="demo-note-metric"><strong>高</strong><span>收藏率</span></div><div class="demo-note-metric"><strong>强</strong><span>搜索承接</span></div><div class="demo-note-metric"><strong>稳</strong><span>合规边界</span></div></div></div>
+            </article>
+            <article class="demo-note" data-demo="c-2">
+              <figure class="demo-note-figure"><img src="薇诺娜deck图片/IMG_0775.jpg" alt="院线推荐笔记 demo" /></figure>
+              <div class="demo-note-copy"><div class="demo-note-meta"><span class="demo-note-chip">院线推荐</span><span class="demo-note-chip">专业背书</span></div><h3>三甲皮肤科朋友给我的项目后修护清单，我只保留基础项</h3><p>用专业渠道增强安心感，把“买错焦虑”转化为“照单执行”。</p><ul><li>封面：院线同款/医生推荐/术后清单。</li><li>正文：项目后不追求猛功效，先降低刺激。</li><li>边界：开放创口、异常红肿需优先咨询医生。</li></ul><div class="demo-note-metrics"><div class="demo-note-metric"><strong>高</strong><span>信任背书</span></div><div class="demo-note-metric"><strong>强</strong><span>收藏转发</span></div><div class="demo-note-metric"><strong>低</strong><span>试错成本</span></div></div></div>
+            </article>
+            <article class="demo-note" data-demo="c-3">
+              <figure class="demo-note-figure"><img src="薇诺娜deck图片/IMG_0778.jpg" alt="防反黑专项笔记 demo" /></figure>
+              <div class="demo-note-copy"><div class="demo-note-meta"><span class="demo-note-chip">防反黑</span><span class="demo-note-chip">项目后焦虑</span></div><h3>皮秒后怕反黑：我把前 10 天护理拆成了这 3 件事</h3><p>围绕医美后最强风险顾虑做专项内容，提升精准转化。</p><ul><li>抓手：项目后别乱护肤，先防刺激和暴晒。</li><li>内容：清洁、修护、防晒三条线分开讲。</li><li>产品角色：干红紧绷时的基础修护底座。</li></ul><div class="demo-note-metrics"><div class="demo-note-metric"><strong>强</strong><span>焦虑命中</span></div><div class="demo-note-metric"><strong>高</strong><span>搜索意图</span></div><div class="demo-note-metric"><strong>强</strong><span>转化线索</span></div></div></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide persona-slide" id="persona-d-profile">
+      <div class="slide-inner">
+        <span class="slide-kicker">20J-8 / PERSONA D PROFILE</span>
+        <h2>D 成分党进阶派：产品必须能被她复述出“为什么有效”</h2>
+        <div class="persona-feature-layout">
+          <div class="persona-hero-card" style="--persona-image: url('薇诺娜deck图片/IMG_0779.jpg');">
+            <div class="persona-code">D</div>
+            <h3>成分党进阶派</h3>
+            <p>“我不要玄学故事，我要看配方表。用了什么脂质、什么比例、什么通路？”</p>
+            <div class="persona-tags"><span class="persona-tag">配方逻辑</span><span class="persona-tag">神经酰胺</span><span class="persona-tag">横向测评</span><span class="persona-tag">工艺揭秘</span></div>
+          </div>
+          <div class="persona-info-grid">
+            <div class="persona-info-box"><h3>社会身份</h3><p>资深护肤爱好者、美妆博主、自媒体从业者、理工科思维用户，常用成分 APP。</p></div>
+            <div class="persona-info-box"><h3>核心心态</h3><p>对成分堆叠营销免疫，害怕被骗和交智商税，需要精简、精准、有配比逻辑的方案。</p></div>
+            <div class="persona-info-box"><h3>动机需求</h3><ul><li>看脂质配比是否仿生皮脂膜。</li><li>看抗炎靶点、pH 值、防腐体系。</li><li>把产品纳入自己的护肤知识体系。</li></ul></div>
+            <div class="persona-info-box"><h3>行为特征</h3><ul><li>交叉比对竞品配方。</li><li>自建评分体系，不轻信广告词。</li><li>在评论区追问油相、乳化体系和浓度。</li></ul></div>
+            <div class="persona-info-box"><h3>购买习惯</h3><p>决策周期长，一旦认可配方逻辑忠诚度高；愿意为原料品质、浓度梯度和工艺买单。</p></div>
+            <div class="persona-info-box"><h3>产品卖点</h3><p>脂质配比逻辑、多通路协同修复、原料来源清晰、不添加无用填充物。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide persona-slide" id="persona-d-content">
+      <div class="slide-inner">
+        <span class="slide-kicker">20J-9 / PERSONA D CONTENT PLAN</span>
+        <h2>D 成分党进阶派：种草笔记类型与content demo</h2>
+        <div class="persona-content-layout interactive-demo">
+          <div class="note-type-panel">
+            <button class="note-type is-active" type="button" data-demo="d-1"><b>1</b><div><h3>成分拆解 + 配方逻辑分析</h3><p>拆神经酰胺、胆固醇、游离脂肪酸、抗炎成分和修护通路。</p></div></button>
+            <button class="note-type" type="button" data-demo="d-2"><b>2</b><div><h3>多维度横向测评</h3><p>从成分、肤感、功效、温和度、性价比打分，满足“比较后择优”。</p></div></button>
+            <button class="note-type" type="button" data-demo="d-3"><b>3</b><div><h3>同品牌/同系列定位辨析</h3><p>比如“特护霜 vs 屏障霜怎么选”，把产品矩阵差异讲清。</p></div></button>
+            <button class="note-type" type="button" data-demo="d-4"><b>4</b><div><h3>深度分析/工艺揭秘</h3><p>讲原料来源、活性品质、工艺与作用机制，建立专业公信力。</p></div></button>
+          </div>
+          <div class="interactive-demo-stage">
+            <article class="demo-note is-active" data-demo="d-1">
+              <figure class="demo-note-figure"><img src="薇诺娜deck图片/IMG_0779.jpg" alt="成分拆解笔记 demo" /></figure>
+              <div class="demo-note-copy"><div class="demo-note-meta"><span class="demo-note-chip">成分拆解</span><span class="demo-note-chip">配方逻辑</span></div><h3>敏感肌修护霜到底在修什么？别只盯一个明星成分</h3><p>用成分表拆解解释“为什么有效”，满足成分党求证心态。</p><ul><li>先讲屏障结构：脂质、保湿、舒缓三条线。</li><li>再讲配方协同：不是堆成分，而是看组合逻辑。</li><li>最后讲适用边界：敏感期基础修护，不替代治疗。</li></ul><div class="demo-note-metrics"><div class="demo-note-metric"><strong>强</strong><span>专业感</span></div><div class="demo-note-metric"><strong>高</strong><span>收藏率</span></div><div class="demo-note-metric"><strong>稳</strong><span>AI 引用</span></div></div></div>
+            </article>
+            <article class="demo-note" data-demo="d-2">
+              <figure class="demo-note-figure"><img src="薇诺娜deck图片/IMG_0776.jpg" alt="多维横向测评笔记 demo" /></figure>
+              <div class="demo-note-copy"><div class="demo-note-meta"><span class="demo-note-chip">横向测评</span><span class="demo-note-chip">修护面霜</span></div><h3>4 款修护面霜多维横测：成分、肤感、温和度我都打了分</h3><p>把“哪个更适合我”拆成可比较维度，让决策更理性。</p><ul><li>维度：成分逻辑、质地、刺激感、适用肤质、价格。</li><li>结论：不同肤况对应不同产品角色。</li><li>评论引导：肤质和使用场景决定选择。</li></ul><div class="demo-note-metrics"><div class="demo-note-metric"><strong>强</strong><span>对比决策</span></div><div class="demo-note-metric"><strong>高</strong><span>搜索承接</span></div><div class="demo-note-metric"><strong>多</strong><span>竞品问题</span></div></div></div>
+            </article>
+            <article class="demo-note" data-demo="d-3">
+              <figure class="demo-note-figure"><img src="薇诺娜deck图片/IMG_0774.jpg" alt="同系列产品辨析笔记 demo" /></figure>
+              <div class="demo-note-copy"><div class="demo-note-meta"><span class="demo-note-chip">产品辨析</span><span class="demo-note-chip">怎么选</span></div><h3>薇诺娜特护霜 vs 屏障霜：同样修护，到底差在哪？</h3><p>用定位辨析承接品牌词和对比词搜索，避免用户在产品矩阵里迷路。</p><ul><li>按问题分：泛红刺痛、屏障薄弱、干燥紧绷。</li><li>按肤质分：干敏、油敏、痘后薄皮。</li><li>按使用方式分：薄涂、局部厚敷、日常维稳。</li></ul><div class="demo-note-metrics"><div class="demo-note-metric"><strong>强</strong><span>品牌搜索</span></div><div class="demo-note-metric"><strong>高</strong><span>转化辅助</span></div><div class="demo-note-metric"><strong>稳</strong><span>矩阵承接</span></div></div></div>
+            </article>
+            <article class="demo-note" data-demo="d-4">
+              <figure class="demo-note-figure"><img src="薇诺娜deck图片/IMG_0772.jpg" alt="工艺揭秘笔记 demo" /></figure>
+              <div class="demo-note-copy"><div class="demo-note-meta"><span class="demo-note-chip">工艺揭秘</span><span class="demo-note-chip">原料逻辑</span></div><h3>一支修护霜凭什么让成分党点头？我看的是原料和通路</h3><p>把“高级感”建立在材料、工艺和作用机制上，而不是堆术语。</p><ul><li>讲原料来源和品质，不只讲成分名。</li><li>讲物理屏障、免疫屏障、微生态协同。</li><li>用专业但可读的语言降低智商税焦虑。</li></ul><div class="demo-note-metrics"><div class="demo-note-metric"><strong>强</strong><span>深度内容</span></div><div class="demo-note-metric"><strong>高</strong><span>信任沉淀</span></div><div class="demo-note-metric"><strong>长</strong><span>长尾价值</span></div></div></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide persona-slide" id="persona-e-profile">
+      <div class="slide-inner">
+        <span class="slide-kicker">20J-10 / PERSONA E PROFILE</span>
+        <h2>E 孕期/特殊期护肤者：安全是 1，效果是后面的 0</h2>
+        <div class="persona-feature-layout">
+          <div class="persona-hero-card" style="--persona-image: url('薇诺娜deck图片/IMG_0775.jpg');">
+            <div class="persona-code">E</div>
+            <h3>孕期/特殊期护肤者</h3>
+            <p>“我现在不是一个人，任何微量成分都可能有未知风险。宁可不修复，也不能乱修复。”</p>
+            <div class="persona-tags"><span class="persona-tag">孕期可用</span><span class="persona-tag">哺乳期</span><span class="persona-tag">全绿成分</span><span class="persona-tag">极简护肤</span></div>
+          </div>
+          <div class="persona-info-grid">
+            <div class="persona-info-box"><h3>社会身份</h3><p>孕妇、哺乳期女性、重大疾病恢复期患者、激素治疗中人群，年龄跨度大。</p></div>
+            <div class="persona-info-box"><h3>核心心态</h3><p>需要零争议方案，不是“大部分安全”，而是没有任何成分踩到禁用或慎用焦虑。</p></div>
+            <div class="persona-info-box"><h3>动机需求</h3><ul><li>排除维 A、水杨酸、化学防晒剂。</li><li>排除精油香精和争议防腐剂。</li><li>获得 100% 放心的心理安定。</li></ul></div>
+            <div class="persona-info-box"><h3>行为特征</h3><ul><li>能不用就不用，护肤减到最少。</li><li>母婴群/病友群反复问能不能用。</li><li>搜索孕期分级、禁用清单和安全报告。</li></ul></div>
+            <div class="persona-info-box"><h3>购买习惯</h3><p>只认孕期可用、全绿成分和品牌信任；不追新不追猛，回购公认安全产品。</p></div>
+            <div class="persona-info-box"><h3>产品卖点</h3><p>极简配方、规避争议成分、权威认证、无渗透风险、纯封闭性物理保护。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide persona-slide" id="persona-e-content">
+      <div class="slide-inner">
+        <span class="slide-kicker">20J-11 / PERSONA E CONTENT PLAN</span>
+        <h2>E 孕期/特殊期护肤者：种草笔记类型与content demo</h2>
+        <div class="persona-content-layout interactive-demo">
+          <div class="note-type-panel">
+            <button class="note-type is-active" type="button" data-demo="e-1"><b>1</b><div><h3>成分可用/不可用清单合集</h3><p>按保湿、修护、祛痘、抗老分类，列出孕期可用与慎用产品，一站式抄作业。</p></div></button>
+            <button class="note-type" type="button" data-demo="e-2"><b>2</b><div><h3>真实孕妈长周期使用记录</h3><p>从孕早期到哺乳期的长期反馈，用同身份真实分享替代广告说服。</p></div></button>
+            <button class="note-type" type="button" data-demo="e-3"><b>3</b><div><h3>极简护肤不踩雷方案</h3><p>用“少即是安全”的逻辑讲清保湿、修护、防护三步边界。</p></div></button>
+          </div>
+          <div class="interactive-demo-stage">
+            <article class="demo-note is-active" data-demo="e-1">
+              <figure class="demo-note-figure"><img src="薇诺娜deck图片/IMG_0775.jpg" alt="孕期成分清单笔记 demo" /></figure>
+              <div class="demo-note-copy"><div class="demo-note-meta"><span class="demo-note-chip">孕期清单</span><span class="demo-note-chip">成分避雷</span></div><h3>孕期敏感肌修护怎么选？我先排除了这些争议成分</h3><p>用清单给用户“一站式抄作业”的安全感。</p><ul><li>按保湿、修护、防晒、洁面分类列可选方向。</li><li>明确避开维 A、水杨酸、精油香精等高焦虑项。</li><li>产品角色：极简基础修护，不做绝对安全承诺。</li></ul><div class="demo-note-metrics"><div class="demo-note-metric"><strong>高</strong><span>收藏转发</span></div><div class="demo-note-metric"><strong>强</strong><span>群聊传播</span></div><div class="demo-note-metric"><strong>稳</strong><span>安全心智</span></div></div></div>
+            </article>
+            <article class="demo-note" data-demo="e-2">
+              <figure class="demo-note-figure"><img src="薇诺娜deck图片/IMG_0778.jpg" alt="孕妈长周期记录笔记 demo" /></figure>
+              <div class="demo-note-copy"><div class="demo-note-meta"><span class="demo-note-chip">真实孕妈</span><span class="demo-note-chip">长期记录</span></div><h3>从孕早期用到哺乳期：我为什么一直保留这瓶修护霜</h3><p>用同身份、长周期反馈替代广告说服。</p><ul><li>孕早期：脸干泛红，护肤减到最少。</li><li>孕中后期：只保留洁面、保湿、基础修护。</li><li>哺乳期：皮肤稳定后也不急着追猛功效。</li></ul><div class="demo-note-metrics"><div class="demo-note-metric"><strong>长</strong><span>信任周期</span></div><div class="demo-note-metric"><strong>强</strong><span>身份共鸣</span></div><div class="demo-note-metric"><strong>高</strong><span>复购暗示</span></div></div></div>
+            </article>
+            <article class="demo-note" data-demo="e-3">
+              <figure class="demo-note-figure"><img src="薇诺娜deck图片/IMG_0771.jpg" alt="特殊期极简护肤笔记 demo" /></figure>
+              <div class="demo-note-copy"><div class="demo-note-meta"><span class="demo-note-chip">极简护肤</span><span class="demo-note-chip">特殊期</span></div><h3>特殊时期不想赌脸：我的护肤只剩保湿、修护、防晒</h3><p>用“少即是安全”的逻辑降低焦虑，适合孕期、哺乳期、恢复期用户收藏。</p><ul><li>停掉复杂功效：抗老、美白、酸类先不叠。</li><li>保留基础动作：温和清洁、保湿修护、白天防晒。</li><li>评论区承接：不同阶段、不同肤质的使用边界。</li></ul><div class="demo-note-metrics"><div class="demo-note-metric"><strong>高</strong><span>保守选择</span></div><div class="demo-note-metric"><strong>强</strong><span>焦虑安抚</span></div><div class="demo-note-metric"><strong>稳</strong><span>合规表达</span></div></div></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide case-html-slide" id="tag-case-10">
       <div class="slide-inner">
         <span class="slide-kicker">20K / TAG COMBO CASE 10</span>
         <h2>实例展示：需求组合</h2>
-        <figure class="source-deck-frame">
-          <img src="assets/winona-tag-combo-case-10.png" alt="主流需求组合与新兴需求组合" />
-        </figure>
+        <p class="lead">围绕薇诺娜特护霜，优先跑六组高价值标签组合：既覆盖主流敏感肌修护，也打开痘后、医美、孕期和成分党等高意图人群。</p>
+        <div class="case-combo-grid">
+          <div class="case-card red"><h3>换季泛红急救</h3><p>敏感肌刚需党 × 春秋换季 × 泛红刺痛 × 怕越用越红 × 3 天精简护肤记录</p></div>
+          <div class="case-card"><h3>刷酸/A 醇翻车</h3><p>功效护肤人群 × 活性用猛后 × 脱皮刺痛 × 怕叠加冲突 × 停活性流程</p></div>
+          <div class="case-card"><h3>油痘肌红印修护</h3><p>油痘肌 × 痘后红印期 × 薄皮泛红 × 怕闷闭口 × 7 天质地实测</p></div>
+          <div class="case-card"><h3>医美项目后稳定护理</h3><p>光电/刷酸后人群 × 项目恢复期 × 干红紧绷 × 怕反黑 × 术后护理时间线</p></div>
+          <div class="case-card"><h3>孕期/特殊期保守护肤</h3><p>孕期/哺乳期 × 换季干敏 × 护肤选择变少 × 怕成分风险 × 精简护肤清单</p></div>
+          <div class="case-card red"><h3>成分党机制验证</h3><p>理性对比用户 × 买前研究 × 屏障不稳 × 怕概念营销 × 配方逻辑与竞品差异</p></div>
+        </div>
       </div>
     </section>
 
-    <section class="slide source-deck-slide" id="tag-case-11">
+    <section class="slide case-html-slide" id="tag-case-11">
       <div class="slide-inner">
         <span class="slide-kicker">20L / TAG COMBO CASE 11</span>
         <h2>实例展示：内容矩阵</h2>
-        <figure class="source-deck-frame">
-          <img src="assets/winona-tag-combo-case-11.png" alt="从标签组合到 Feed Search Content 三类资产" />
-        </figure>
+        <p class="lead">每条真实需求命题，都要同时拆出 Feed、Search、Content 三类资产，分别承担触发、承接和信任验证任务。</p>
+        <table class="case-matrix-table"><thead><tr><th>真实需求命题</th><th>Feed 内容</th><th>Search 内容</th><th>Content 信任资产</th></tr></thead><tbody>
+          <tr><td class="red-cell">换季脸红烫，先稳住</td><td>状态共鸣短笔记</td><td>换季泛红急救、脸红刺痛怎么办</td><td>3 天精简护肤记录</td></tr>
+          <tr><td class="red-cell">功效翻车后退回修护</td><td>翻车经历复盘</td><td>刷酸后屏障受损怎么修</td><td>停活性 + 修护时间线</td></tr>
+          <tr><td class="red-cell">痘后红印怕闷痘</td><td>油痘肌肤感实测</td><td>油痘肌修护霜会不会闷</td><td>薄涂/局部使用记录</td></tr>
+          <tr><td class="red-cell">项目后怕用错</td><td>恢复期护理提醒</td><td>医美后第几天能用面霜</td><td>护理时间线 + 遵医嘱边界</td></tr>
+          <tr><td class="red-cell">特殊期怕成分风险</td><td>精简护肤日常</td><td>孕期敏感肌面霜怎么选</td><td>成分避雷和保守流程</td></tr>
+          <tr><td class="red-cell">成分党要逻辑</td><td>配方机制讲解</td><td>敏感肌修护霜怎么选</td><td>竞品差异与使用边界</td></tr>
+        </tbody></table>
       </div>
     </section>
 
-    <section class="slide source-deck-slide" id="tag-case-12">
+    <section class="slide case-html-slide" id="tag-case-12">
       <div class="slide-inner">
         <span class="slide-kicker">20M / TAG COMBO CASE 12</span>
         <h2>实例展示：七维矩阵</h2>
-        <figure class="source-deck-frame">
-          <img src="assets/winona-tag-combo-case-12.png" alt="把人群洞察转成可投测内容假设" />
-        </figure>
+        <p class="lead">七维矩阵把人群洞察继续拆成可组合变量，让内容生产从“想选题”变成“拼假设”。</p>
+        <table class="case-matrix-table"><thead><tr><th>维度</th><th>对应问题</th><th>薇诺娜示例</th></tr></thead><tbody>
+          <tr><td class="red-cell">A 痛点</td><td>用户出了什么问题</td><td>敏感、爆痘、晒后、项目后、孕期护肤</td></tr>
+          <tr><td class="red-cell">B 需求</td><td>用户想解决什么</td><td>日常维护、成分安全、产品有效、不闷痘</td></tr>
+          <tr><td class="red-cell">C 状态意图</td><td>处在哪个决策阶段</td><td>被动种草、主动搜索、意向确认、决策转化</td></tr>
+          <tr><td class="red-cell">D 目标人群</td><td>具体是哪类人</td><td>敏肌刚需党、痘痘自救者、医美术后、成分党、特殊期</td></tr>
+          <tr><td class="red-cell">E 场景埋设</td><td>问题发生在哪里</td><td>换季敏感、刷酸翻车、医美术后、烂脸日记、睡前刷手机</td></tr>
+          <tr><td class="red-cell">F 内容形态</td><td>用什么形式表达</td><td>空瓶实拍、质地特写、前后对比、成分表拆解、Routine 清单</td></tr>
+          <tr><td class="red-cell">G 情绪钩子</td><td>触发什么心理</td><td>焦虑共鸣、专业背书、惊喜发现、从众效应、紧迫感</td></tr>
+        </tbody></table>
+        <div class="case-callout">五类人群不是五组标签，而是五套内容生产公式：换人群、换场景、换证据，就能生成新的可投测内容假设。</div>
       </div>
     </section>
 
-    <section class="slide source-deck-slide" id="tag-case-13">
+    <section class="slide case-html-slide" id="tag-case-13">
       <div class="slide-inner">
         <span class="slide-kicker">20N / TAG COMBO CASE 13</span>
         <h2>实例展示：生产规则</h2>
-        <figure class="source-deck-frame">
-          <img src="assets/winona-tag-combo-case-13.png" alt="先写用户问题，再放产品角色" />
-        </figure>
+        <p class="lead">内容生产不要先写“产品好用”，而要先写用户正在问的问题，再放入产品在这个问题中的角色。</p>
+        <div class="case-three-col">
+          <div class="case-card red"><h3>规则 1：标题先写用户问题</h3><p>弱标题：《薇诺娜特护霜真的好用吗》</p><p>强标题：《换季脸红刺痛时，我为什么先把护肤减到只剩修护》</p></div>
+          <div class="case-card"><h3>规则 2：正文先还原场景</h3><ol><li>我当时的脸是什么状态。</li><li>我最担心什么。</li><li>我停掉了哪些步骤。</li><li>我保留了哪些基础护理。</li><li>产品承担什么角色。</li><li>哪些情况不建议照抄。</li></ol></div>
+          <div class="case-card"><h3>规则 3：评论区反哺下一轮</h3><ul><li>刺痛期能用吗 → 使用边界</li><li>油皮会不会闷 → 油皮薄涂实测</li><li>刷酸后能不能用 → 功效翻车流程</li><li>医美后第几天能用 → 项目后时间线</li><li>孕期能不能用 → 特殊期保守清单</li></ul></div>
+        </div>
+        <div class="case-callout">FSC 的核心价值，是把内容从品牌卖点逻辑，转成用户问题逻辑。</div>
       </div>
     </section>
 
@@ -5213,5 +6637,96 @@
   <footer class="footer">
     WINONA FSC REPORT / HTML draft aligned to latest deck script
   </footer>
+  <script>
+    const demoImagePool = [
+      '薇诺娜deck图片/IMG_0770.jpg',
+      '薇诺娜deck图片/IMG_0771.jpg',
+      '薇诺娜deck图片/IMG_0772.jpg',
+      '薇诺娜deck图片/IMG_0773.jpg',
+      '薇诺娜deck图片/IMG_0774.jpg',
+      '薇诺娜deck图片/IMG_0775.jpg',
+      '薇诺娜deck图片/IMG_0776.jpg',
+      '薇诺娜deck图片/IMG_0777.jpg',
+      '薇诺娜deck图片/IMG_0778.jpg',
+      '薇诺娜deck图片/IMG_0779.jpg'
+    ];
+
+    document.querySelectorAll('.demo-note').forEach((note, noteIndex) => {
+      const figure = note.querySelector('.demo-note-figure');
+      const image = figure && figure.querySelector('img');
+      if (!figure || !image) return;
+
+      const firstSrc = image.getAttribute('src');
+      const configuredGallery = (figure.dataset.gallery || "")
+        .split(",")
+        .map((src) => src.trim())
+        .filter(Boolean);
+      const gallery = configuredGallery.length ? configuredGallery : [firstSrc];
+      if (!configuredGallery.length) {
+        for (let offset = 1; gallery.length < 4 && offset <= demoImagePool.length + 1; offset += 1) {
+          const candidate = demoImagePool[(noteIndex + offset) % demoImagePool.length];
+          if (!gallery.includes(candidate)) gallery.push(candidate);
+        }
+      }
+
+      let currentIndex = 0;
+      const prev = document.createElement('button');
+      const next = document.createElement('button');
+      const count = document.createElement('span');
+      prev.type = 'button';
+      next.type = 'button';
+      prev.className = 'demo-gallery-btn prev';
+      next.className = 'demo-gallery-btn next';
+      count.className = 'demo-gallery-count';
+      prev.setAttribute('aria-label', '上一张 demo 图片');
+      next.setAttribute('aria-label', '下一张 demo 图片');
+      prev.textContent = '‹';
+      next.textContent = '›';
+
+      function renderGallery() {
+        image.src = gallery[currentIndex];
+        count.textContent = `${currentIndex + 1}/${gallery.length}`;
+      }
+
+      prev.addEventListener('click', (event) => {
+        event.stopPropagation();
+        currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
+        renderGallery();
+      });
+
+      next.addEventListener('click', (event) => {
+        event.stopPropagation();
+        currentIndex = (currentIndex + 1) % gallery.length;
+        renderGallery();
+      });
+
+      figure.append(prev, next, count);
+      renderGallery();
+    });
+
+    document.querySelectorAll('.interactive-demo').forEach((demo) => {
+      const triggers = Array.from(demo.querySelectorAll('.note-type[data-demo]'));
+      const notes = Array.from(demo.querySelectorAll('.demo-note[data-demo]'));
+
+      function activateDemo(id) {
+        triggers.forEach((trigger) => {
+          const isActive = trigger.dataset.demo === id;
+          trigger.classList.toggle('is-active', isActive);
+          trigger.setAttribute('aria-pressed', String(isActive));
+        });
+        notes.forEach((note) => {
+          note.classList.toggle('is-active', note.dataset.demo === id);
+        });
+      }
+
+      triggers.forEach((trigger) => {
+        trigger.setAttribute('aria-pressed', trigger.classList.contains('is-active') ? 'true' : 'false');
+        trigger.addEventListener('click', () => activateDemo(trigger.dataset.demo));
+      });
+
+      const initial = triggers.find((trigger) => trigger.classList.contains('is-active')) || triggers[0];
+      if (initial) activateDemo(initial.dataset.demo);
+    });
+  </script>
 </body>
 </html>
