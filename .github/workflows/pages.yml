@@ -28,10 +28,16 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: Prepare site
+        run: |
+          mkdir -p _site
+          cp -R assets demo图片 demo图片2 pics 薇诺娜deck图片 触点页图片 _site/
+          cp "排版风格薇诺娜FSC小红书内容增长汇报文档_副本.html" _site/index.html
+          cp .nojekyll _site/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
