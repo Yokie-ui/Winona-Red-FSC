@@ -9552,8 +9552,12 @@
     const PAGE_SUBTITLE_FONT_SIZE = 18;
 
     function firstSubtitleFor(slide, title) {
-      const localSubtitle = title.parentElement && title.parentElement.querySelector('.lead, .part-thesis, p');
-      if (localSubtitle && localSubtitle !== title) return localSubtitle;
+      const siblings = title.parentElement ? Array.from(title.parentElement.children) : [];
+      const titleIndex = siblings.indexOf(title);
+      const localSubtitle = siblings
+        .slice(Math.max(0, titleIndex + 1))
+        .find((candidate) => candidate.matches && candidate.matches('.lead, .part-thesis, p'));
+      if (localSubtitle) return localSubtitle;
 
       const candidates = Array.from(slide.querySelectorAll('.lead, .part-thesis'));
       return candidates.find((candidate) => title.compareDocumentPosition(candidate) & Node.DOCUMENT_POSITION_FOLLOWING);
