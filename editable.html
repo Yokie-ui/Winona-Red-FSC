@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>薇诺娜 FSC 汇报文档 · 在线可编辑版</title>
+  <style>
+    :root {
+      --brand-red: #c8102e;
+      --ink: #20242b;
+      --muted: #6d7280;
+      --line: #e6e8eb;
+      --panel: rgba(255, 255, 255, 0.94);
+      --shadow: 0 14px 34px rgba(20, 24, 31, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      background: #f6f7f9;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    .editor-shell {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      width: 100%;
+      height: 100%;
+    }
+
+    .editor-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .editor-title {
+      display: grid;
+      gap: 3px;
+      min-width: 260px;
+    }
+
+    .editor-title strong {
+      color: var(--brand-red);
+      font-size: 14px;
+      letter-spacing: 0.04em;
+    }
+
+    .editor-title span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .editor-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    button,
+    a.editor-link {
+      appearance: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 760;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
+    }
+
+    button:hover,
+    a.editor-link:hover {
+      transform: translateY(-1px);
+      border-color: #f1b8c2;
+      background: #fff7f8;
+    }
+
+    button.primary {
+      border-color: var(--brand-red);
+      background: var(--brand-red);
+      color: #fff;
+    }
+
+    button.danger {
+      color: var(--brand-red);
+    }
+
+    .status {
+      min-width: 150px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: right;
+    }
+
+    .frame-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #fff;
+    }
+
+    .editor-help {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 11;
+      max-width: 330px;
+      padding: 12px 14px;
+      border: 1px solid rgba(200, 16, 46, 0.2);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--shadow);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+      backdrop-filter: blur(16px);
+    }
+
+    .editor-help b {
+      color: var(--brand-red);
+    }
+
+    @media (max-width: 840px) {
+      .editor-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .editor-actions {
+        justify-content: flex-start;
+      }
+
+      .status {
+        text-align: left;
+      }
+
+      .editor-help {
+        right: 10px;
+        left: 10px;
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="editor-shell">
+    <header class="editor-toolbar">
+      <div class="editor-title">
+        <strong>WINONA FSC · ONLINE EDITOR</strong>
+        <span>点击页面文字即可编辑；当前为静态网页编辑器，修改会先保存在本浏览器。</span>
+      </div>
+      <div class="editor-actions">
+        <button class="primary" id="saveDraft" type="button">保存草稿</button>
+        <button id="downloadHtml" type="button">下载 HTML</button>
+        <button id="printPdf" type="button">打印 / 导出 PDF</button>
+        <button class="danger" id="resetDraft" type="button">清空草稿</button>
+        <a class="editor-link" href="./" target="_blank" rel="noopener">打开原版</a>
+        <span class="status" id="status">正在载入…</span>
+      </div>
+    </header>
+
+    <main class="frame-wrap">
+      <iframe id="deckFrame" title="薇诺娜 FSC 汇报文档可编辑区"></iframe>
+    </main>
+  </div>
+
+  <aside class="editor-help">
+    <b>使用提示：</b>直接点文字修改；按 <b>⌘/Ctrl + S</b> 保存草稿。GitHub Pages 是静态站点，不能自动写回仓库；如需交付修改版，请点击“下载 HTML”。
+  </aside>
+
+  <script>
+    const STORAGE_KEY = "winona-fsc-editable-draft-v1";
+    const FRAME_URL = "./?source=editable";
+    const TEXT_SELECTOR = [
+      "h1", "h2", "h3", "h4", "h5", "h6",
+      "p", "li", "span", "strong", "b", "em", "small",
+      "button", "a", "td", "th", "figcaption"
+    ].join(",");
+
+    const frame = document.getElementById("deckFrame");
+    const statusEl = document.getElementById("status");
+    const saveBtn = document.getElementById("saveDraft");
+    const downloadBtn = document.getElementById("downloadHtml");
+    const printBtn = document.getElementById("printPdf");
+    const resetBtn = document.getElementById("resetDraft");
+
+    let lastSaveTimer = null;
+
+    function setStatus(message) {
+      statusEl.textContent = message;
+    }
+
+    function getFrameDocument() {
+      return frame.contentDocument || frame.contentWindow.document;
+    }
+
+    function editableElements(doc) {
+      return Array.from(doc.querySelectorAll(TEXT_SELECTOR)).filter((node) => {
+        if (!node || !node.textContent || !node.textContent.trim()) return false;
+        if (node.closest("script, style, noscript, svg")) return false;
+        return true;
+      });
+    }
+
+    function assignEditIds(doc) {
+      editableElements(doc).forEach((node, index) => {
+        node.dataset.editId = String(index);
+      });
+    }
+
+    function savedDraft() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+      } catch (error) {
+        console.warn(error);
+        return {};
+      }
+    }
+
+    function applyDraft(doc) {
+      const draft = savedDraft();
+      Object.entries(draft).forEach(([id, html]) => {
+        const node = doc.querySelector(`[data-edit-id="${CSS.escape(id)}"]`);
+        if (node && typeof html === "string") node.innerHTML = html;
+      });
+      return Object.keys(draft).length;
+    }
+
+    function collectDraft(doc) {
+      const data = {};
+      editableElements(doc).forEach((node) => {
+        if (node.dataset.editId) data[node.dataset.editId] = node.innerHTML;
+      });
+      return data;
+    }
+
+    function saveDraft() {
+      const doc = getFrameDocument();
+      const data = collectDraft(doc);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      const now = new Date();
+      setStatus(`已保存 ${now.toLocaleTimeString("zh-CN", { hour12: false })}`);
+    }
+
+    function autoSaveSoon() {
+      window.clearTimeout(lastSaveTimer);
+      lastSaveTimer = window.setTimeout(saveDraft, 1200);
+    }
+
+    function cleanHtmlForDownload(doc) {
+      const clone = doc.documentElement.cloneNode(true);
+      clone.querySelector("#editable-helper-style")?.remove();
+      clone.querySelectorAll("[data-edit-id]").forEach((node) => node.removeAttribute("data-edit-id"));
+      clone.querySelectorAll(".demo-gallery-btn, .demo-gallery-count").forEach((node) => node.remove());
+      return "<!doctype html>\\n" + clone.outerHTML;
+    }
+
+    function downloadEditedHtml() {
+      const doc = getFrameDocument();
+      const html = cleanHtmlForDownload(doc);
+      const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const stamp = new Date().toISOString().slice(0, 19).replace(/[:T]/g, "-");
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `winona-fsc-edited-${stamp}.html`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+      setStatus("已下载 HTML");
+    }
+
+    function installEditor() {
+      const doc = getFrameDocument();
+      if (!doc || !doc.body) return;
+
+      doc.designMode = "on";
+      doc.body.spellcheck = false;
+      assignEditIds(doc);
+      const applied = applyDraft(doc);
+
+      if (!doc.getElementById("editable-helper-style")) {
+        const style = doc.createElement("style");
+        style.id = "editable-helper-style";
+        style.textContent = `
+          html { scroll-behavior: auto !important; }
+          body { caret-color: #c8102e; }
+          [data-edit-id]:hover { outline: 1px dashed rgba(200, 16, 46, .45); outline-offset: 3px; }
+          [data-edit-id]:focus { outline: 2px solid rgba(200, 16, 46, .7); outline-offset: 3px; }
+          a { cursor: text !important; }
+        `;
+        doc.head.appendChild(style);
+      }
+
+      doc.addEventListener("input", autoSaveSoon);
+      doc.addEventListener("keydown", (event) => {
+        if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "s") {
+          event.preventDefault();
+          saveDraft();
+        }
+      });
+
+      setStatus(applied ? `已载入草稿 ${applied} 项` : "可编辑");
+    }
+
+    function loadFrame() {
+      frame.src = `${FRAME_URL}&v=${Date.now()}`;
+    }
+
+    frame.addEventListener("load", () => {
+      window.setTimeout(installEditor, 800);
+    });
+
+    saveBtn.addEventListener("click", saveDraft);
+    downloadBtn.addEventListener("click", downloadEditedHtml);
+    printBtn.addEventListener("click", () => {
+      getFrameDocument().designMode = "off";
+      frame.contentWindow.focus();
+      frame.contentWindow.print();
+      window.setTimeout(installEditor, 500);
+    });
+    resetBtn.addEventListener("click", () => {
+      if (!window.confirm("确认清空当前浏览器里保存的编辑草稿？")) return;
+      localStorage.removeItem(STORAGE_KEY);
+      setStatus("草稿已清空");
+      loadFrame();
+    });
+
+    window.addEventListener("beforeunload", () => {
+      try { saveDraft(); } catch (error) { console.warn(error); }
+    });
+
+    loadFrame();
+  </script>
+</body>
+</html>
