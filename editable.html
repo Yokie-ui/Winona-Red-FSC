@@ -221,6 +221,7 @@
     const resetBtn = document.getElementById("resetDraft");
 
     let lastSaveTimer = null;
+    let installPoll = null;
 
     function setStatus(message) {
       statusEl.textContent = message;
@@ -310,9 +311,12 @@
     function installEditor() {
       const doc = getFrameDocument();
       if (!doc || !doc.body) return;
+      if (doc.body.dataset.onlineEditorInstalled === "1") return;
+      if (!doc.querySelector(".slide")) return;
 
       doc.designMode = "on";
       doc.body.spellcheck = false;
+      doc.body.dataset.onlineEditorInstalled = "1";
       assignEditIds(doc);
       const applied = applyDraft(doc);
 
@@ -340,12 +344,27 @@
       setStatus(applied ? `已载入草稿 ${applied} 项` : "可编辑");
     }
 
+    function tryInstallEditor() {
+      try {
+        installEditor();
+        const doc = getFrameDocument();
+        if (doc && doc.body && doc.body.dataset.onlineEditorInstalled === "1") {
+          window.clearInterval(installPoll);
+          installPoll = null;
+        }
+      } catch (error) {
+        // iframe may still be navigating; the polling loop will retry shortly.
+      }
+    }
+
     function loadFrame() {
+      window.clearInterval(installPoll);
       frame.src = `${FRAME_URL}&v=${Date.now()}`;
+      installPoll = window.setInterval(tryInstallEditor, 500);
     }
 
     frame.addEventListener("load", () => {
-      window.setTimeout(installEditor, 800);
+      window.setTimeout(tryInstallEditor, 300);
     });
 
     saveBtn.addEventListener("click", saveDraft);
